@@ -9,10 +9,10 @@ public interface ViewInterface {
     ClientController controller = ClientController.getInstance();
 
     Window LOGIN = new Login();
-    Window MAIN = new Main();
+    Window ROOT = new Root();
 
     void showLogin();
-    void showMain();
+    void showRoot();
     void setEventHandlers();
     void initComponents();
     void loadData();

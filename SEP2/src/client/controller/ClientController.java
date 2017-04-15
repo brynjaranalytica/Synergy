@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
 
 import client.model.ClientModel;
 import client.view.Login;
+import client.view.View;
 import shared.ClientInterface;
 import shared.ServerInterface;
 import shared.User;
@@ -47,7 +48,7 @@ public class ClientController implements ClientInterface, Serializable{
 		
 		if (! LOCK_FILE.exists()){ //Preventing application from being launched if already running
 			createLockFile();
-			EventQueue.invokeLater(() -> { 	new ClientController(); });
+			EventQueue.invokeLater(() -> { 	new View(); });
 		} else {
 			JOptionPane.showMessageDialog(null, "Synergy is already running !");
 		}
@@ -63,7 +64,7 @@ public class ClientController implements ClientInterface, Serializable{
 	}
 	
 	private ClientController(){
-		new Login(this);
+//		new Login(this);
 		clientModel = new ClientModel();
 		log = Log.getInstance();
 		pinCode = PINcode.getInstance();

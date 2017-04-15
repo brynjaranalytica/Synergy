@@ -9,6 +9,8 @@ import java.awt.event.MouseEvent;
  * Created by lenovo on 4/13/2017.
  */
 public class Main extends Window {
+	public Main() {
+	}
     private JButton btnLogOut;
 
     @Override

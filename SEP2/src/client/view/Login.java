@@ -52,15 +52,7 @@ public class Login extends Window{
 	//////////////////////////////////////////////////////////////////////////
 	//All gui components:
 	public void initComponents() {
-		frame = new JFrame();
-		frame.setResizable(false);
-
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/resources/icon.png")));
-		frame.getContentPane().setBackground(Color.WHITE);
-		frame.setBounds(100, 100, 420, 300);
-		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
+	
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(Login.class.getResource("/resources/login.png")));
@@ -78,7 +70,7 @@ public class Login extends Window{
 		
 		lblResetPassword = new JLabel("Reset password");
 
-		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
+		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
@@ -118,7 +110,7 @@ public class Login extends Window{
 						.addComponent(lblResetPassword))
 					.addContainerGap(45, Short.MAX_VALUE))
 		);
-		frame.getContentPane().setLayout(groupLayout);
+		setLayout(groupLayout);
 
 		//For entering new password
 		pass1 = new  JPasswordField(16);
@@ -213,12 +205,7 @@ public class Login extends Window{
 		});
 		
 		//Close window:
-		frame.addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosing(WindowEvent arg0) {
-				System.exit(0);
-			}
-		});
+		
 	}
 	
 	//Helper method

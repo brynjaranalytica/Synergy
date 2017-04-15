@@ -27,12 +27,13 @@ public class View extends JFrame implements ViewInterface, WindowConstants{
         setBounds(100, 100, 420, 300);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
-        setCurrentWindow(LOGIN);
+       
         setVisible(true);
 
 
         desktopPane.setLayout(new CardLayout(0,0));
         getContentPane().add(desktopPane, BorderLayout.CENTER);
+        setCurrentWindow(LOGIN);
         view = this;
     }
 

@@ -1,9 +1,20 @@
 package client.view;
 
+import client.controller.ClientController;
+
+/**
+ * Created by lenovo on 4/13/2017.
+ */
 public interface ViewInterface {
-	public abstract void gotoLogin();
-	public abstract void gotoProjects();
-	public abstract void gotoProject();
-	public abstract void gotoSchedule();
-	public abstract void gotoToDo();
+    ClientController controller = ClientController.getInstance();
+
+    Window LOGIN = new Login();
+    Window MAIN = new Main();
+
+    void showLogin();
+    void showMain();
+    void setEventHandlers();
+    void initComponents();
+    void loadData();
+
 }

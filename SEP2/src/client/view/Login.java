@@ -30,7 +30,7 @@ import java.awt.Toolkit;
 public class Login extends Window{
 	
 	private static final long serialVersionUID = 1L;
-	private ClientController controller;
+	//private ClientController controller;
 	private  JFrame frame;
 	private  JTextField textField;
 	private   JPasswordField passwordField;
@@ -40,11 +40,14 @@ public class Login extends Window{
 	private JPasswordField pass2;
 	private JPanel passChange;
 
-	public Login(ClientController controller){
+	/*public Login(ClientController controller){
 		this.controller = controller;
 		initComponents();
 		createEvents();
-	}
+	}*/
+
+
+
 
 	//////////////////////////////////////////////////////////////////////////
 	//All gui components:
@@ -133,7 +136,7 @@ public class Login extends Window{
 	
 	///////////////////////////////////////////////////////////////////////
 	//All event handlers:
-	public void createEvents(){
+	public void setEventHandlers(){
 		
 		//Login button:
 		btnLogIn.addActionListener(e -> {
@@ -230,35 +233,6 @@ public class Login extends Window{
 		   return result;
 		}
 
-	@Override
-	public void gotoLogin() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void gotoProjects() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void gotoProject() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void gotoSchedule() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void gotoToDo() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void loadData() {
@@ -266,5 +240,14 @@ public class Login extends Window{
 		
 	}
 
+	@Override
+	public void showLogin() {
+
+	}
+
+	@Override
+	public void showMain() {
+		view.setCurrentWindow(MAIN);
+	}
 
 }

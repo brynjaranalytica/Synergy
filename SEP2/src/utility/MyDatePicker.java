@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -12,31 +13,29 @@ import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.ListSelectionModel;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Dimension;
 import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Window.Type;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.Font;
+import javax.swing.JTextField;
+
 
 public class MyDatePicker extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private MyCalendar myCalendar;
-	private JTable table;
 	private LocalDate pickedDate;
 	private static MyDatePicker frame;
+	private JTextField textField;
+	private JPanel panelTable ;
+	private Object[] rowData;
+	private DefaultTableModel tableModel;
+	private ArrayList<LocalDate> dates;
+	private LocalDate thisDate;
+	private JLabel lblMonthYear;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -51,58 +50,149 @@ public class MyDatePicker extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+
 	public MyDatePicker() {
 		myCalendar = new MyCalendar();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setType(Type.UTILITY);
-		setBounds(100, 100, 222, 253);
+		setBounds(100, 100, 531, 564);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(getMonthPanel(myCalendar.getCurrentMonthDates()));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
+		JLabel lblStartDate = new JLabel("Start date:");
+		lblStartDate.setBounds(29, 34, 60, 14);
+		contentPane.add(lblStartDate);
+		
+		textField = new JTextField();
+		textField.setBounds(92, 31, 97, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		panelTable = new JPanel();
+		panelTable = getMonthPanel(myCalendar.getCurrentMonthDates());
+		panelTable.setVisible(false);
+		panelTable.setBounds(20, 20, 200, 200);
+		contentPane.add(panelTable);
+		
+		JLabel lblEndDate = new JLabel("End date:");
+		lblEndDate.setBounds(30, 60, 83, 14);
+		contentPane.add(lblEndDate);
+
+		textField.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panelTable.setVisible(true);
+			}
+		});
+	
 	}
 	
-	public JPanel getMonthPanel(ArrayList<LocalDate>dates){
-		LocalDate thisDate = dates.get(0);
-		String monthYearStr = ""+dates.get(0).getMonth()+" "+dates.get(0).getYear();
-		JTable table = new JTable();
+	public JPanel getMonthPanel(ArrayList<LocalDate>datesArray){
+		dates = datesArray;
+		JPanel monthPanel = new JPanel();
+		Font font = new Font("Tahoma", Font.PLAIN, 10);
+		thisDate = dates.get(0);
 
-		
+		JTable table = new JTable();
+		JLabel lblMon = new JLabel("Mon");
+		JLabel lblTue = new JLabel("Tue");
+		JLabel lblWed = new JLabel("Wed");
+		JLabel lblThu = new JLabel("Thu");
+		JLabel lblFri = new JLabel("Fri");
+		JLabel lblSat = new JLabel("Sat");
+		JLabel lblSun = new JLabel("Sun");
+		lblMonthYear = new JLabel("Month Year");
+		JButton btnNxtMonth = new JButton(">");
+		JButton btnPrevMonth = new JButton("<");
+		rowData = new Object[7];
+
+		table.setBounds(10, 63, 160, 107);
 		table.setIntercellSpacing(new Dimension(2, 2));
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		table.setRowSelectionAllowed(false);
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
+		table.setModel(new DefaultTableModel(0, 7));
+		
+		lblMon.setFont(font);
+		lblTue.setFont(font);
+		lblWed.setFont(font);
+		lblThu.setFont(font);
+		lblFri.setFont(font);
+		lblSat.setFont(font);
+		lblSun.setFont(font);
+		
+		lblMon.setBounds(10, 43, 20, 14);
+		lblTue.setBounds(36, 43, 18, 14);
+		lblWed.setBounds(60, 43, 22, 14);
+		lblThu.setBounds(88, 43, 18, 14);
+		lblFri.setBounds(112, 43, 12, 14);
+		lblSat.setBounds(130, 43, 16, 14);
+		lblSun.setBounds(152, 43, 18, 14);
+		btnNxtMonth.setBounds(145, 181, 25, 19);
+		btnPrevMonth.setBounds(10, 181, 25, 19);
+		lblMonthYear.setBounds(39, 183, 102, 14);
+		
+		lblMonthYear.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMonthYear.setText(""+dates.get(0).getMonth()+" "+dates.get(0).getYear());
+		
+		btnNxtMonth.setBorder(new EmptyBorder(2, 8, 2, 8));
+		btnPrevMonth.setBorder(new EmptyBorder(2, 8, 2, 8));
+		
+		
+		monthPanel.setLayout(null);
+		monthPanel.add(table);
+		monthPanel.add(lblMon);
+		monthPanel.add(lblTue);
+		monthPanel.add(lblWed);
+		monthPanel.add(lblThu);
+		monthPanel.add(lblFri);
+		monthPanel.add(lblSat);
+		monthPanel.add(lblSun);
+		monthPanel.add(btnPrevMonth);
+		monthPanel.add(lblMonthYear);
+		monthPanel.add(btnNxtMonth);
+		
 
-			},
-			new String[] {
-				"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"
-			}
-		) {
-			Class[] columnTypes = new Class[] {
-				Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-			boolean[] columnEditables = new boolean[] {
-				false, false, false, false, false, false, false
-			};
-			public boolean isCellEditable(int row, int column) {
-				return columnEditables[column];
+		tableModel = (DefaultTableModel) table.getModel();
+		loadNewTableData(dates);
+
+		
+		
+		///////// Actionlisteners: 
+		
+		btnNxtMonth.addActionListener( e -> { loadNewTableData(myCalendar.getNextMonthDates(thisDate)); });	
+		btnPrevMonth.addActionListener(e  -> { loadNewTableData(myCalendar.getPreviousMonthDates(thisDate)); });
+		
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				try {
+					int dayPicked = (int)table.getValueAt(table.getSelectedRow(), table.getSelectedColumn());
+					pickedDate = LocalDate.of(thisDate.getYear(), thisDate.getMonth(), dayPicked);
+					
+					///////////////////////
+					textField.setText(""+pickedDate);
+					panelTable.setVisible(false);
+					/////////////////////////////
+					
+				} catch (Exception e) {
+				}
 			}
 		});
+
 		
-		ArrayList<LocalDate> monthDates = dates;
-		JPanel monthPanel = new JPanel();
-		DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
-		Object[] rowData = new Object[7];
+		return monthPanel;
+	}
+	
+	public void loadNewTableData(ArrayList<LocalDate> datesArray){
+		dates = datesArray;
+		thisDate = dates.get(0);
+		lblMonthYear.setText(""+dates.get(0).getMonth()+" "+dates.get(0).getYear());
+		tableModel.setRowCount(0);
 		int before = 0; //Null elements pushed in before first LocalDate in array
-		switch (monthDates.get(0).getDayOfWeek()) {
+		switch (dates.get(0).getDayOfWeek()) {
 		case MONDAY:
 			before = 0;
 			break;
@@ -127,14 +217,14 @@ public class MyDatePicker extends JFrame {
 		default:
 			break;
 		}
-		int after = (rowData.length*6)-before-monthDates.size(); //Null element added after last LocalDate to fill all 42 cells in table
+		int after = (rowData.length*6)-before-dates.size(); //Null element added after last LocalDate to fill all 42 cells in table
 		
-		for (int i =0; i<before; i++ ) monthDates.add(0, null);
-		for (int i=0; i<after; i++) monthDates.add(null);
-		for (int i=0; i<monthDates.size();){
+		for (int i =0; i<before; i++ ) dates.add(0, null);
+		for (int i=0; i<after; i++) dates.add(null);
+		for (int i=0; i<dates.size();){
 			for (int j=0; j<7; j++){
-				if (monthDates.get(i) != null){
-					rowData[j] = monthDates.get(i).getDayOfMonth();					
+				if (dates.get(i) != null){
+					rowData[j] = dates.get(i).getDayOfMonth();					
 				} else {
 					rowData[j] = null;
 				}
@@ -142,121 +232,5 @@ public class MyDatePicker extends JFrame {
 			}
 			tableModel.addRow(rowData);
 		}
-		
-		JLabel lblMon = new JLabel("Mon");
-		
-		JLabel lblTue = new JLabel("Tue");
-		
-		JLabel lblWed = new JLabel("Wed");
-		
-		JLabel lblThu = new JLabel("Thu");
-		
-		JLabel lblFri = new JLabel("Fri");
-		
-		JLabel lblSat = new JLabel("Sat");
-		
-		JLabel lblSun = new JLabel("Sun");
-		
-		JLabel lblMonthYear = new JLabel("Month Year");
-		lblMonthYear.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMonthYear.setText(monthYearStr);
-		
-		JButton btnNxtMonth = new JButton(">");
-		btnNxtMonth.setBorder(new EmptyBorder(2, 8, 2, 8));
-		btnNxtMonth.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				setContentPane(getMonthPanel(myCalendar.getNextMonthDates(thisDate)));
-			}
-		});
-		
-		JButton btnPrevMonth = new JButton("<");
-		btnPrevMonth.setBorder(new EmptyBorder(2, 8, 2, 8));
-		btnPrevMonth.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				setContentPane(getMonthPanel(myCalendar.getPreviousMonthDates(thisDate)));
-			}
-		});
-		
-		JLabel lblDatePicked = new JLabel("Date picked: ");
-		GroupLayout gl_currentMonthPanel = new GroupLayout(monthPanel);
-		gl_currentMonthPanel.setHorizontalGroup(
-			gl_currentMonthPanel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_currentMonthPanel.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_currentMonthPanel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_currentMonthPanel.createSequentialGroup()
-							.addComponent(lblDatePicked)
-							.addPreferredGap(ComponentPlacement.RELATED, 123, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_currentMonthPanel.createParallelGroup(Alignment.TRAILING)
-							.addComponent(table, 0, 0, Short.MAX_VALUE)
-							.addGroup(gl_currentMonthPanel.createSequentialGroup()
-								.addComponent(lblMon)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(lblTue)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(lblWed)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(lblThu)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(lblFri)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(lblSat)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(lblSun))
-							.addGroup(gl_currentMonthPanel.createSequentialGroup()
-								.addComponent(btnPrevMonth)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(lblMonthYear, GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(btnNxtMonth))))
-					.addGap(238))
-		);
-		gl_currentMonthPanel.setVerticalGroup(
-			gl_currentMonthPanel.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, gl_currentMonthPanel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblDatePicked)
-					.addGap(18)
-					.addGroup(gl_currentMonthPanel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblMon)
-						.addComponent(lblTue)
-						.addComponent(lblWed)
-						.addComponent(lblThu)
-						.addComponent(lblFri)
-						.addComponent(lblSat)
-						.addComponent(lblSun))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(table, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_currentMonthPanel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnNxtMonth)
-						.addComponent(btnPrevMonth)
-						.addComponent(lblMonthYear))
-					.addContainerGap(61, Short.MAX_VALUE))
-		);
-		
-		
-
-		table.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				try {
-					int dayPicked = (int)table.getValueAt(table.getSelectedRow(), table.getSelectedColumn());
-					lblDatePicked.setText("Date picked: "+dayPicked+" "+monthYearStr);
-					pickedDate = LocalDate.of(thisDate.getYear(), thisDate.getMonth(), dayPicked);
-
-					
-					///////////////////////
-					System.out.println(pickedDate);
-					/////////////////////////////
-					
-				} catch (Exception e) {
-				}
-			}
-		});
-		monthPanel.setLayout(gl_currentMonthPanel);
-		return monthPanel;
 	}
-	
-	
 }

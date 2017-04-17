@@ -1,12 +1,9 @@
 package client.view;
 
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
 import javax.swing.Box;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -16,22 +13,17 @@ import javax.swing.JPasswordField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 
-import client.controller.ClientController;
 import shared.User;
+import utility.Validator;
 
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.util.Arrays;
-import java.awt.Toolkit;
 
-public class Login extends Window{
+public class Login extends Window{	
 	
 	private static final long serialVersionUID = 1L;
-	//private ClientController controller;
-	private  JFrame frame;
 	private  JTextField textField;
 	private   JPasswordField passwordField;
 	private  JButton btnLogIn;
@@ -40,31 +32,16 @@ public class Login extends Window{
 	private JPasswordField pass2;
 	private JPanel passChange;
 
-	/*public Login(ClientController controller){
-		this.controller = controller;
-		initComponents();
-		createEvents();
-	}*/
-
-
-
+	public Login() {
+	}
 
 	//////////////////////////////////////////////////////////////////////////
 	//All gui components:
 	public void initComponents() {
-		frame = new JFrame();
-		frame.setResizable(false);
-
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/resources/icon.png")));
-		frame.getContentPane().setBackground(Color.WHITE);
-		frame.setBounds(100, 100, 420, 300);
-		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
 
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(Login.class.getResource("/resources/login.png")));
-		
+		setBackground(Color.WHITE);
 		textField = new JTextField();
 		textField.setColumns(10);
 		
@@ -78,7 +55,7 @@ public class Login extends Window{
 		
 		lblResetPassword = new JLabel("Reset password");
 
-		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
+		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
@@ -118,7 +95,7 @@ public class Login extends Window{
 						.addComponent(lblResetPassword))
 					.addContainerGap(45, Short.MAX_VALUE))
 		);
-		frame.getContentPane().setLayout(groupLayout);
+		setLayout(groupLayout);
 
 		//For entering new password
 		pass1 = new  JPasswordField(16);
@@ -127,7 +104,7 @@ public class Login extends Window{
 		passChange = new JPanel();
 		passChange.add(new JLabel("Enter new password:"));
 		passChange.add(pass1);
-		passChange.add(Box.createHorizontalStrut(15)); // a spacer
+		passChange.add(Box.createVerticalStrut(15)); // a spacer
 		passChange.add(new JLabel("Reenter new password"));
 		passChange.add(pass2);
 	}
@@ -142,28 +119,13 @@ public class Login extends Window{
 		btnLogIn.addActionListener(e -> {
 			String userID = textField.getText();
 			char[] pass = passwordField.getPassword();
-			if (userID.isEmpty()||userID==null) {
-				JOptionPane.showMessageDialog(null,"Email address is required - please try again", "Failed to log in", JOptionPane.OK_OPTION);
-			} else if (!isValidEmailAddress(userID)) {
-				JOptionPane.showMessageDialog(null,"Valid email address is required - please try again", "Failed to log in", JOptionPane.OK_OPTION);
-			} else if (pass.length<6 || pass == null) {
-				JOptionPane.showMessageDialog(null,"Password of minimum 6 characters is required.\nPlease try again", "Failed to log in", JOptionPane.OK_OPTION);
-			} else {
+			if (Validator.validateLoginInput(userID, pass)){
 				User user = controller.login(userID, pass);
-				if (user != null){
-					char[] passStored = user.getPass();
-					if (passStored!=null && Arrays.equals(pass, passStored)){
-						
-						controller.displayProjects();
-						//The user is now logged in and the projects he is in are displayed						
-					} else {
-						JOptionPane.showMessageDialog(null,"Log in failed.\nPlease check your email address and password and try again", "Failed to log in", JOptionPane.OK_OPTION);
-					}
-				} else {
-
-					JOptionPane.showMessageDialog(null,"Log in failed.\nPlease check your email address and password and try again", "Failed to log in", JOptionPane.OK_OPTION);
+				if (Validator.validateUser(user, pass)){
+					showRoot();
 				}
 			}
+			
 		});
 		
 		//Reset password:
@@ -171,6 +133,7 @@ public class Login extends Window{
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
 				String userID =JOptionPane.showInputDialog(null, "Please enter your email address", "Reset password", 1);
+				
 				if (userID==null || userID.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Cannot be empty - try again", "Error", JOptionPane.OK_OPTION);
 				} else  {
@@ -212,27 +175,9 @@ public class Login extends Window{
 			}
 		});
 		
-		//Close window:
-		frame.addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosing(WindowEvent arg0) {
-				System.exit(0);
-			}
-		});
+		
 	}
 	
-	//Helper method
-	public static boolean isValidEmailAddress(String email) {
-		   boolean result = true;
-		   try {
-		      InternetAddress emailAddr = new InternetAddress(email);
-		      emailAddr.validate();
-		   } catch (AddressException ex) {
-		      result = false;
-		   }
-		   return result;
-		}
-
 
 	@Override
 	public void loadData() {
@@ -246,8 +191,9 @@ public class Login extends Window{
 	}
 
 	@Override
-	public void showMain() {
-		view.setCurrentWindow(MAIN);
+	public void showRoot() {
+		view.setFullScreen();
+		view.setCurrentWindow(ROOT);
 	}
 
 }

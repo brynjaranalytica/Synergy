@@ -5,10 +5,12 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-/**
- * Created by lenovo on 4/13/2017.
- */
-public class Main extends Window {
+public class Root extends Window {
+
+	private static final long serialVersionUID = 1L;
+
+	public Root() {
+	}
     private JButton btnLogOut;
 
     @Override
@@ -27,7 +29,7 @@ public class Main extends Window {
         setBackground(Color.WHITE);
         setBounds(100, 100, 420, 300);
         setLayout(new BorderLayout());
-        add(new JLabel("THIS IS MAIN WINDOW"));
+        add(new JLabel("THIS IS ROOT WINDOW"));
         btnLogOut = new JButton("Log out");
         add(btnLogOut);
 
@@ -44,7 +46,7 @@ public class Main extends Window {
     }
 
     @Override
-    public void showMain() {
+    public void showRoot() {
 
     }
 }

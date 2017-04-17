@@ -1,16 +1,14 @@
 package controller;
 
-import view.View;
-
 public class Controller {
-	private View view;
+	//private View view;
 	public static void main(String[] args) throws InterruptedException {
 		Controller controller = new Controller();
 		
 	}
 	public Controller() throws InterruptedException{
-		view = new View();
+	//	view = new View();
 //		view.setLogin();
-		view.displayProjects();
+	//	view.displayProjects();
 	}
 }

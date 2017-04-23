@@ -8,7 +8,7 @@ public class TestMyCalendar {
 
 	
 	public static void main(String[] args) throws Exception {
-		MyCalendar calendar = new MyCalendar();
+		MyDate calendar = new MyDate();
 		
 		ArrayList<LocalDate> previousMonth = calendar.getPreviousMonthDates(calendar.getCurrentDate());
 		for (LocalDate d: previousMonth){

@@ -16,6 +16,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import shared.User;
 import utility.Validator;
 
+
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -39,64 +40,37 @@ public class Login extends Window{
 	//All gui components:
 	public void initComponents() {
 	
-		
+		//Synergy logo
 		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(0, 0, 400, 78);
 		lblNewLabel.setIcon(new ImageIcon(Login.class.getResource("/resources/login.png")));
 		setBackground(Color.WHITE);
 		textField = new JTextField();
+		textField.setBounds(167, 117, 150, 20);
 		textField.setColumns(10);
 		
 		passwordField = new JPasswordField();
+		passwordField.setBounds(167, 155, 150, 20);
 		
 		JLabel lblUser = new JLabel("Email address:");
+		lblUser.setBounds(75, 120, 85, 14);
 		
 		JLabel lblPassword = new JLabel("Password:");
+		lblPassword.setBounds(75, 158, 65, 14);
 		
 		btnLogIn = new JButton("Log in");
+		btnLogIn.setBounds(167, 193, 70, 23);
 		
 		lblResetPassword = new JLabel("Reset password");
-
-		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(lblNewLabel)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-					.addContainerGap(99, Short.MAX_VALUE)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblUser)
-						.addComponent(lblPassword))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(btnLogIn)
-							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(lblResetPassword))
-						.addComponent(passwordField, Alignment.TRAILING)
-						.addComponent(textField, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
-					.addGap(99))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(21)
-					.addComponent(lblNewLabel)
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblUser))
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(passwordField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblPassword))
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(btnLogIn)
-						.addComponent(lblResetPassword))
-					.addContainerGap(45, Short.MAX_VALUE))
-		);
-		setLayout(groupLayout);
+		lblResetPassword.setBounds(254, 197, 95, 14);
+		setLayout(null);
+		add(lblNewLabel);
+		add(lblUser);
+		add(lblPassword);
+		add(btnLogIn);
+		add(lblResetPassword);
+		add(passwordField);
+		add(textField);
 
 		//For entering new password
 		pass1 = new  JPasswordField(16);

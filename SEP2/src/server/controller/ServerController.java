@@ -15,6 +15,8 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Properties;
 import javax.swing.JOptionPane;
+
+import database.DBdummy;
 import server.model.ServerModel;
 import server.view.GUI;
 import shared.ServerInterface;

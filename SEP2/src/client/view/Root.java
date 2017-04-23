@@ -1,37 +1,55 @@
 package client.view;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 public class Root extends Window {
 
 	private static final long serialVersionUID = 1L;
+	public static AbstractJIF projectFrame;
+	public static AbstractJIF sprintFrame;
+	public static AbstractJIF calendarFrame;
+	public static AbstractJIF chatFrame;
 
 	public Root() {
 	}
-    private JButton btnLogOut;
 
     @Override
     public void setEventHandlers() {
-        btnLogOut.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent arg0) {
-                view.showLogin();
-            }
-        });
 
     }
 
     @Override
     public void initComponents() {
-        setBackground(Color.WHITE);
-        setBounds(100, 100, 420, 300);
-        setLayout(new BorderLayout());
-        add(new JLabel("THIS IS ROOT WINDOW"));
-        btnLogOut = new JButton("Log out");
-        add(btnLogOut);
+    	setLayout(null);
+    	
+		//Project frame
+		projectFrame = new Projects();
+		add(projectFrame);
+		
+		//Sprint frame
+		sprintFrame = new Sprints();
+		add(sprintFrame);
+		
+		//Calendar frame
+		calendarFrame = new Calendar();
+		add(calendarFrame);
+		
+		//Chat frame
+		chatFrame = new Chat();
+		add(chatFrame);
+		
+		//Background image
+		JButton background = new JButton("");
+		background.setBounds(0, 0, 2001, 1257);
+		background.setContentAreaFilled(false);
+		background.setBorderPainted(false);
+		background.setBorder(null);
+		background.setHorizontalAlignment(SwingConstants.RIGHT);
+		background.setIcon(new ImageIcon(Root.class.getResource("/resources/planning_group_2000_logo.jpg")));
+		background.setVerticalAlignment(SwingConstants.BOTTOM);
+		add(background);
 
     }
 

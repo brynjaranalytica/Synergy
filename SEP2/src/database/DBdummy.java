@@ -4,13 +4,20 @@ import java.util.ArrayList;
 
 import shared.User;
 import shared.UserType;
+import utility.Cryptography;
 
 public class DBdummy {
 	private ArrayList<User> users;
+	private static DBdummy instance = new DBdummy(); //Created in memory beforehand
 	
-	public DBdummy(){
+	public static DBdummy getInstance(){
+		return instance;
+	}
+	private DBdummy(){
 		users = new ArrayList<>();
-		users.add(new User("mogens.bjerregaard@mac.com", "Mogens Bjerregaard", "4593961547", UserType.ADMIN));
+		User mogens = new User("mogens@via.dk", "Mogens Bjerregaard", "4593961547", UserType.ADMIN);
+		mogens.setPass(Cryptography.encryptPass(new char[] {'m', 'o', 'v', 'e', 'n', '5'}, Cryptography.getKey()));
+		users.add(mogens);
 		users.add(new User("253739@VIA.DK", "Nick Onov", "4581929966", UserType.USER));
 	}
 	public User retrieveUser(String id){

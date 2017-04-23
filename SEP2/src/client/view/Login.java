@@ -39,8 +39,7 @@ public class Login extends Window{
 	//////////////////////////////////////////////////////////////////////////
 	//All gui components:
 	public void initComponents() {
-	
-		//Synergy logo
+
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(0, 0, 400, 78);
 		lblNewLabel.setIcon(new ImageIcon(Login.class.getResource("/resources/login.png")));

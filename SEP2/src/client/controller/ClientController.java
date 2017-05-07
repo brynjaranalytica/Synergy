@@ -143,11 +143,6 @@ public class ClientController implements ClientInterface, Serializable{
 		return user;
 	}
 	
-	public void displayProjects(){
-		//The user is logged in and this method will display all projects the user is in
-		
-		JOptionPane.showMessageDialog(null, "The user is now logged in and we need to display the projects he is in", "Logged in succesfully", JOptionPane.INFORMATION_MESSAGE);
-	}
 	
 	private static void createLockFile() {
 	    try {

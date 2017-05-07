@@ -6,6 +6,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.swing.JOptionPane;
 
+import database.DBdummy;
 import shared.User;
 
 public class Validator {
@@ -24,7 +25,6 @@ public class Validator {
 	
 	//Helper method for validating format of entered input from login screen
 	public static boolean validateLoginInput(String userID, char[] pass){
-		
 		if (userID.isEmpty()||userID==null) {
 			JOptionPane.showMessageDialog(null,"Email address is required - please try again", "Failed to log in", JOptionPane.OK_OPTION);
 			return false;

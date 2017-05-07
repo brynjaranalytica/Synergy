@@ -11,7 +11,9 @@ import utility.Cryptography;
 public class Adapter implements AdapterInterface {
 	private DBdummy dbDummy;
 	public Adapter() {
-		dbDummy = new DBdummy();
+
+		dbDummy = DBdummy.getInstance();
+
 	}
 	
 	@Override
@@ -19,7 +21,7 @@ public class Adapter implements AdapterInterface {
 		User user = dbDummy.retrieveUser(userID);
 		char[] passEncrypted = user.getPass();
 		char[] passDecrypted = Cryptography.decryptPass(passEncrypted, Cryptography.getKey());
-		user.setPass(passDecrypted);
+		user.setPass(passDecrypted); //should be changed - stores decrypted pw back?
 		return user;
 	}
 

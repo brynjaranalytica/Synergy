@@ -5,17 +5,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
 import javax.swing.Box;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
-import javax.swing.LayoutStyle.ComponentPlacement;
-
-
 import shared.User;
 import utility.Validator;
-
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -24,78 +18,53 @@ import java.util.Arrays;
 public class Login extends Window{	
 	
 	private static final long serialVersionUID = 1L;
-	private  JTextField textField;
+	private  JTextField textFieldEmailAddress;
 	private   JPasswordField passwordField;
 	private  JButton btnLogIn;
 	private  JLabel lblResetPassword;
 	private JPasswordField pass1;
 	private JPasswordField pass2;
 	private JPanel passChange;
+	private JLabel lblLogo;
+	private JLabel lblPassword;
+	private JLabel lblUser;
 
 	public Login() {
 	}
 
-	//////////////////////////////////////////////////////////////////////////
-	//All gui components:
+
 	public void initComponents() {
 
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(Login.class.getResource("/resources/login.png")));
+		lblLogo = new JLabel("");
+		lblLogo.setBounds(0, 0, 400, 78);
+		lblLogo.setIcon(new ImageIcon(Login.class.getResource("/resources/login.png")));
 		setBackground(Color.WHITE);
-		textField = new JTextField();
-		textField.setColumns(10);
+		textFieldEmailAddress = new JTextField();
+		textFieldEmailAddress.setBounds(167, 117, 150, 20);
+		textFieldEmailAddress.setColumns(10);
 		
 		passwordField = new JPasswordField();
+		passwordField.setBounds(167, 155, 150, 20);
 		
-		JLabel lblUser = new JLabel("Email address:");
+		lblUser = new JLabel("Email address:");
+		lblUser.setBounds(75, 120, 85, 14);
 		
-		JLabel lblPassword = new JLabel("Password:");
+		lblPassword = new JLabel("Password:");
+		lblPassword.setBounds(75, 158, 65, 14);
 		
 		btnLogIn = new JButton("Log in");
+		btnLogIn.setBounds(167, 193, 70, 23);
 		
 		lblResetPassword = new JLabel("Reset password");
-
-		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(lblNewLabel)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-					.addContainerGap(99, Short.MAX_VALUE)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblUser)
-						.addComponent(lblPassword))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(btnLogIn)
-							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(lblResetPassword))
-						.addComponent(passwordField, Alignment.TRAILING)
-						.addComponent(textField, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
-					.addGap(99))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(21)
-					.addComponent(lblNewLabel)
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblUser))
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(passwordField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblPassword))
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(btnLogIn)
-						.addComponent(lblResetPassword))
-					.addContainerGap(45, Short.MAX_VALUE))
-		);
-		setLayout(groupLayout);
+		lblResetPassword.setBounds(254, 197, 95, 14);
+		setLayout(null);
+		add(lblLogo);
+		add(lblUser);
+		add(lblPassword);
+		add(btnLogIn);
+		add(lblResetPassword);
+		add(passwordField);
+		add(textFieldEmailAddress);
 
 		//For entering new password
 		pass1 = new  JPasswordField(16);
@@ -110,14 +79,11 @@ public class Login extends Window{
 	}
 	
 	
-	
-	///////////////////////////////////////////////////////////////////////
-	//All event handlers:
 	public void setEventHandlers(){
 		
 		//Login button:
 		btnLogIn.addActionListener(e -> {
-			String userID = textField.getText();
+			String userID = textFieldEmailAddress.getText();
 			char[] pass = passwordField.getPassword();
 			if (Validator.validateLoginInput(userID, pass)){
 				User user = controller.login(userID, pass);

@@ -58,7 +58,7 @@ public class GUI{
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setAlignmentY(Component.TOP_ALIGNMENT);
-		lblNewLabel.setIcon(new ImageIcon(GUI.class.getResource("/resources/planning.jpg")));
+		lblNewLabel.setIcon(new ImageIcon(GUI.class.getResource("/resources/server_back_logo.jpg")));
 		
 		JTextPane txtpnServerIsRunning = new JTextPane();
 		txtpnServerIsRunning.setEditable(false);

@@ -1,6 +1,9 @@
 package client.view;
 
 import javax.swing.*;
+
+import client.view.Window;
+
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -13,8 +16,21 @@ public class View extends JFrame implements ViewInterface{
 	private static final long serialVersionUID = 1L;
 	private final JDesktopPane desktopPane = new JDesktopPane();
     private Window currentWindow;
+	private JMenuBar menuBar;
+	private JMenu mnFile;
+	private JMenu mnEdit;
+	private JMenu mnWindow;
+	private JMenuItem mntmLogOut;
+	private JMenuItem mntmNewProject;
+	private JMenuItem mntmExit;
+	private JMenuItem mntmProjects;
+	private JMenuItem mntmSprints;
+	private JMenuItem mntmCalendar;
+	private JMenuItem mntmChat;
+
 
     public View() {
+    	setTitle("Synergy\u00AE    Project Management System");
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent arg0) {
@@ -25,7 +41,7 @@ public class View extends JFrame implements ViewInterface{
         });
         setIconImage(Toolkit.getDefaultToolkit().getImage(View.class.getResource("/resources/icon.png")));
         getContentPane().setBackground(Color.WHITE);
-        setLayout(new BorderLayout());
+        getContentPane().setLayout(new BorderLayout());
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
        setLoginSize();
        setVisible(true);
@@ -44,12 +60,16 @@ public class View extends JFrame implements ViewInterface{
     
     public void setFullScreen(){
     	setExtendedState(MAXIMIZED_BOTH);
+    	initMenu();
+    	createMenuEvents();
+    	menuBar.setVisible(true);
     }
 
 
     @Override
     public void showLogin() {
     	setLoginSize();
+    	menuBar.setVisible(false);
         currentWindow.showLogin();
     }
 
@@ -91,6 +111,49 @@ public class View extends JFrame implements ViewInterface{
             currentWindow = window;
         }
     }
-
+    
+    public void initMenu(){
+		//Menu bar
+		menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		mnFile = new JMenu("File");
+		mnEdit = new JMenu("Edit");
+		mnWindow = new JMenu("Window");
+		
+		menuBar.add(mnFile);		
+		menuBar.add(mnEdit);
+		menuBar.add(mnWindow);
+		
+		mntmLogOut = new JMenuItem("Log out");
+		mntmNewProject = new JMenuItem("New project");
+		mntmExit = new JMenuItem("Exit");
+		
+		mntmProjects = new JMenuItem("Projects");
+		mntmSprints = new JMenuItem("Sprints");
+		mntmChat = new JMenuItem("Group chat");
+		mntmCalendar = new JMenuItem("Calendar");
+		mnFile.add(mntmNewProject);
+		mnFile.add(mntmLogOut);
+		mnWindow.add(mntmProjects);
+		mnWindow.add(mntmSprints);
+		mnWindow.add(mntmChat);
+		mnWindow.add(mntmCalendar);
+		
+		mnFile.add(mntmExit);
+    }
+    
+	public void createMenuEvents(){
+		mntmCalendar.addActionListener(e -> { Root.calendarFrame.setVisible(true); });
+		mntmSprints.addActionListener(e -> { Root.sprintFrame.setVisible(true); Root.projectFrame.setVisible(false);});
+		mntmChat.addActionListener(e -> { Root.chatFrame.setVisible(true); });
+		mntmProjects.addActionListener(e -> { Root.projectFrame.setVisible(true); Root.sprintFrame.setVisible(false);});
+		mntmLogOut.addActionListener(e -> { showLogin(); });
+		mntmExit.addActionListener(e -> {
+			if (JOptionPane.showConfirmDialog(null, "Are you sure you want to exit and close?")==0){
+				System.exit(0);				
+			}
+		});
+	}
 
 }

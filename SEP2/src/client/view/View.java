@@ -8,7 +8,7 @@ import java.awt.event.WindowEvent;
 import static client.view.Window.view;
 
 
-public class View extends JFrame implements ViewInterface, WindowConstants{
+public class View extends JFrame implements ViewInterface{
 
 	private static final long serialVersionUID = 1L;
 	private final JDesktopPane desktopPane = new JDesktopPane();

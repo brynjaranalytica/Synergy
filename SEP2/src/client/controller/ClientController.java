@@ -15,6 +15,7 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Properties;
 
@@ -24,6 +25,7 @@ import client.model.ClientModel;
 import client.view.Login;
 import client.view.View;
 import shared.ClientInterface;
+import shared.Project;
 import shared.ServerInterface;
 import shared.User;
 import utility.Log;
@@ -65,7 +67,7 @@ public class ClientController implements ClientInterface, Serializable{
 	
 	private ClientController(){
 //		new Login(this);
-		clientModel = new ClientModel();
+		clientModel = new ClientModel(this);
 		log = Log.getInstance();
 		pinCode = PINcode.getInstance();
 		loadProperties();
@@ -186,6 +188,20 @@ public class ClientController implements ClientInterface, Serializable{
 	}
 
 
+	public ArrayList<String> getProjectNames(){
+		ArrayList<String> projectNames = new ArrayList<>();
+		ArrayList<Project> projects = clientModel.getProjects();
 
+		for(Project project: projects){
+			projectNames.add(project.getName());
+		}
+
+
+		return projectNames;
+	}
+
+	public static Project getProjectFromServer(String name){
+		return null;
+	}
 
 }

@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class Root extends Window {
 
@@ -37,7 +38,7 @@ public class Root extends Window {
 
     @Override
     public void loadData() {
-
+        ArrayList<String> projectNames = controller.getProjectNames();
     }
 
     @Override

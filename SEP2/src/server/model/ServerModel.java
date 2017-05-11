@@ -1,9 +1,11 @@
 package server.model;
 
+import server.remote_business_enitities.RProjects;
 import shared.User;
 
 public class ServerModel {
 	private AdapterInterface adapter;
+
 	public ServerModel(){
 		adapter = new Adapter();
 	}
@@ -11,6 +13,7 @@ public class ServerModel {
 	public User getUser(String id){
 		return adapter.getUser(id);
 	}
+
 	public String validateID(String userID){
 		return adapter.validateID(userID);
 	}
@@ -23,5 +26,8 @@ public class ServerModel {
 		return adapter.login(userID, passWord);
 	}
 
+	public RProjects getRemoteProjects(){
+		return adapter.getRemoteProjects();
+	}
 	
 }

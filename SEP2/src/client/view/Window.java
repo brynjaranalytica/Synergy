@@ -8,7 +8,7 @@ public abstract class Window extends JPanel implements ViewInterface {
 	private static final long serialVersionUID = 1L;
 	protected static View view;
 
-    Window() {
+    public Window() {
         initComponents();
         setEventHandlers();
     }

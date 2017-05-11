@@ -8,6 +8,7 @@ import javax.swing.Box;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
+
 import shared.User;
 import utility.Validator;
 import javax.swing.JButton;
@@ -15,7 +16,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Arrays;
 
-public class Login extends Window{	
+public class Login extends Window {
 	
 	private static final long serialVersionUID = 1L;
 	private  JTextField textFieldEmailAddress;
@@ -28,9 +29,6 @@ public class Login extends Window{
 	private JLabel lblLogo;
 	private JLabel lblPassword;
 	private JLabel lblUser;
-
-	public Login() {
-	}
 
 
 	public void initComponents() {

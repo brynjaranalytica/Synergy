@@ -16,11 +16,11 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.Properties;
 import javax.swing.JOptionPane;
 
-import database.DBdummy;
 import server.model.ServerModel;
 import server.view.GUI;
 import shared.ServerInterface;
 import shared.User;
+import shared.remote_business_interfaces.RemoteProjectsInterface;
 import utility.Log;
 
 public class ServerController implements ServerInterface{
@@ -40,8 +40,12 @@ public class ServerController implements ServerInterface{
 		
 		if (! LOCK_FILE.exists()){ //Preventing application from being launched if already running
 			createLockFile();
-			EventQueue.invokeLater(() -> {	
-				 new ServerController();
+			EventQueue.invokeLater(() -> {
+				try {
+					new ServerController();
+				} catch (RemoteException e) {
+					e.printStackTrace();
+				}
 			});
 		} else {
 			JOptionPane.showMessageDialog(null, "Synergy server is already running !");
@@ -49,7 +53,7 @@ public class ServerController implements ServerInterface{
 		 
 	}
 	
-	public ServerController(){
+	public ServerController() throws RemoteException {
 		System.setProperty("java.rmi.server.hostname","localhost");
 		log = Log.getInstance();
 		gui = new GUI(this);
@@ -66,11 +70,17 @@ public class ServerController implements ServerInterface{
 	}
 	
 	@Override
-	public boolean savePass(String userID, char[] pass) {
+	public boolean savePass(String userID, char[] pass) throws RemoteException {
 		return serverModel.savePass(userID, pass);
 	}
+
 	@Override
-	public String validateId(String userID) {
+	public RemoteProjectsInterface getRemoteProjects() throws RemoteException {
+		return serverModel.getRemoteProjects();
+	}
+
+	@Override
+	public String validateId(String userID) throws RemoteException {
 		return serverModel.validateID(userID);
 	}
 

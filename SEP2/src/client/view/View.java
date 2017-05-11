@@ -2,8 +2,6 @@ package client.view;
 
 import javax.swing.*;
 
-import client.view.Window;
-
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -129,7 +127,7 @@ public class View extends JFrame implements ViewInterface{
 		mntmNewProject = new JMenuItem("New project");
 		mntmExit = new JMenuItem("Exit");
 		
-		mntmProjects = new JMenuItem("Projects");
+		mntmProjects = new JMenuItem("RProjects");
 		mntmSprints = new JMenuItem("Sprints");
 		mntmChat = new JMenuItem("Group chat");
 		mntmCalendar = new JMenuItem("Calendar");

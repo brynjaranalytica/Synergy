@@ -21,6 +21,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import client.view.AbstractJIF;
 import utility.MyDate;
 
 public class Calendar extends AbstractJIF {

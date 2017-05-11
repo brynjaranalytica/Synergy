@@ -1,10 +1,16 @@
 package shared;
 
+import shared.remote_business_interfaces.RemoteProjectsInterface;
+
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 public interface ServerInterface extends Remote{
-	public User login(String userID, char[] passWord) throws RemoteException;
-	public String validateId(String userID) throws RemoteException;
-	public boolean savePass(String userID, char[] pass) throws RemoteException;
+	User login(String userID, char[] passWord) throws RemoteException;
+
+	String validateId(String userID) throws RemoteException;
+
+	boolean savePass(String userID, char[] pass) throws RemoteException;
+
+	RemoteProjectsInterface getRemoteProjects() throws RemoteException;
 }

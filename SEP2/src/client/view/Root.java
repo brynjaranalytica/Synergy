@@ -1,5 +1,7 @@
 package client.view;
 
+import shared.business_entities.ProjectInterface;
+
 import javax.swing.*;
 import java.util.ArrayList;
 
@@ -11,8 +13,6 @@ public class Root extends Window {
 	public static AbstractJIF calendarFrame;
 	public static AbstractJIF chatFrame;
 
-	public Root() {
-	}
 
     @Override
     public void setEventHandlers() {
@@ -55,7 +55,12 @@ public class Root extends Window {
     @Override
     public void loadData() {
         ArrayList<String> projectNames = controller.getProjectNames();
-    }
+        for(String projectName: projectNames) {
+			System.out.println("Project name: " + projectName);
+			System.out.println("Task list: ");
+			System.out.println(controller.getProjectFromModel(projectName).getTaskList());
+		}
+	}
 
     @Override
     public void showLogin() {

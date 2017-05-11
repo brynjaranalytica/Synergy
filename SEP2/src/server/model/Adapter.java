@@ -5,6 +5,7 @@ import java.util.Arrays;
 import javax.crypto.SecretKey;
 
 import database.DBdummy;
+import server.remote_business_enitities.RProjects;
 import shared.User;
 import utility.Cryptography;
 
@@ -45,6 +46,11 @@ public class Adapter implements AdapterInterface {
 	@Override
 	public char[] getPass(String userID) {
 		return Cryptography.decryptPass(dbDummy.retrievePassword(userID), Cryptography.getKey());
+	}
+
+	@Override
+	public RProjects getRemoteProjects() {
+		return dbDummy.getRemoteProjects();
 	}
 
 	@Override

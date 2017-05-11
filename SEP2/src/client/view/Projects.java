@@ -1,14 +1,11 @@
 package client.view;
 
-import java.awt.Color;
-import java.awt.Font;
+import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
-import javax.swing.JLabel;
-import javax.swing.JTree;
-import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.DefaultMutableTreeNode;
 
 public class Projects extends AbstractJIF {
 
@@ -21,9 +18,10 @@ public class Projects extends AbstractJIF {
 		initComponents();
 		createEvents();
 	}
+
 	public void initComponents(){
 		setBackground(Color.WHITE);
-		lblProjects = new JLabel("Projects");
+		lblProjects = new JLabel("RProjects");
 		lblProjects.setForeground(Color.GRAY);
 		lblProjects.setFont(new Font("Raleway", Font.PLAIN, 30));
 		lblProjects.setBounds(10, 11, 200, 40);
@@ -31,7 +29,7 @@ public class Projects extends AbstractJIF {
 		
 		tree = new JTree();
 		tree.setModel(new DefaultTreeModel(
-			new DefaultMutableTreeNode("Projects") {
+			new DefaultMutableTreeNode("RProjects") {
 				{
 					DefaultMutableTreeNode node_1;
 					node_1 = new DefaultMutableTreeNode("Project 1");
@@ -52,6 +50,7 @@ public class Projects extends AbstractJIF {
 		getContentPane().add(tree);
 		
 	}
+
 	public void createEvents(){
 		tree.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {

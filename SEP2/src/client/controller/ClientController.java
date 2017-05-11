@@ -1,13 +1,26 @@
 package client.controller;
 
 
-import java.awt.EventQueue;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.Serializable;
+import client.model.ClientModel;
+import client.view.View;
+import server.remote_business_enitities.RProjects;
+import shared.ClientInterface;
+import shared.ServerInterface;
+import shared.UpdateMessage;
+import shared.User;
+import shared.business_entities.Project;
+import shared.business_entities.ProjectInterface;
+import shared.business_entities.Projects;
+import shared.remote_business_interfaces.RemoteProjectsInterface;
+import utility.Log;
+import utility.PINcode;
+import utility.PropertiesWriter;
+import utility.observer.RemoteObserver;
+import utility.observer.RemoteSubject;
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.*;
 import java.net.Inet4Address;
 import java.net.MalformedURLException;
 import java.net.UnknownHostException;
@@ -15,22 +28,11 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Properties;
 
-import javax.swing.JOptionPane;
-
-import client.model.ClientModel;
-import client.view.Login;
-import client.view.View;
-import shared.ClientInterface;
-import shared.ServerInterface;
-import shared.User;
-import utility.Log;
-import utility.PINcode;
-import utility.PropertiesWriter;
-
-public class ClientController implements ClientInterface, Serializable{
+public class ClientController implements ClientInterface, Serializable, RemoteObserver<UpdateMessage>{
 	
 	private static final long serialVersionUID = 1L;
 	private static Properties properties;
@@ -38,10 +40,12 @@ public class ClientController implements ClientInterface, Serializable{
 	private static final String IP = "IP";
 	private static final String SERVERNAME = "Servername";
 	private static final File LOCK_FILE = new File("synergy_client.lock");
-	private ServerInterface serverController;
 	private static Log log;
-	private ClientModel clientModel;
 	private PINcode pinCode;
+
+	private ServerInterface serverController;
+	private static RemoteProjectsInterface remoteProjects;
+	private ClientModel clientModel;
 	
 	
 	public static void main(String[] args) {
@@ -53,18 +57,28 @@ public class ClientController implements ClientInterface, Serializable{
 			JOptionPane.showMessageDialog(null, "Synergy is already running !");
 		}
 	}
-	
-	private static class Wrapper{ //Instance placed in inner class
-		static ClientController instance = new ClientController();	//Created in memory when called	
+
+	@Override
+	public void update(RemoteSubject<UpdateMessage> remoteSubject, UpdateMessage message) throws RemoteException {
+
 	}
 
-	
+	private static class Wrapper{ //Instance placed in inner class
+		static ClientController instance = null;
+		static{
+			try {
+				instance = new ClientController();	//Created in memory when called
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 	public static ClientController getInstance(){
 		return Wrapper.instance; //Instantiates the instance when called
 	}
 	
-	private ClientController(){
-//		new Login(this);
+	private ClientController() throws RemoteException{
 		clientModel = new ClientModel();
 		log = Log.getInstance();
 		pinCode = PINcode.getInstance();
@@ -77,9 +91,10 @@ public class ClientController implements ClientInterface, Serializable{
 			serverController = (ServerInterface) Naming.lookup("rmi://"+properties.getProperty(IP)+"/"+properties.getProperty(SERVERNAME));
 
 		} catch (RemoteException | MalformedURLException | NotBoundException e) {
+			e.printStackTrace();
 			System.out.println(e.getMessage());
 			String result = JOptionPane.showInputDialog(null, "Synergy server not found on network.\n\nPlease check if server is started or try to re-enter the host address and start client app again.\nCurrent set host adress: "+properties.getProperty(IP), "Reenter server ip-address", 1);
-			
+
 			if (result ==null){
 				System.exit(0);
 			} else {				
@@ -112,7 +127,7 @@ public class ClientController implements ClientInterface, Serializable{
 	}
 	
 	@Override
-	public String getIP() {
+	public String getIP() throws RemoteException {
 		try {
 			return Inet4Address.getLocalHost().getHostAddress();
 		} catch (UnknownHostException e) {
@@ -134,14 +149,19 @@ public class ClientController implements ClientInterface, Serializable{
 		User user = null;
 		try {
 			user = serverController.login(userID, password);
-			if (user!=null) clientModel.setUser(user);
+			if (user!=null){
+				clientModel.setUser(user);
+				remoteProjects = serverController.getRemoteProjects();
+				remoteProjects.addObserver(this);
+				clientModel.setOrganizationName(remoteProjects.getName());
+			 	clientModel.initProxyProjects(getProjectNamesFromServer());
+			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 		return user;
 	}
-	
-	
+
 	private static void createLockFile() {
 	    try {
 			LOCK_FILE.createNewFile();
@@ -180,7 +200,40 @@ public class ClientController implements ClientInterface, Serializable{
 		}
 	}
 
+	public ArrayList<String> getProjectNames(){
+		ArrayList<String> projectNames = new ArrayList<>();
+		ArrayList<ProjectInterface> projects = clientModel.getProjects().getProjectList();
+
+		for(ProjectInterface project: projects){
+			projectNames.add(project.getName());
+		}
 
 
+		return projectNames;
+	}
+
+	public ArrayList<String> getProjectNamesFromServer(){
+		try {
+			return remoteProjects.getProjectNames();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public static Project getProjectFromServer(String name){
+		try {
+			return new Project(remoteProjects.getProject(name));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+
+	}
+
+	public ProjectInterface getProjectFromModel(String projectName){
+		return clientModel.getProject(projectName);
+	}
 
 }

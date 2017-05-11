@@ -1,5 +1,7 @@
 package client.view;
 
+import client.view.AbstractJIF;
+
 import java.awt.Color;
 import java.awt.Font;
 

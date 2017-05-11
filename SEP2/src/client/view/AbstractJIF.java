@@ -15,6 +15,7 @@ public abstract class AbstractJIF extends JInternalFrame {
 		setAutoscrolls(true);
 		setClosable(true);
 		setVisible(true);
+		setDefaultCloseOperation(HIDE_ON_CLOSE);
 	}
 
 }

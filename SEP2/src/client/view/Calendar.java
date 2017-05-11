@@ -114,7 +114,7 @@ public class Calendar extends AbstractJIF {
 		table.setGridColor(SystemColor.text);
 		table.setForeground(SystemColor.text);
 		table.setBackground(SystemColor.textHighlight);
-		table.setRowHeight(50);
+		table.setRowHeight(42);
 		table.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblMon = new JLabel("Mon");
 		lblTue = new JLabel("Tue");

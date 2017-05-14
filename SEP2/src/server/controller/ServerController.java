@@ -54,7 +54,7 @@ public class ServerController implements ServerInterface{
 	}
 	
 	public ServerController() throws RemoteException {
-		System.setProperty("java.rmi.server.hostname","localhost");
+		System.setProperty("java.rmi.server.hostname","192.168.1.153");
 		log = Log.getInstance();
 		gui = new GUI(this);
 		serverModel = new ServerModel();

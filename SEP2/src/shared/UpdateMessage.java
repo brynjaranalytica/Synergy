@@ -3,10 +3,12 @@ package shared;
 import shared.business_entities.BusinessEntity;
 import shared.business_entities.Project;
 
+import java.io.Serializable;
+
 /**
  * Created by Nicolai Onov on 5/10/2017.
  */
-public class UpdateMessage {
+public class UpdateMessage implements Serializable {
     private String header;
     private BusinessEntity entity;
 

@@ -17,4 +17,6 @@ public abstract class AbstractJIF extends JInternalFrame {
 		setVisible(true);
 	}
 
+	abstract public void loadData(Object object);
+
 }

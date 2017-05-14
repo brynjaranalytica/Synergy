@@ -19,6 +19,11 @@ public class Projects extends AbstractJIF {
 		createEvents();
 	}
 
+	@Override
+	public void loadData(Object object) {
+
+	}
+
 	public void initComponents(){
 		setBackground(Color.WHITE);
 		lblProjects = new JLabel("RProjects");

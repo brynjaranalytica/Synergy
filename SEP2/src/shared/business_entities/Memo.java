@@ -8,7 +8,7 @@ import java.util.Date;
 /**
  * Created by lenovo on 5/11/2017.
  */
-public class Memo {
+public class Memo implements BusinessEntity {
     private Date date;
     private String description;
 

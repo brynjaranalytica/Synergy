@@ -1,5 +1,6 @@
 package client.view;
 
+import shared.business_entities.Project;
 import shared.business_entities.ProjectInterface;
 
 import javax.swing.*;
@@ -54,12 +55,15 @@ public class Root extends Window {
 
     @Override
     public void loadData() {
-        ArrayList<String> projectNames = controller.getProjectNames();
+        /*ArrayList<String> projectNames = controller.getProjectNames();
         for(String projectName: projectNames) {
 			System.out.println("Project name: " + projectName);
 			System.out.println("Task list: ");
 			System.out.println(controller.getProjectFromModel(projectName).getTaskList());
-		}
+		}*/
+        ProjectInterface project = controller.getProjectFromModel(0);
+        calendarFrame.loadData(project.getCalendar());
+		chatFrame.loadData(project.getChat());
 	}
 
     @Override

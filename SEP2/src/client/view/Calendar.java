@@ -28,7 +28,6 @@ import utility.MyDate;
 import utility.Utilities;
 
 public class Calendar extends AbstractJIF {
-
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
     private JPanel panelTable;
@@ -305,4 +304,5 @@ public class Calendar extends AbstractJIF {
             tableModel.addRow(rowData);
         }
     }
+
 }

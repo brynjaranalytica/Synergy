@@ -26,15 +26,17 @@ public class DBdummy {
 
 	private DBdummy(){
 		users = new ArrayList<>();
-		User mogens = new User("mogens@via.dk", "Mogens Bjerregaard", "4593961547", UserType.ADMIN);
-		mogens.setPass(Cryptography.encryptPass(new char[] {'m', 'o', 'v', 'e', 'n', '5'}, Cryptography.getKey()));
+		User admin = new User("admin@synergy.io", "Administrator", "4593939624", UserType.ADMIN);
+		admin.setPass(Cryptography.encryptPass(new char[] {'1', '2', '3', '4', '5', '6'}, Cryptography.getKey()));
+		User mogens = new User("mogens@via.dk", "Mogens Bjerregaard", "4593939624", UserType.ADMIN);
+		mogens.setPass(Cryptography.encryptPass(new char[] {'1', '2', '3', '4', '5', '6'}, Cryptography.getKey()));
+		User nick = new User("253739@via.dk", "Nick Onov", "4581929966", UserType.USER);
+		nick.setPass(Cryptography.encryptPass(new char[] {'1', '2', '3', '4', '5', '6'}, Cryptography.getKey()));
+		users.add(admin);
 		users.add(mogens);
-		User nicolai = new User("253739@VIA.DK", "Nick Onov", "4581929966", UserType.USER);
-		nicolai.setPass(Cryptography.encryptPass(new char[]{'1','1','1','1','1','1'}, Cryptography.getKey()));
-		users.add(nicolai);
+
 		try {
 			remoteProjects = new RProjects();
-
 
 			RProject remoteProject1 = new RProject("Synergy");
 			RemoteCalendarInterface calendar1 = remoteProject1.getCalendar();
@@ -55,6 +57,9 @@ public class DBdummy {
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
+
+		users.add(nick);
+
 	}
 
 	public User retrieveUser(String id){

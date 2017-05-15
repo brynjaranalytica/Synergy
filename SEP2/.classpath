@@ -6,5 +6,6 @@
 	<classpathentry kind="src" path="prototyping"/>
 	<classpathentry kind="lib" path="C:/Users/mob/eclipse/postgresql-9.4.1212.jar"/>
 	<classpathentry kind="lib" path="C:/Users/mob/Documents/SEP2/javax.mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mob/Documents/SDJ2/RemoteObserverDelegate.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

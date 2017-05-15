@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="RemoteObserverDelegate">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../../../SDJ2/external libraries/RemoteObserverDelegate.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

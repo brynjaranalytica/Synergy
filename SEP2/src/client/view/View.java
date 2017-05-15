@@ -127,7 +127,7 @@ public class View extends JFrame implements ViewInterface{
 		mntmNewProject = new JMenuItem("New project");
 		mntmExit = new JMenuItem("Exit");
 		
-		mntmProjects = new JMenuItem("RProjects");
+		mntmProjects = new JMenuItem("Projects");
 		mntmSprints = new JMenuItem("Sprints");
 		mntmChat = new JMenuItem("Group chat");
 		mntmCalendar = new JMenuItem("Calendar");

@@ -24,7 +24,7 @@ public class Projects extends AbstractJIF {
 
 	
 	public Projects() {
-		setBounds(20, 20, 450, 300);
+		setBounds(20, 20, 500, 300);
 		initComponents();
 		createEvents();
 	}

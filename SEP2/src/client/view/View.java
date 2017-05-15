@@ -69,12 +69,14 @@ public class View extends JFrame implements ViewInterface{
     	setLoginSize();
     	menuBar.setVisible(false);
         currentWindow.showLogin();
+        setResizable(false);
     }
 
     @Override
     public void showRoot() {
     	setFullScreen();
         currentWindow.showRoot();
+        setResizable(true);
     }
 
     @Override

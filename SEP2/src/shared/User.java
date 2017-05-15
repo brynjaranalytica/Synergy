@@ -48,5 +48,10 @@ public class User implements Serializable {
 	public UserType getUserType(){
 		return type;
 	}
+	public User copyOf(){
+		User copy = new User(iD, name, phone, type);
+		copy.setPass(getPass());
+		return copy;
+	}
 	
 }

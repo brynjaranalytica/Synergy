@@ -26,6 +26,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
+import javax.swing.JOptionPane;
 
 public class Cryptography {
 	
@@ -144,7 +145,7 @@ public class Cryptography {
 		return encryptedPass;
 	}
 	
-	public synchronized static char[] decryptPass(char[] encryptedPass, SecretKey secretKey)  {
+	public synchronized static char[] decryptPass(char[] encryptedPass, SecretKey secretKey)  {		
 		Log log = Log.getInstance();
 		Base64.Decoder decoder = Base64.getDecoder();
 		byte[] encryptedBytes = decoder.decode(new String(encryptedPass));

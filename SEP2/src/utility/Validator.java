@@ -25,10 +25,10 @@ public class Validator {
 	
 	//Helper method for validating format of entered input from login screen
 	public static boolean validateLoginInput(String userID, char[] pass){
-		if (userID.isEmpty()||userID==null) {
+		if (userID.isEmpty() || userID==null) {
 			JOptionPane.showMessageDialog(null,"Email address is required - please try again", "Failed to log in", JOptionPane.OK_OPTION);
 			return false;
-		} else if (!Validator.isValidEmailAddress(userID)) {
+		} else if (!Validator.isValidEmailAddress(String.valueOf(userID))) {
 			JOptionPane.showMessageDialog(null,"Valid email address is required - please try again", "Failed to log in", JOptionPane.OK_OPTION);
 			return false;
 		} else if (pass.length<6 || pass == null) {
@@ -43,6 +43,7 @@ public class Validator {
 	public static boolean validateUser(User user, char[] pass){
 		if (user != null){
 			char[] passStored = user.getPass();
+			
 			if (passStored!=null && Arrays.equals(pass, passStored)){
 				return true;			
 			} else {

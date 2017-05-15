@@ -1,6 +1,6 @@
 package shared.business_entities;
 
-import server.remote_business_enitities.RChat;
+import shared.remote_business_interfaces.RemoteChatInterface;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Chat implements BusinessEntity {
     private ArrayList<String> messages;
 
-    public Chat(RChat remoteChat){
+    public Chat(RemoteChatInterface remoteChat){
         this.messages = new ArrayList<>();
 
         ArrayList<String> messagesFromServer = null;

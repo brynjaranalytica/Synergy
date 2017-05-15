@@ -18,9 +18,11 @@ import java.util.ArrayList;
  * Created by lenovo on 4/12/2017.
  */
 public class RProjects implements RemoteProjectsInterface {
+    //private static RemoteProjectsInterface mirror;
     private static RemoteSubjectDelegate<UpdateMessage> remoteSubjectDelegate;
     private ArrayList<RemoteProjectInterface> remoteProjects;
     private String name;
+
 
     public RProjects(shared.business_entities.Projects projects) throws RemoteException  {
         this.remoteProjects = new ArrayList<>();
@@ -30,7 +32,7 @@ public class RProjects implements RemoteProjectsInterface {
             this.remoteProjects.add(new RProject(project));
         }
         UnicastRemoteObject.exportObject(this,0);
-        mirror = this;
+        //mirror = this;
 
     }
 
@@ -38,7 +40,7 @@ public class RProjects implements RemoteProjectsInterface {
         remoteSubjectDelegate = new RemoteSubjectDelegate<>(this);
         this.remoteProjects = new ArrayList<>();
         UnicastRemoteObject.exportObject(this,0);
-        mirror = this;
+        //mirror = this;
     }
 
     static void notifyObservers(String messageHeader, BusinessEntity entity) throws RemoteException{
@@ -107,9 +109,7 @@ public class RProjects implements RemoteProjectsInterface {
         remoteSubjectDelegate.deleteObserver(remoteObserver);
     }
 
-    private static RemoteProjectsInterface mirror;
-
-    public static RemoteProjectsInterface getMirror(){
+    /*public static RemoteProjectsInterface getMirror(){
         return mirror;
-    }
+    }*/
 }

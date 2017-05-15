@@ -3,6 +3,7 @@ package shared.remote_business_interfaces;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by lenovo on 4/12/2017.
@@ -25,4 +26,22 @@ public interface RemoteProjectInterface extends Remote {
     void addMember(RemoteMemberInterface member) throws RemoteException;
 
     RemoteMemberInterface getMember(int index) throws RemoteException;
+
+    RemoteChatInterface getChat() throws RemoteException;
+
+    RemoteCalendarInterface getCalendar() throws RemoteException;
+
+    void setCalendar(RemoteCalendarInterface calendar) throws RemoteException;
+
+    void setChat(RemoteChatInterface chat) throws RemoteException;
+
+    void addMessage(String message) throws RemoteException;
+
+    void removeMemo(Date date) throws RemoteException;
+
+    void addMemo(RemoteMemoInterface remoteMemo) throws RemoteException;
+
+    ArrayList<RemoteMemoInterface> getMemos() throws RemoteException;
+
+    RemoteMemoInterface getMemo(Date date) throws RemoteException;
 }

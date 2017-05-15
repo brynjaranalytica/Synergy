@@ -1,5 +1,6 @@
 package client.view;
 
+import shared.business_entities.Project;
 import shared.business_entities.ProjectInterface;
 
 import javax.swing.*;
@@ -12,6 +13,8 @@ public class Root extends Window {
 	public static AbstractJIF sprintFrame;
 	public static AbstractJIF calendarFrame;
 	public static AbstractJIF chatFrame;
+
+	static String currentProjectName;
 
 
     @Override
@@ -54,12 +57,19 @@ public class Root extends Window {
 
     @Override
     public void loadData() {
-        ArrayList<String> projectNames = controller.getProjectNames();
+        /*ArrayList<String> projectNames = controller.getProjectNames();
         for(String projectName: projectNames) {
 			System.out.println("Project name: " + projectName);
 			System.out.println("Task list: ");
 			System.out.println(controller.getProjectFromModel(projectName).getTaskList());
-		}
+		}*/
+		projectFrame.loadData(controller.getProjectNames());
+        if(currentProjectName == null)
+        	return;
+
+        ProjectInterface project = controller.getProjectFromModel(currentProjectName);
+        calendarFrame.loadData(project.getCalendar());
+		chatFrame.loadData(project.getChat());
 	}
 
     @Override

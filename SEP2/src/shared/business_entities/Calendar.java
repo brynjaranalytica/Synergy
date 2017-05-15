@@ -5,6 +5,7 @@ import shared.remote_business_interfaces.RemoteMemoInterface;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by lenovo on 5/11/2017.
@@ -27,11 +28,27 @@ public class Calendar implements BusinessEntity {
         }
     }
 
-    public void addEvent(Memo memo){
+    public void addMemo(Memo memo){
         events.add(memo);
+    }
+
+    public void removeMemo(Date date) {
+        for(Memo memo: events) {
+            if (memo.getDate().equals(date))
+                events.remove(memo);
+        }
     }
 
     public ArrayList<Memo> getMemos(){
         return this.events;
+    }
+
+    public Memo getMemo(Date date) {
+        for(Memo memo:events){
+            if (memo.getDate().equals(date))
+                return memo;
+        }
+
+        return null;
     }
 }

@@ -18,4 +18,6 @@ public abstract class AbstractJIF extends JInternalFrame {
 		setDefaultCloseOperation(HIDE_ON_CLOSE);
 	}
 
+	abstract public void loadData(Object object);
+
 }

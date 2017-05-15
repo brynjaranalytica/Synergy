@@ -6,6 +6,7 @@ import shared.remote_business_interfaces.RemoteMemoInterface;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by lenovo on 5/11/2017.
@@ -19,12 +20,30 @@ public class RCalendar implements RemoteCalendarInterface {
     }
 
     @Override
-    public void addEvent(RemoteMemoInterface remoteMemo) throws RemoteException {
+    public void addMemo(RemoteMemoInterface remoteMemo) throws RemoteException {
         this.events.add(remoteMemo);
     }
 
     @Override
     public ArrayList<RemoteMemoInterface> getMemos() throws RemoteException {
         return this.events;
+    }
+
+    @Override
+    public RemoteMemoInterface getMemo(Date date) throws RemoteException {
+        for(RemoteMemoInterface memo:events){
+            if (memo.getDate().equals(date))
+                return memo;
+        }
+
+        return null;
+    }
+
+    @Override
+    public void removeMemo(Date date) throws RemoteException {
+        for(RemoteMemoInterface memo: events) {
+            if (memo.getDate().equals(date))
+                events.remove(memo);
+        }
     }
 }

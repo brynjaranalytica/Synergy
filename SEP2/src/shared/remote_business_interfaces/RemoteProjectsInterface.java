@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * Created by lenovo on 4/12/2017.
  */
 public interface RemoteProjectsInterface extends RemoteSubject<UpdateMessage> {
+
     ArrayList<RemoteProjectInterface> getRemoteProjects() throws RemoteException;
 
     void setRemoteProjects(ArrayList<RemoteProjectInterface> remoteProjects) throws RemoteException;

@@ -1,16 +1,9 @@
 package client.view;
 
-import client.view.DatePicker;
-import client.view.AbstractJIF;
-
-import java.awt.Color;
-import java.awt.Font;
-import javax.swing.JLabel;
-import javax.swing.JTree;
+import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
-import javax.swing.JProgressBar;
-import javax.swing.JButton;
+import java.awt.*;
 
 public class Sprints extends AbstractJIF {
 
@@ -33,7 +26,12 @@ public class Sprints extends AbstractJIF {
 		createEvents();
 
 	}
-	
+
+	@Override
+	public void loadData(Object object) {
+
+	}
+
 	public void initComponents(){
 		
 		datePicker = new DatePicker();

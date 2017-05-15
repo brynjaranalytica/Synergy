@@ -2,6 +2,7 @@ package client.model;
 
 
 import shared.User;
+import shared.business_entities.Project;
 import shared.business_entities.ProjectInterface;
 import shared.business_entities.Projects;
 
@@ -31,6 +32,10 @@ public class ClientModel {
 		return null;
 	}
 
+	public ProjectInterface getProject(int index){
+		return projects.getProjectList().get(index);
+	}
+
 	public void setProjects(Projects projects) {
 		this.projects = projects;
 	}
@@ -52,6 +57,17 @@ public class ClientModel {
 
 	public User getUser(){
 		return user;
+	}
+
+	public void setProject(Project updatedProject){
+		ArrayList<ProjectInterface> projectList = projects.getProjectList();
+		for(int i = 0; i < projectList.size(); i++) {
+			if(projectList.get(i).getName().equals(updatedProject.getName())){
+				ProxyProject proxyProject = (ProxyProject) projectList.get(i);
+				proxyProject.setRealProject(updatedProject);
+				break;
+			}
+		}
 	}
 
 }

@@ -65,6 +65,7 @@ public class ClientModel {
 			if(projectList.get(i).getName().equals(updatedProject.getName())){
 				ProxyProject proxyProject = (ProxyProject) projectList.get(i);
 				proxyProject.setRealProject(updatedProject);
+				break;
 			}
 		}
 	}

@@ -49,8 +49,11 @@ public class Chat extends AbstractJIF {
 		btnSend.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
+				if(textField.getText().equals("") || textField.getText() == null)
+					return;
+
 				String message = textField.getText();
-				ClientController.getInstance().sendChatMessage("Synergy", message);
+				ClientController.getInstance().sendChatMessage(Root.currentProjectName, message);
 				textField.setText("");
 			}
 		});

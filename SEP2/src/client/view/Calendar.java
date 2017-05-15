@@ -119,7 +119,7 @@ public class Calendar extends AbstractJIF {
                     return;
 
                 Date selectedDate = Utilities.parseDate(selectedDateString);
-                ClientController.getInstance().removeMemo("Synergy", selectedDate);
+                ClientController.getInstance().removeMemo(Root.currentProjectName, selectedDate);
             }
         });
 
@@ -131,7 +131,7 @@ public class Calendar extends AbstractJIF {
                     return;
 
                 Date selectedDate = Utilities.parseDate(selectedDateString);
-                ClientController.getInstance().addMemo("Synergy", selectedDate, textPane.getText());
+                ClientController.getInstance().addMemo(Root.currentProjectName, selectedDate, textPane.getText());
             }
         });
 
@@ -147,7 +147,7 @@ public class Calendar extends AbstractJIF {
                     textField.setText("" + pickedDate);
 
                     /////////////////////////////
-                    loadData(ClientController.getInstance().getProjectFromModel("Synergy").getCalendar());
+                    loadData(ClientController.getInstance().getProjectFromModel(Root.currentProjectName).getCalendar());
                 } catch (Exception e) {
                 }
             }

@@ -37,14 +37,21 @@ public class DBdummy {
 
 
 			RProject remoteProject1 = new RProject("Synergy");
-			RemoteCalendarInterface calendar = remoteProject1.getCalendar();
-			calendar.addMemo(new RMemo(Utilities.parseDate("2017-05-12"),"Skype meeting"));
-			calendar.addMemo(new RMemo(Utilities.parseDate("2017-05-15"),"Sprint 4 start"));
+			RemoteCalendarInterface calendar1 = remoteProject1.getCalendar();
+			calendar1.addMemo(new RMemo(Utilities.parseDate("2017-05-12"),"Skype meeting"));
+			calendar1.addMemo(new RMemo(Utilities.parseDate("2017-05-15"),"Sprint 4 start"));
+			remoteProject1.getChat().addMessage("Welcome to Synergy chat");
 			remoteProject1.addTask("Implement Proxy");
 			remoteProject1.addTask("Prototype the database");
 			remoteProjects.addProject(remoteProject1);
 
-			remoteProjects.addProject(new RProject("VIA Bus"));
+			RProject remoteProject2 = new RProject("VIA Bus");
+			RemoteCalendarInterface calendar2 = remoteProject2.getCalendar();
+			calendar2.addMemo(new RMemo(Utilities.parseDate("2017-06-06"),"Birthday"));
+			calendar2.addMemo(new RMemo(Utilities.parseDate("2017-05-16"),"Read about TCP"));
+			remoteProject2.getChat().addMessage("Welcome to VIA Bus chat");
+			remoteProjects.addProject(remoteProject2);
+
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

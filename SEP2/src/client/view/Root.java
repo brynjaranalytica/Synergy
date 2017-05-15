@@ -14,6 +14,8 @@ public class Root extends Window {
 	public static AbstractJIF calendarFrame;
 	public static AbstractJIF chatFrame;
 
+	static String currentProjectName;
+
 
     @Override
     public void setEventHandlers() {
@@ -61,7 +63,11 @@ public class Root extends Window {
 			System.out.println("Task list: ");
 			System.out.println(controller.getProjectFromModel(projectName).getTaskList());
 		}*/
-        ProjectInterface project = controller.getProjectFromModel(0);
+		projectFrame.loadData(controller.getProjectNames());
+        if(currentProjectName == null)
+        	return;
+
+        ProjectInterface project = controller.getProjectFromModel(currentProjectName);
         calendarFrame.loadData(project.getCalendar());
 		chatFrame.loadData(project.getChat());
 	}

@@ -86,6 +86,8 @@ public class Projects extends AbstractJIF {
 						(DefaultMutableTreeNode)tree.getLastSelectedPathComponent();
 				String selectedProjectName = (String) selectedNode.getUserObject();
 				Root.currentProjectName = selectedProjectName;
+                if(selectedProjectName.equals("Projects"))
+                    return;
 				Root.chatFrame.loadData(ClientController.getInstance().getProjectFromModel(selectedProjectName).getChat());
 				Root.calendarFrame.loadData(ClientController.getInstance().getProjectFromModel(selectedProjectName).getCalendar());
 			}

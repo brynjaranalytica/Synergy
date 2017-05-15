@@ -32,9 +32,6 @@ public class Projects extends AbstractJIF {
 		for(String projectName: projectNames){
 			root.add(new DefaultMutableTreeNode(projectName));
 		}
-
-		//treeModel.setRoot(treeNode);//?????????????????
-
 	}
 
 	public void initComponents(){
@@ -89,7 +86,6 @@ public class Projects extends AbstractJIF {
 						(DefaultMutableTreeNode)tree.getLastSelectedPathComponent();
 				String selectedProjectName = (String) selectedNode.getUserObject();
 				Root.currentProjectName = selectedProjectName;
-				System.out.println(selectedProjectName);
 				Root.chatFrame.loadData(ClientController.getInstance().getProjectFromModel(selectedProjectName).getChat());
 				Root.calendarFrame.loadData(ClientController.getInstance().getProjectFromModel(selectedProjectName).getCalendar());
 			}

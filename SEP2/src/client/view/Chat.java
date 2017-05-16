@@ -32,7 +32,10 @@ public class Chat extends AbstractJIF {
 
 		model = new DefaultListModel<>();
 		list = new JList<String>(model);
+		list.setAutoscrolls(true);
+		
 		list.setBounds(10, 59, 264, 223);
+		
 		getContentPane().add(list);
 		
 		textField = new JTextField();

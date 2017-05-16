@@ -7,7 +7,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.InetAddress;
 import java.net.MalformedURLException;
+import java.net.UnknownHostException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -127,6 +129,16 @@ public class ServerController implements ServerInterface{
 		} catch (IOException e) {
 			log.logWarning("Error reading properties file", e.getMessage());
 		}
+	}
+
+	public static String getIP() {
+		try {
+			String ip = InetAddress.getLocalHost().getHostAddress();
+			return ip;
+		} catch (UnknownHostException e) {
+			return "(Unable to retrieve IP address local host)";
+		}
+
 	}
 
 

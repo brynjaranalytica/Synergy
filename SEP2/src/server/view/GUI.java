@@ -62,7 +62,7 @@ public class GUI{
 		
 		JTextPane txtpnServerIsRunning = new JTextPane();
 		txtpnServerIsRunning.setEditable(false);
-		txtpnServerIsRunning.setText("Server is running ...");
+		txtpnServerIsRunning.setText("The Synergy server is now running on "+ServerController.getIP()+"\nThis IP-address must be used by client connections when connecting to the server over the Local Area Network.");
 		GroupLayout groupLayout = new GroupLayout(frmSynergy.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)

@@ -23,18 +23,7 @@ import javax.swing.border.EmptyBorder;
 
 public class Projects extends AbstractJIF {
 
-    /*private static final long serialVersionUID = 1L;
-    private JLabel lblProjects;
-    private JTree tree;
-    private JButton btnNewProject;
-    private JButton btnDelProject;
-    private JButton btnAddUser;
-    private JButton btnDelUser;
-    private JList listUsers;
-    private DefaultTreeModel treeModel;*/
     private DefaultMutableTreeNode rootNode;
-    private int newProjectIndex = 1;
-
     private static final long serialVersionUID = 1L;
     private JLabel lblProjects;
     private JTree tree;
@@ -51,13 +40,6 @@ public class Projects extends AbstractJIF {
     private JTextField textFieldAddProject;
     private JButton btnAddProjectDropDown;
     private JButton btnCancelAddProject;
-
-
-	/*public Projects() {
-        setBounds(20, 20, 450, 300);
-		initComponents();
-		createEvents();
-	}*/
 
     @Override
     public void loadData(Object object) {

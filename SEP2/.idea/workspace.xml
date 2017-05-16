@@ -44,11 +44,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Projects.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Projects.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/client/view/Projects.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2486">
-              <caret line="199" column="56" lean-forward="true" selection-start-line="199" selection-start-column="56" selection-end-line="199" selection-end-column="56" />
+            <state relative-caret-position="921">
+              <caret line="248" column="0" lean-forward="true" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -93,10 +93,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Root.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Root.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/view/Root.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
+            <state relative-caret-position="1292">
               <caret line="82" column="5" lean-forward="true" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
               <folding />
             </state>
@@ -839,12 +839,12 @@
       <workItem from="1494511528212" duration="6125000" />
       <workItem from="1494854717248" duration="8829000" />
       <workItem from="1494921141378" duration="265000" />
-      <workItem from="1494921652057" duration="5672000" />
+      <workItem from="1494921652057" duration="5954000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60961000" />
+    <option name="totallyTimeSpent" value="61243000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -918,7 +918,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/client/view/Projects.java</url>
-          <line>63</line>
+          <line>45</line>
           <properties />
           <option name="timeStamp" value="22" />
         </line-breakpoint>
@@ -1202,8 +1202,6 @@
           <folding>
             <element signature="method#Chat#0;class#Chat#0" expanded="false" />
             <element signature="method#initComponents#0;class#Chat#0" expanded="false" />
-            <element signature="e#1210#1536#0" expanded="false" />
-            <element signature="e#1535#1536#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1329,14 +1327,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/view/Projects.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2486">
-          <caret line="199" column="56" lean-forward="true" selection-start-line="199" selection-start-column="56" selection-end-line="199" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/controller/ClientController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
@@ -1356,8 +1346,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/view/Root.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
+        <state relative-caret-position="1292">
           <caret line="82" column="5" lean-forward="true" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/view/Projects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="921">
+          <caret line="248" column="0" lean-forward="true" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
           <folding />
         </state>
       </provider>

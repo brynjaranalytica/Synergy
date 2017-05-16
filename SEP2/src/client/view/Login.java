@@ -156,6 +156,8 @@ public class Login extends Window {
 
 	@Override
 	public void showRoot() {
+		textFieldEmailAddress.setText("");
+		passwordField.setText("");
 		view.setFullScreen();
 		view.setCurrentWindow(ROOT);
 	}

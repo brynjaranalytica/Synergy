@@ -43,7 +43,7 @@ public class View extends JFrame implements ViewInterface{
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
        setLoginSize();
        setVisible(true);
-
+       setResizable(false);
 
         desktopPane.setLayout(new CardLayout(0,0));
         getContentPane().add(desktopPane, BorderLayout.CENTER);
@@ -54,6 +54,7 @@ public class View extends JFrame implements ViewInterface{
     public void setLoginSize(){
     	setBounds(100, 100, 420, 300);
     	 setLocationRelativeTo(null);
+     	setResizable(false);
     }
     
     public void setFullScreen(){
@@ -61,6 +62,7 @@ public class View extends JFrame implements ViewInterface{
     	initMenu();
     	createMenuEvents();
     	menuBar.setVisible(true);
+    	setResizable(true);
     }
 
 
@@ -69,14 +71,12 @@ public class View extends JFrame implements ViewInterface{
     	setLoginSize();
     	menuBar.setVisible(false);
         currentWindow.showLogin();
-        setResizable(false);
     }
 
     @Override
     public void showRoot() {
     	setFullScreen();
         currentWindow.showRoot();
-        setResizable(true);
     }
 
     @Override

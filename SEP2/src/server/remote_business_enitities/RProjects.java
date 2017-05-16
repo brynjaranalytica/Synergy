@@ -64,6 +64,12 @@ public class RProjects implements RemoteProjectsInterface {
     }
 
     @Override
+    public void addProject(ProjectInterface project) throws RemoteException {
+        this.remoteProjects.add(new RProject(project));
+        RProjects.notifyObservers(MessageHeaders.CREATE, project);
+    }
+
+    @Override
     public RemoteProjectInterface getProject(int projectIndex) throws RemoteException {
         return this.remoteProjects.get(projectIndex);
     }
@@ -86,6 +92,18 @@ public class RProjects implements RemoteProjectsInterface {
         }
 
         return projectNames;
+    }
+
+    @Override
+    public void removeProject(String projectName) throws RemoteException {
+        for(RemoteProjectInterface project: remoteProjects){
+            if(project.getName().equals(projectName)) {
+                notifyObservers(MessageHeaders.DELETE, new Project(project));
+                remoteProjects.remove(project);
+                break;
+            }
+        }
+
     }
 
     @Override

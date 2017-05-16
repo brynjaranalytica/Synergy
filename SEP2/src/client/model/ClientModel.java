@@ -70,4 +70,18 @@ public class ClientModel {
 		}
 	}
 
+	public void removeProject(String projectName){
+		ArrayList<ProjectInterface> listOfProjects = projects.getProjectList();
+		for(ProjectInterface project: listOfProjects){
+			if(project.getName().equals(projectName)) {
+				listOfProjects.remove(project);
+				break;
+			}
+		}
+	}
+
+	public void addProject(Project project){
+		this.projects.addProject(new ProxyProject(project));
+	}
+
 }

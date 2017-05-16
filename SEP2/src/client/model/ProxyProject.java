@@ -17,6 +17,11 @@ public class ProxyProject implements ProjectInterface {
         this.name = name;
     }
 
+    ProxyProject(Project realProject) {
+        this.name = realProject.getName();
+        this.realProject = realProject;
+    }
+
     @Override
     public String getName() {
         return this.name;

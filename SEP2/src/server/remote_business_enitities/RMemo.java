@@ -1,7 +1,9 @@
 package server.remote_business_enitities;
 
+import shared.business_entities.Memo;
 import shared.remote_business_interfaces.RemoteMemoInterface;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Date;
@@ -16,6 +18,12 @@ public class RMemo implements RemoteMemoInterface {
     public RMemo(Date date, String description) throws RemoteException {
         this.date = date;
         this.description = description;
+        UnicastRemoteObject.exportObject(this, 0);
+    }
+
+    public RMemo(Memo memo) throws RemoteException{
+        this.date = memo.getDate();
+        this.description = memo.getDescription();
         UnicastRemoteObject.exportObject(this, 0);
     }
 

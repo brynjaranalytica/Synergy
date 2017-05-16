@@ -1,5 +1,7 @@
 package server.remote_business_enitities;
 
+import shared.business_entities.Calendar;
+import shared.business_entities.Memo;
 import shared.remote_business_interfaces.RemoteCalendarInterface;
 import shared.remote_business_interfaces.RemoteMemoInterface;
 
@@ -16,6 +18,15 @@ public class RCalendar implements RemoteCalendarInterface {
 
     public RCalendar() throws RemoteException{
         this.events = new ArrayList<>();
+        UnicastRemoteObject.exportObject(this, 0);
+    }
+
+    public RCalendar(Calendar calendar) throws RemoteException{
+        this.events = new ArrayList<>();
+        ArrayList<Memo> memos = calendar.getMemos();
+        for(Memo memo: memos){
+            this.events.add(new RMemo(memo));
+        }
         UnicastRemoteObject.exportObject(this, 0);
     }
 
@@ -36,14 +47,15 @@ public class RCalendar implements RemoteCalendarInterface {
                 return memo;
         }
 
-        return null;
-    }
+        return null;    }
 
     @Override
     public void removeMemo(Date date) throws RemoteException {
         for(RemoteMemoInterface memo: events) {
-            if (memo.getDate().equals(date))
+            if (memo.getDate().equals(date)) {
                 events.remove(memo);
+                break;
+            }
         }
     }
 }

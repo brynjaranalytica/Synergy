@@ -64,7 +64,7 @@ public class Root extends Window {
 			System.out.println(controller.getProjectFromModel(projectName).getTaskList());
 		}*/
 		projectFrame.loadData(controller.getProjectNames());
-        if(currentProjectName == null)
+        if(currentProjectName == null || currentProjectName.equals("Projects"))
         	return;
 
         ProjectInterface project = controller.getProjectFromModel(currentProjectName);

@@ -44,7 +44,7 @@ public class Projects implements BusinessEntity {
         this.projects = projects;
     }
 
-    public void addProject(Project project) {
+    public void addProject(ProjectInterface project) {
         this.projects.add(project);
     }
 

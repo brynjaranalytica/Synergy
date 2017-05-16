@@ -4,12 +4,10 @@ package client.controller;
 import client.model.ClientModel;
 import client.view.View;
 import server.remote_business_enitities.RMemo;
-import shared.ClientInterface;
-import shared.ServerInterface;
-import shared.UpdateMessage;
-import shared.User;
+import shared.*;
 import shared.business_entities.Project;
 import shared.business_entities.ProjectInterface;
+import shared.remote_business_interfaces.RemoteProjectInterface;
 import shared.remote_business_interfaces.RemoteProjectsInterface;
 import utility.Log;
 import utility.PINcode;
@@ -63,9 +61,20 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
 
     @Override
     public void update(RemoteSubject<UpdateMessage> remoteSubject, UpdateMessage message) throws RemoteException {
-        Project updatedProject = (Project) message.getBusinessEntity();
-        clientModel.setProject(updatedProject);
-        view.loadData();
+        switch (message.getHeader()) {
+            case MessageHeaders.UPDATE:
+                clientModel.setProject((Project) message.getBusinessEntity());
+                view.loadData();
+                break;
+            case MessageHeaders.CREATE:
+                clientModel.addProject((Project) message.getBusinessEntity());
+                view.loadData();
+                break;
+            case MessageHeaders.DELETE:
+                clientModel.removeProject(((Project) message.getBusinessEntity()).getName());
+                view.loadData();
+                break;
+        }
     }
 
     private static class Wrapper { //Instance placed in inner class
@@ -265,6 +274,27 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
     public void removeMemo(String projectName, Date date) {
         try {
             remoteProjects.getProject(projectName).removeMemo(date);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void addProject(ProjectInterface project) {
+        if(clientModel.getProjects().getProjectNames().contains(project.getName())){
+            System.out.println("The project with such name already exists!");
+            return;
+        }
+
+        try {
+            remoteProjects.addProject(project);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteProject(String projectName){
+        try {
+            remoteProjects.removeProject(projectName);
         } catch (RemoteException e) {
             e.printStackTrace();
         }

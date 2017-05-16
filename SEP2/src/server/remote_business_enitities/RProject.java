@@ -28,7 +28,8 @@ public class RProject implements RemoteProjectInterface {
         this.members = new ArrayList<>();
 
         // Chat and calendar converting is not implemented
-
+        this.chat = new RChat(project.getChat());
+        this.calendar = new RCalendar(project.getCalendar());
         ArrayList<Member> members = project.getMembers();
         for(Member member: members){
             this.members.add(new RMember(member));

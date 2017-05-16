@@ -1,5 +1,6 @@
 package server.remote_business_enitities;
 
+import shared.business_entities.Chat;
 import shared.remote_business_interfaces.RemoteChatInterface;
 
 import java.rmi.RemoteException;
@@ -14,6 +15,11 @@ public class RChat implements RemoteChatInterface {
 
     public RChat() throws RemoteException{
         this.messages = new ArrayList<>();
+        UnicastRemoteObject.exportObject(this, 0);
+    }
+
+    public RChat(Chat chat) throws RemoteException{
+        this.messages = chat.getListOfMessages();
         UnicastRemoteObject.exportObject(this, 0);
     }
 

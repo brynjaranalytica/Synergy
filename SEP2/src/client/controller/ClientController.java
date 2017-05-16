@@ -161,6 +161,7 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
     }
 
     public User login(String userID, char[] password) {
+
         User user = null;
         try {
             user = serverController.login(userID, password);

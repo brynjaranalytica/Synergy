@@ -65,7 +65,11 @@ public class DBdummy {
 	public User retrieveUser(String id){
 		if (id == null) return null;
 		for (User u: users) {
-			if (id.equalsIgnoreCase(u.getiD())) return u;
+			String userID = u.getiD();
+			if (id.equalsIgnoreCase(userID)) {
+				User result = u.copyOf();
+				return result;
+			}
 		}
 		return null;
 	}

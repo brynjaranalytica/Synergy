@@ -22,7 +22,7 @@ public class Adapter implements AdapterInterface {
 		User user = dbDummy.retrieveUser(userID);
 		char[] passEncrypted = user.getPass();
 		char[] passDecrypted = Cryptography.decryptPass(passEncrypted, Cryptography.getKey());
-//		user.setPass(passDecrypted); //should be changed - stores decrypted pw back?
+		user.setPass(passDecrypted); //should be changed - stores decrypted pw back?
 		return user;
 	}
 

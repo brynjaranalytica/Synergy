@@ -1,5 +1,7 @@
 package shared.remote_business_interfaces;
 
+import shared.business_entities.Memo;
+
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -43,7 +45,7 @@ public interface RemoteProjectInterface extends Remote {
 
     void removeMemo(Date date) throws RemoteException;
 
-    void addMemo(RemoteMemoInterface remoteMemo) throws RemoteException;
+    void addMemo(Memo memo) throws RemoteException;
 
     ArrayList<RemoteMemoInterface> getMemos() throws RemoteException;
 

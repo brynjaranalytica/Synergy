@@ -6,10 +6,7 @@ import client.view.Root;
 import client.view.View;
 import server.remote_business_enitities.RMemo;
 import shared.*;
-import shared.business_entities.Member;
-import shared.business_entities.Project;
-import shared.business_entities.ProjectInterface;
-import shared.business_entities.Projects;
+import shared.business_entities.*;
 import shared.remote_business_interfaces.RemoteMemberInterface;
 import shared.remote_business_interfaces.RemoteProjectInterface;
 import shared.remote_business_interfaces.RemoteProjectsInterface;
@@ -271,7 +268,7 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
 
     public void addMemo(String projectName, Date date, String description) {
         try {
-            remoteProjects.getProject(projectName).addMemo(new RMemo(date, description));
+            remoteProjects.getProject(projectName).addMemo(new Memo(date, description));
         } catch (RemoteException e) {
             e.printStackTrace();
         }

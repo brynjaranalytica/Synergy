@@ -53,6 +53,7 @@ public class Projects extends AbstractJIF {
         shared.business_entities.Projects projects = (shared.business_entities.Projects) object;
         ArrayList<String> projectNames = controller.getProjectNames();
         ArrayList<Member> organizationMembers = projects.getMembers();
+        listUsersModel.clear();
         for(Member member: organizationMembers){
             listUsersModel.addElement(member.getName());
         }
@@ -258,15 +259,14 @@ public class Projects extends AbstractJIF {
             panelAddUser.setVisible(false);
             btnAddUser.setVisible(true);
             //add selected user to selected project code here
-            int index = listUsers.getSelectedIndex();
-            if(index == -1)
+            int indexOfSelectedMember = listUsers.getSelectedIndex();
+            if(indexOfSelectedMember == -1)
                 return;
             if(Root.currentProjectName.equals("Projects") || Root.currentProjectName == null) {
                 JOptionPane.showMessageDialog(null, "You have to select one of the existing projects first.");
                 return;
             }
 
-            int indexOfSelectedMember = listUsers.getSelectedIndex();
             if(!ClientController.getInstance().addMember(indexOfSelectedMember))
                 JOptionPane.showMessageDialog(null ,"Selected member already is a part of the project.");
         });

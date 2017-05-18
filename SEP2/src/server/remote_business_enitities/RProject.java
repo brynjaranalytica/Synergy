@@ -4,6 +4,7 @@ package server.remote_business_enitities;
 import database.DBdummy;
 import shared.MessageHeaders;
 import shared.business_entities.Member;
+import shared.business_entities.Memo;
 import shared.business_entities.Project;
 import shared.business_entities.ProjectInterface;
 import shared.remote_business_interfaces.*;
@@ -94,11 +95,12 @@ public class RProject implements RemoteProjectInterface {
     @Override
     public void addMember(String email) throws RemoteException {
         for(RemoteMemberInterface member: RProjects.remoteMembers) {
-            if(member.getEmail().equals(email))
+            if(member.getEmail().equals(email)) {
                 this.members.add(member);
                 DBdummy.getInstance().updateProject(this);
                 RProjects.notifyObservers(MessageHeaders.UPDATE, new Project(this));
                 break;
+            }
         }
     }
 
@@ -138,8 +140,8 @@ public class RProject implements RemoteProjectInterface {
     }
 
     @Override
-    public void addMemo(RemoteMemoInterface remoteMemo) throws RemoteException {
-        this.calendar.addMemo(remoteMemo);
+    public void addMemo(Memo memo) throws RemoteException {
+        this.calendar.addMemo(new RMemo(memo));
         DBdummy.getInstance().updateProject(this);
         RProjects.notifyObservers(MessageHeaders.UPDATE, new Project(this));
     }

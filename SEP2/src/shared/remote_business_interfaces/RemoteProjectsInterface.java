@@ -1,7 +1,6 @@
 package shared.remote_business_interfaces;
 
 import shared.UpdateMessage;
-import shared.business_entities.Project;
 import shared.business_entities.ProjectInterface;
 import utility.observer.RemoteSubject;
 
@@ -32,4 +31,13 @@ public interface RemoteProjectsInterface extends RemoteSubject<UpdateMessage> {
     ArrayList<String> getProjectNames() throws RemoteException;
 
     void removeProject(String projectName) throws RemoteException;
+
+    ArrayList<RemoteMemberInterface> getMembers() throws RemoteException;
+
+    void setMembers(ArrayList<RemoteMemberInterface> members) throws RemoteException;
+
+    RemoteMemberInterface getMember(int index) throws RemoteException;
+
+    RemoteMemberInterface getMember(String email) throws RemoteException;
+
 }

@@ -49,9 +49,16 @@ public class Chat extends AbstractJIF {
 	}
 
 	public void createEvents(){
+
+
 		btnSend.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
+				if(Root.currentProjectName == null || Root.currentProjectName.equals("Projects")){
+					JOptionPane.showMessageDialog(null, "You have to select one of the projects first.");
+					return;
+				}
+
 				if(textField.getText().equals("") || textField.getText() == null)
 					return;
 

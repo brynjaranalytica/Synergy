@@ -34,7 +34,6 @@ public class RMember implements RemoteMemberInterface {
     @Override
     public void setName(String name) throws RemoteException {
         this.name = name;
-        RProjects.notifyObservers(MessageHeaders.MEMBER_UPDATE, new Member(this));
     }
 
     @Override

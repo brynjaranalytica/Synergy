@@ -37,4 +37,12 @@ public class Member implements BusinessEntity{
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null || !(obj instanceof Member))
+            return false;
+
+        return ((Member) obj).getEmail().equals(this.email);
+    }
 }

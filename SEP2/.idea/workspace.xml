@@ -2,19 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bcd2185-6df3-4059-a039-89823f30c92d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/remote_business_enitities/RChat.java" afterPath="$PROJECT_DIR$/src/server/remote_business_enitities/RChat.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/model/ProxyProject.java" afterPath="$PROJECT_DIR$/src/client/model/ProxyProject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/remote_business_enitities/RMemo.java" afterPath="$PROJECT_DIR$/src/server/remote_business_enitities/RMemo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/controller/ClientController.java" afterPath="$PROJECT_DIR$/src/client/controller/ClientController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Projects$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/synergy_client.lock" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/controller/ClientController$1.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/controller/ClientController$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/controller/ClientController$Wrapper.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/controller/ClientController$Wrapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/controller/ClientController.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/controller/ClientController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Calendar$1.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/Calendar$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Calendar$2.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/Calendar$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Calendar$3.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/Calendar$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Calendar$4.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/Calendar$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Calendar.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/Calendar.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Chat$1.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/Chat$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Chat.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/Chat.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Projects$1.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/Projects$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Projects.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/Projects.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Root.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/Root.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/database/DBdummy.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/database/DBdummy.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/controller/ServerController$1.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/controller/ServerController$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/controller/ServerController.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/controller/ServerController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/remote_business_enitities/RMember.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/remote_business_enitities/RMember.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/remote_business_enitities/RProject.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/remote_business_enitities/RProject.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/remote_business_enitities/RProjects.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/remote_business_enitities/RProjects.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/view/GUI.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/view/GUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/shared/business_entities/Member.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/shared/business_entities/Member.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/shared/business_entities/Projects.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/shared/business_entities/Projects.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/shared/remote_business_interfaces/RemoteProjectInterface.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/shared/remote_business_interfaces/RemoteProjectInterface.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/shared/remote_business_interfaces/RemoteProjectsInterface.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/shared/remote_business_interfaces/RemoteProjectsInterface.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shared/business_entities/Projects.java" afterPath="$PROJECT_DIR$/src/shared/business_entities/Projects.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectsInterface.java" afterPath="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectsInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/remote_business_enitities/RCalendar.java" afterPath="$PROJECT_DIR$/src/server/remote_business_enitities/RCalendar.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/controller/ClientController.java" afterPath="$PROJECT_DIR$/src/client/controller/ClientController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/view/Calendar.java" afterPath="$PROJECT_DIR$/src/client/view/Calendar.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/view/Chat.java" afterPath="$PROJECT_DIR$/src/client/view/Chat.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/view/Projects.java" afterPath="$PROJECT_DIR$/src/client/view/Projects.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/model/ClientModel.java" afterPath="$PROJECT_DIR$/src/client/model/ClientModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/view/Root.java" afterPath="$PROJECT_DIR$/src/client/view/Root.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java" afterPath="$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/DBdummy.java" afterPath="$PROJECT_DIR$/src/database/DBdummy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/remote_business_enitities/RMember.java" afterPath="$PROJECT_DIR$/src/server/remote_business_enitities/RMember.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java" afterPath="$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java" afterPath="$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shared/business_entities/Member.java" afterPath="$PROJECT_DIR$/src/shared/business_entities/Member.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shared/business_entities/Projects.java" afterPath="$PROJECT_DIR$/src/shared/business_entities/Projects.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectInterface.java" afterPath="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectInterface.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectsInterface.java" afterPath="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectsInterface.java" />
     </list>
     <ignored path="SEP2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,32 +72,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Projects.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Projects.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/view/Projects.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="921">
-              <caret line="248" column="0" lean-forward="true" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DefaultTreeModel.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/javax/swing/tree/DefaultTreeModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="565" column="19" lean-forward="false" selection-start-line="565" selection-start-column="19" selection-end-line="565" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Thread.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Thread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="140" column="6" lean-forward="false" selection-start-line="140" selection-start-column="6" selection-end-line="140" selection-end-column="6" />
-              <folding />
+            <state relative-caret-position="326">
+              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+              <folding>
+                <element signature="method#Projects#0;class#Projects#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -77,8 +87,8 @@
       <file leaf-file-name="ClientController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/controller/ClientController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+            <state relative-caret-position="379">
+              <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
               <folding>
                 <element signature="class#Wrapper#0;class#ClientController#0" expanded="false" />
                 <element signature="method#ClientController#0;class#ClientController#0" expanded="false" />
@@ -87,17 +97,141 @@
                 <element signature="method#validateID#0;class#ClientController#0" expanded="false" />
                 <element signature="method#login#0;class#ClientController#0" expanded="false" />
                 <element signature="method#createLockFile#0;class#ClientController#0" expanded="false" />
-                <element signature="e#6510#6741#0" expanded="false" />
+                <element signature="e#6771#7002#0" expanded="false" />
+                <element signature="method#loadProperties#0;class#ClientController#0" expanded="false" />
+                <element signature="method#getProjectNames#0;class#ClientController#0" expanded="false" />
+                <element signature="method#getProjectNamesFromServer#0;class#ClientController#0" expanded="false" />
+                <element signature="method#addMemo#0;class#ClientController#0" expanded="false" />
+                <element signature="method#removeMemo#0;class#ClientController#0" expanded="false" />
+                <element signature="method#addProject#0;class#ClientController#0" expanded="false" />
+                <element signature="method#deleteProject#0;class#ClientController#0" expanded="false" />
+                <element signature="method#getOrganizationMembersFromServer#0;class#ClientController#0" expanded="false" />
+                <element signature="method#removeMember#0;class#ClientController#0" expanded="false" />
+                <element signature="method#removeMember#1;class#ClientController#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Root.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/view/Root.java">
+      <file leaf-file-name="RCalendar.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RCalendar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1292">
-              <caret line="82" column="5" lean-forward="true" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
+            <state relative-caret-position="295">
+              <caret line="27" column="44" lean-forward="false" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RProject.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="63" column="49" lean-forward="false" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="49" />
+              <folding>
+                <element signature="method#RProject#1;class#RProject#0" expanded="false" />
+                <element signature="method#getName#0;class#RProject#0" expanded="false" />
+                <element signature="method#getMembers#0;class#RProject#0" expanded="false" />
+                <element signature="method#setMembers#0;class#RProject#0" expanded="false" />
+                <element signature="method#getTaskList#0;class#RProject#0" expanded="false" />
+                <element signature="method#setTaskList#0;class#RProject#0" expanded="false" />
+                <element signature="method#addTask#0;class#RProject#0" expanded="false" />
+                <element signature="method#addMember#0;class#RProject#0" expanded="false" />
+                <element signature="method#getMember#0;class#RProject#0" expanded="false" />
+                <element signature="method#getChat#0;class#RProject#0" expanded="false" />
+                <element signature="method#removeMemo#0;class#RProject#0" expanded="false" />
+                <element signature="method#getMemos#0;class#RProject#0" expanded="false" />
+                <element signature="method#getMemo#0;class#RProject#0" expanded="false" />
+                <element signature="method#getCalendar#0;class#RProject#0" expanded="false" />
+                <element signature="method#setCalendar#0;class#RProject#0" expanded="false" />
+                <element signature="method#toString#0;class#RProject#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Chat.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/view/Chat.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="241">
+              <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+              <folding>
+                <element signature="method#Chat#0;class#Chat#0" expanded="false" />
+                <element signature="method#initComponents#0;class#Chat#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RChat.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RChat.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="22" column="50" lean-forward="false" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Calendar.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/view/Calendar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="173">
+              <caret line="41" column="26" lean-forward="true" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+              <folding>
+                <element signature="method#Calendar#0;class#Calendar#0" expanded="false" />
+                <element signature="method#loadData#0;class#Calendar#0" expanded="false" />
+                <element signature="method#initComponents#0;class#Calendar#0" expanded="false" />
+                <element signature="method#createEvents#0;class#Calendar#0" expanded="false" />
+                <element signature="method#getMonthPanel#0;class#Calendar#0" expanded="false" />
+                <element signature="method#loadNewTableData#0;class#Calendar#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RProjects.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="134" column="47" lean-forward="false" selection-start-line="134" selection-start-column="32" selection-end-line="134" selection-end-column="47" />
+              <folding>
+                <element signature="method#RProjects#1;class#RProjects#0" expanded="false" />
+                <element signature="method#getRemoteProjects#0;class#RProjects#0" expanded="false" />
+                <element signature="method#setRemoteProjects#0;class#RProjects#0" expanded="false" />
+                <element signature="method#getProject#0;class#RProjects#0" expanded="false" />
+                <element signature="method#getProject#1;class#RProjects#0" expanded="false" />
+                <element signature="method#getProjectNames#0;class#RProjects#0" expanded="false" />
+                <element signature="method#getName#0;class#RProjects#0" expanded="false" />
+                <element signature="method#setName#0;class#RProjects#0" expanded="false" />
+                <element signature="method#addObserver#0;class#RProjects#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RMember.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RMember.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+              <folding>
+                <element signature="method#RMember#0;class#RMember#0" expanded="false" />
+                <element signature="method#RMember#1;class#RMember#0" expanded="false" />
+                <element signature="method#getName#0;class#RMember#0" expanded="false" />
+                <element signature="method#setName#0;class#RMember#0" expanded="false" />
+                <element signature="method#getEmail#0;class#RMember#0" expanded="false" />
+                <element signature="method#setEmail#0;class#RMember#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RMemo.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RMemo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="26" column="50" lean-forward="true" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -120,6 +254,8 @@
       <find>Projects</find>
       <find>&quot;Synergy&quot;</find>
       <find>DELETE</find>
+      <find>currentProjectName</find>
+      <find>MessageHeaders.</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -155,9 +291,6 @@
         <option value="$PROJECT_DIR$/src/shared/ServerInterface.java" />
         <option value="$PROJECT_DIR$/src/client/view/Login.java" />
         <option value="$PROJECT_DIR$/src/shared/MessageHeaders.java" />
-        <option value="$PROJECT_DIR$/src/shared/business_entities/Member.java" />
-        <option value="$PROJECT_DIR$/src/shared/UpdateMessage.java" />
-        <option value="$PROJECT_DIR$/src/server/remote_business_enitities/RMember.java" />
         <option value="$PROJECT_DIR$/src/shared/business_entities/TaskList.java" />
         <option value="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteMemo.java" />
         <option value="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteMemoInterface.java" />
@@ -168,27 +301,30 @@
         <option value="$PROJECT_DIR$/src/client/view/Sprints.java" />
         <option value="$PROJECT_DIR$/src/utility/Utilities.java" />
         <option value="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteCalendarInterface.java" />
-        <option value="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectInterface.java" />
         <option value="$PROJECT_DIR$/src/shared/business_entities/ProjectInterface.java" />
         <option value="$PROJECT_DIR$/src/shared/business_entities/Calendar.java" />
         <option value="$PROJECT_DIR$/src/shared/business_entities/Project.java" />
-        <option value="$PROJECT_DIR$/src/client/view/Chat.java" />
         <option value="$PROJECT_DIR$/src/server/controller/ServerController.java" />
-        <option value="$PROJECT_DIR$/src/database/DBdummy.java" />
-        <option value="$PROJECT_DIR$/src/client/view/Calendar.java" />
         <option value="$PROJECT_DIR$/client.properties" />
         <option value="$PROJECT_DIR$/src/client/model/ClientModel.java" />
-        <option value="$PROJECT_DIR$/src/shared/business_entities/Projects.java" />
-        <option value="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectsInterface.java" />
-        <option value="$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java" />
         <option value="$PROJECT_DIR$/src/server/remote_business_enitities/RMemo.java" />
         <option value="$PROJECT_DIR$/src/server/remote_business_enitities/RCalendar.java" />
         <option value="$PROJECT_DIR$/src/server/remote_business_enitities/RChat.java" />
-        <option value="$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java" />
         <option value="$PROJECT_DIR$/src/client/model/ProxyProject.java" />
+        <option value="$PROJECT_DIR$/src/database/DBdummy.java" />
+        <option value="$PROJECT_DIR$/src/shared/business_entities/Projects.java" />
+        <option value="$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java" />
+        <option value="$PROJECT_DIR$/src/shared/UpdateMessage.java" />
+        <option value="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectsInterface.java" />
+        <option value="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectInterface.java" />
         <option value="$PROJECT_DIR$/src/client/view/Root.java" />
+        <option value="$PROJECT_DIR$/src/shared/business_entities/Member.java" />
         <option value="$PROJECT_DIR$/src/client/controller/ClientController.java" />
         <option value="$PROJECT_DIR$/src/client/view/Projects.java" />
+        <option value="$PROJECT_DIR$/src/client/view/Calendar.java" />
+        <option value="$PROJECT_DIR$/src/client/view/Chat.java" />
+        <option value="$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java" />
+        <option value="$PROJECT_DIR$/src/server/remote_business_enitities/RMember.java" />
       </list>
     </option>
   </component>
@@ -262,6 +398,126 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="shared" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SEP2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SEP2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shared" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="remote_business_interfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SEP2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SEP2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shared" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="business_entities" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SEP2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SEP2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SEP2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SEP2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="remote_business_enitities" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SEP2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SEP2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SEP2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SEP2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -312,9 +568,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -839,12 +1095,14 @@
       <workItem from="1494511528212" duration="6125000" />
       <workItem from="1494854717248" duration="8829000" />
       <workItem from="1494921141378" duration="265000" />
-      <workItem from="1494921652057" duration="5954000" />
+      <workItem from="1494921652057" duration="15232000" />
+      <workItem from="1495032357216" duration="624000" />
+      <workItem from="1495096401052" duration="3464000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61243000" />
+    <option name="totallyTimeSpent" value="74609000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -867,10 +1125,10 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299435" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" x="92" y="92" width="1736" height="856" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="92" y="92" width="1736" height="856" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3319239" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3319239" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -882,7 +1140,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3906083" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39006343" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -912,18 +1170,24 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java</url>
-          <line>39</line>
+          <line>73</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/client/view/Projects.java</url>
-          <line>45</line>
+          <url>file://$PROJECT_DIR$/src/client/controller/ClientController.java</url>
+          <line>67</line>
           <properties />
-          <option name="timeStamp" value="22" />
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/client/view/Projects.java</url>
+          <line>52</line>
+          <properties />
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="23" />
+      <option name="time" value="29" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -936,28 +1200,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/shared/business_entities/TaskList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="18" column="33" lean-forward="false" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteMemoInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="16" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_102/src.zip!/java/util/Date.java" />
-    <entry file="file://$PROJECT_DIR$/src/client/view/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1511">
-          <caret line="157" column="24" lean-forward="false" selection-start-line="157" selection-start-column="24" selection-end-line="157" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/shared/MessageHeaders.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1023,13 +1266,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="39" column="54" lean-forward="false" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/model/Adapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1079,27 +1315,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/business_entities/Project.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="84" column="39" lean-forward="false" selection-start-line="84" selection-start-column="39" selection-end-line="84" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/business_entities/ProjectInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="44" column="31" lean-forward="false" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/UpdateMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/controller/ServerController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -1107,54 +1322,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/DBdummy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="43" column="93" lean-forward="false" selection-start-line="43" selection-start-column="93" selection-end-line="43" selection-end-column="93" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
           <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/view/Calendar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3417">
-          <caret line="226" column="55" lean-forward="false" selection-start-line="226" selection-start-column="55" selection-end-line="226" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RMemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RCalendar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="27" column="44" lean-forward="false" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RChat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="22" column="50" lean-forward="false" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RMember.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="36" column="79" lean-forward="false" selection-start-line="36" selection-start-column="79" selection-end-line="36" selection-end-column="79" />
         </state>
       </provider>
     </entry>
@@ -1176,29 +1347,186 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/business_entities/Projects.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="46" column="43" lean-forward="false" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
-          <folding>
-            <element signature="e#1287#1288#0" expanded="false" />
-            <element signature="e#1329#1330#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/view/AbstractJIF.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="20" column="25" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="140" column="6" lean-forward="false" selection-start-line="140" selection-start-column="6" selection-end-line="140" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/javax/swing/tree/DefaultTreeModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="565" column="19" lean-forward="false" selection-start-line="565" selection-start-column="19" selection-end-line="565" selection-end-column="19" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteTaskListInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/business_entities/ProjectInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="44" column="31" lean-forward="false" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/view/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="161" column="17" lean-forward="false" selection-start-line="161" selection-start-column="17" selection-end-line="161" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1428">
+          <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+          <folding>
+            <element signature="e#2411#2412#0" expanded="false" />
+            <marker date="1494921476478" expanded="true" signature="3409:3752" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/UpdateMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectsInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="53" column="56" lean-forward="false" selection-start-line="53" selection-start-column="56" selection-end-line="53" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/DBdummy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="58" column="50" lean-forward="false" selection-start-line="58" selection-start-column="50" selection-end-line="58" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/view/Root.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="66" column="5" lean-forward="true" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+          <folding>
+            <element signature="method#setEventHandlers#0;class#Root#0" expanded="false" />
+            <element signature="method#initComponents#0;class#Root#0" expanded="false" />
+            <element signature="method#showRoot#0;class#Root#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/business_entities/Member.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="45" column="60" lean-forward="false" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/business_entities/Projects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/model/ProxyProject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/business_entities/Project.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="e#2122#2123#0" expanded="true" />
+            <element signature="e#2168#2169#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/business_entities/Calendar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/business_entities/Memo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/view/Calendar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="41" column="26" lean-forward="true" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+          <folding>
+            <element signature="method#Calendar#0;class#Calendar#0" expanded="false" />
+            <element signature="method#loadData#0;class#Calendar#0" expanded="false" />
+            <element signature="method#initComponents#0;class#Calendar#0" expanded="false" />
+            <element signature="method#createEvents#0;class#Calendar#0" expanded="false" />
+            <element signature="method#getMonthPanel#0;class#Calendar#0" expanded="false" />
+            <element signature="method#loadNewTableData#0;class#Calendar#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/view/Projects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding>
+            <element signature="method#Projects#0;class#Projects#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/view/Chat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+        <state relative-caret-position="241">
+          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding>
             <element signature="method#Chat#0;class#Chat#0" expanded="false" />
             <element signature="method#initComponents#0;class#Chat#0" expanded="false" />
@@ -1206,32 +1534,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/model/ProxyProject.java">
+    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RChat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="20" column="42" lean-forward="false" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#342#343#0" expanded="false" />
-            <element signature="e#374#375#0" expanded="false" />
-            <element signature="e#549#550#0" expanded="false" />
-            <element signature="e#581#582#0" expanded="false" />
-            <element signature="e#3009#3010#0" expanded="false" />
-            <element signature="e#3058#3059#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="289">
+          <caret line="22" column="50" lean-forward="false" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="50" column="13" lean-forward="false" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+        <state relative-caret-position="166">
+          <caret line="63" column="49" lean-forward="false" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="49" />
           <folding>
-            <element signature="method#RProject#0;class#RProject#0" expanded="false" />
             <element signature="method#RProject#1;class#RProject#0" expanded="false" />
             <element signature="method#getName#0;class#RProject#0" expanded="false" />
             <element signature="method#getMembers#0;class#RProject#0" expanded="false" />
-            <element signature="method#setName#0;class#RProject#0" expanded="false" />
             <element signature="method#setMembers#0;class#RProject#0" expanded="false" />
             <element signature="method#getTaskList#0;class#RProject#0" expanded="false" />
             <element signature="method#setTaskList#0;class#RProject#0" expanded="false" />
@@ -1239,7 +1557,6 @@
             <element signature="method#addMember#0;class#RProject#0" expanded="false" />
             <element signature="method#getMember#0;class#RProject#0" expanded="false" />
             <element signature="method#getChat#0;class#RProject#0" expanded="false" />
-            <element signature="method#addMessage#0;class#RProject#0" expanded="false" />
             <element signature="method#removeMemo#0;class#RProject#0" expanded="false" />
             <element signature="method#getMemos#0;class#RProject#0" expanded="false" />
             <element signature="method#getMemo#0;class#RProject#0" expanded="false" />
@@ -1252,11 +1569,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="126" column="36" lean-forward="false" selection-start-line="126" selection-start-column="30" selection-end-line="126" selection-end-column="36" />
+        <state relative-caret-position="166">
+          <caret line="134" column="47" lean-forward="false" selection-start-line="134" selection-start-column="32" selection-end-line="134" selection-end-column="47" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#RProjects#0;class#RProjects#0" expanded="false" />
             <element signature="method#RProjects#1;class#RProjects#0" expanded="false" />
             <element signature="method#getRemoteProjects#0;class#RProjects#0" expanded="false" />
             <element signature="method#setRemoteProjects#0;class#RProjects#0" expanded="false" />
@@ -1270,67 +1585,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/view/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#813#1071#0" expanded="false" />
-            <element signature="e#1070#1071#0" expanded="false" />
-            <element signature="e#2223#2224#0" expanded="false" />
-            <element signature="e#2271#2272#0" expanded="false" />
-            <element signature="e#2321#2322#0" expanded="false" />
-            <element signature="e#2367#2368#0" expanded="false" />
-            <marker date="1494921476478" expanded="true" signature="3409:3752" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectsInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="23" lean-forward="false" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/business_entities/Calendar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/business_entities/Memo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="140" column="6" lean-forward="false" selection-start-line="140" selection-start-column="6" selection-end-line="140" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/javax/swing/tree/DefaultTreeModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="565" column="19" lean-forward="false" selection-start-line="565" selection-start-column="19" selection-end-line="565" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/controller/ClientController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state relative-caret-position="379">
+          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
           <folding>
             <element signature="class#Wrapper#0;class#ClientController#0" expanded="false" />
             <element signature="method#ClientController#0;class#ClientController#0" expanded="false" />
@@ -1339,23 +1597,48 @@
             <element signature="method#validateID#0;class#ClientController#0" expanded="false" />
             <element signature="method#login#0;class#ClientController#0" expanded="false" />
             <element signature="method#createLockFile#0;class#ClientController#0" expanded="false" />
-            <element signature="e#6510#6741#0" expanded="false" />
+            <element signature="e#6771#7002#0" expanded="false" />
+            <element signature="method#loadProperties#0;class#ClientController#0" expanded="false" />
+            <element signature="method#getProjectNames#0;class#ClientController#0" expanded="false" />
+            <element signature="method#getProjectNamesFromServer#0;class#ClientController#0" expanded="false" />
+            <element signature="method#addMemo#0;class#ClientController#0" expanded="false" />
+            <element signature="method#removeMemo#0;class#ClientController#0" expanded="false" />
+            <element signature="method#addProject#0;class#ClientController#0" expanded="false" />
+            <element signature="method#deleteProject#0;class#ClientController#0" expanded="false" />
+            <element signature="method#getOrganizationMembersFromServer#0;class#ClientController#0" expanded="false" />
+            <element signature="method#removeMember#0;class#ClientController#0" expanded="false" />
+            <element signature="method#removeMember#1;class#ClientController#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/view/Root.java">
+    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RCalendar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="82" column="5" lean-forward="true" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
+        <state relative-caret-position="295">
+          <caret line="27" column="44" lean-forward="false" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/view/Projects.java">
+    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RMember.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="921">
-          <caret line="248" column="0" lean-forward="true" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
+        <state relative-caret-position="425">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding>
+            <element signature="method#RMember#0;class#RMember#0" expanded="false" />
+            <element signature="method#RMember#1;class#RMember#0" expanded="false" />
+            <element signature="method#getName#0;class#RMember#0" expanded="false" />
+            <element signature="method#setName#0;class#RMember#0" expanded="false" />
+            <element signature="method#getEmail#0;class#RMember#0" expanded="false" />
+            <element signature="method#setEmail#0;class#RMember#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RMemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="26" column="50" lean-forward="true" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="50" />
           <folding />
         </state>
       </provider>

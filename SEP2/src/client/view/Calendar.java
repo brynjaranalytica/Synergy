@@ -10,15 +10,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
-import javax.swing.AbstractButton;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
-import javax.swing.ListSelectionModel;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
@@ -104,15 +96,30 @@ public class Calendar extends AbstractJIF {
     public void createEvents() {
 
         btnNxtMonth.addActionListener(e -> {
+            if(Root.currentProjectName == null || Root.currentProjectName.equals("Projects")){
+                JOptionPane.showMessageDialog(null, "You have to select one of the projects first.");
+                return;
+            }
+
             loadNewTableData(MyDate.getNextMonthDates(thisDate));
         });
         btnPrevMonth.addActionListener(e -> {
+            if(Root.currentProjectName == null || Root.currentProjectName.equals("Projects")){
+                JOptionPane.showMessageDialog(null, "You have to select one of the projects first.");
+                return;
+            }
+
             loadNewTableData(MyDate.getPreviousMonthDates(thisDate));
         });
 
         btnDelete.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseReleased(MouseEvent e) {
+                if(Root.currentProjectName == null || Root.currentProjectName.equals("Projects")){
+                    JOptionPane.showMessageDialog(null, "You have to select one of the projects first.");
+                    return;
+                }
+
                 String selectedDateString = textField.getText();
                 if (selectedDateString == null || selectedDateString.equals("") || textPane.getText().equals("") || textPane.getText() == null)
                     return;
@@ -125,6 +132,11 @@ public class Calendar extends AbstractJIF {
         btnSave.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseReleased(MouseEvent e) {
+                if(Root.currentProjectName == null || Root.currentProjectName.equals("Projects")){
+                    JOptionPane.showMessageDialog(null, "You have to select one of the projects first.");
+                    return;
+                }
+
                 String selectedDateString = textField.getText();
                 if (selectedDateString == null || selectedDateString.equals("") || textPane.getText().equals("") || textPane.getText() == null)
                     return;
@@ -138,6 +150,11 @@ public class Calendar extends AbstractJIF {
 
             @Override
             public void mouseClicked(MouseEvent arg0) {
+                if(Root.currentProjectName == null || Root.currentProjectName.equals("Projects")){
+                    JOptionPane.showMessageDialog(null, "You have to select one of the projects first.");
+                    return;
+                }
+
                 try {
                     int dayPicked = (int) table.getValueAt(table.getSelectedRow(), table.getSelectedColumn());
                     pickedDate = LocalDate.of(thisDate.getYear(), thisDate.getMonth(), dayPicked);

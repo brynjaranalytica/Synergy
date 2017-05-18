@@ -92,8 +92,30 @@ public class RProject implements RemoteProjectInterface {
     }
 
     @Override
+    public void addMember(String email) throws RemoteException {
+        for(RemoteMemberInterface member: RProjects.remoteMembers) {
+            if(member.getEmail().equals(email))
+                this.members.add(member);
+                DBdummy.getInstance().updateProject(this);
+                RProjects.notifyObservers(MessageHeaders.UPDATE, new Project(this));
+                break;
+        }
+    }
+
+    @Override
     public RemoteMemberInterface getMember(int index) throws RemoteException {
         return this.members.get(index);
+    }
+
+    @Override
+    public RemoteMemberInterface getMember(String email) throws RemoteException {
+        for(RemoteMemberInterface member: members){
+            if(member.getEmail().equals(email)) {
+                return member;
+            }
+        }
+
+        return null;
     }
 
     @Override
@@ -105,7 +127,7 @@ public class RProject implements RemoteProjectInterface {
     public void addMessage(String message) throws RemoteException{
         this.chat.addMessage(message);
         DBdummy.getInstance().updateProject(this);
-        RProjects.notifyObservers(MessageHeaders.CHAT_MESSAGE, new Project(this));
+        RProjects.notifyObservers(MessageHeaders.UPDATE, new Project(this));
     }
 
     @Override
@@ -125,6 +147,26 @@ public class RProject implements RemoteProjectInterface {
     @Override
     public ArrayList<RemoteMemoInterface> getMemos() throws RemoteException {
         return this.calendar.getMemos();
+    }
+
+    @Override
+    public void removeMember(String email) throws RemoteException {
+        for(RemoteMemberInterface member: members){
+            if(member.getEmail().equals(email)) {
+                members.remove(member);
+                break;
+            }
+        }
+
+        DBdummy.getInstance().updateProject(this);
+        RProjects.notifyObservers(MessageHeaders.UPDATE, new Project(this));
+    }
+
+    @Override
+    public void removeMember(int index) throws RemoteException {
+        this.members.remove(index);
+        DBdummy.getInstance().updateProject(this);
+        RProjects.notifyObservers(MessageHeaders.UPDATE, new Project(this));
     }
 
     @Override

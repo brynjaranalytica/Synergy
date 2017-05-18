@@ -3,8 +3,11 @@ package server.remote_business_enitities;
 import shared.MessageHeaders;
 import shared.UpdateMessage;
 import shared.business_entities.BusinessEntity;
+import shared.business_entities.Member;
 import shared.business_entities.Project;
 import shared.business_entities.ProjectInterface;
+import shared.remote_business_interfaces.RemoteMemberInterface;
+import shared.remote_business_interfaces.RemoteMemoInterface;
 import shared.remote_business_interfaces.RemoteProjectInterface;
 import shared.remote_business_interfaces.RemoteProjectsInterface;
 import utility.observer.RemoteObserver;
@@ -20,13 +23,19 @@ import java.util.ArrayList;
 public class RProjects implements RemoteProjectsInterface {
     //private static RemoteProjectsInterface mirror;
     private static RemoteSubjectDelegate<UpdateMessage> remoteSubjectDelegate;
+
+    static  ArrayList<RemoteMemberInterface> remoteMembers;
     private ArrayList<RemoteProjectInterface> remoteProjects;
     private String name;
-
 
     public RProjects(shared.business_entities.Projects projects) throws RemoteException  {
         this.remoteProjects = new ArrayList<>();
         this.name = projects.getName();
+        this.remoteProjects = new ArrayList<>();
+        ArrayList<Member> members = projects.getMembers();
+        for(Member member: members){
+            this.remoteMembers.add(new RMember(member));
+        }
         ArrayList<ProjectInterface> projectList = projects.getProjectList();
         for(ProjectInterface project: projectList){
             this.remoteProjects.add(new RProject(project));
@@ -34,6 +43,31 @@ public class RProjects implements RemoteProjectsInterface {
         UnicastRemoteObject.exportObject(this,0);
         //mirror = this;
 
+    }
+
+    public ArrayList<RemoteMemberInterface> getMembers() throws RemoteException{
+        return remoteMembers;
+    }
+
+    @Override
+    public void setMembers(ArrayList<RemoteMemberInterface> members) throws RemoteException {
+        this.remoteMembers = members;
+    }
+
+    @Override
+    public RemoteMemberInterface getMember(int index) throws RemoteException {
+        return this.remoteMembers.get(index);
+    }
+
+    @Override
+    public RemoteMemberInterface getMember(String email) throws RemoteException {
+        for(RemoteMemberInterface member: remoteMembers){
+            if(member.getEmail().equals(email)) {
+                return member;
+            }
+        }
+
+        return null;
     }
 
     public RProjects() throws RemoteException{

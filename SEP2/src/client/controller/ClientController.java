@@ -2,11 +2,15 @@ package client.controller;
 
 
 import client.model.ClientModel;
+import client.view.Root;
 import client.view.View;
 import server.remote_business_enitities.RMemo;
 import shared.*;
+import shared.business_entities.Member;
 import shared.business_entities.Project;
 import shared.business_entities.ProjectInterface;
+import shared.business_entities.Projects;
+import shared.remote_business_interfaces.RemoteMemberInterface;
 import shared.remote_business_interfaces.RemoteProjectInterface;
 import shared.remote_business_interfaces.RemoteProjectsInterface;
 import utility.Log;
@@ -171,6 +175,7 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
                 remoteProjects.addObserver(this);
                 clientModel.setOrganizationName(remoteProjects.getName());
                 clientModel.initProxyProjects(getProjectNamesFromServer());
+                clientModel.getProjects().setMembers(getOrganizationMembersFromServer());
             }
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -281,7 +286,7 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
     }
 
     public void addProject(ProjectInterface project) {
-        if(clientModel.getProjects().getProjectNames().contains(project.getName())){
+        if (clientModel.getProjects().getProjectNames().contains(project.getName())) {
             System.out.println("The project with such name already exists!");
             return;
         }
@@ -293,9 +298,57 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
         }
     }
 
-    public void deleteProject(String projectName){
+    public void deleteProject(String projectName) {
         try {
             remoteProjects.removeProject(projectName);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private ArrayList<Member> getOrganizationMembersFromServer() {
+        try {
+            ArrayList<RemoteMemberInterface> remoteMembers = remoteProjects.getMembers();
+            ArrayList<Member> members = new ArrayList<>();
+            for (RemoteMemberInterface remoteMember : remoteMembers) {
+                members.add(new Member(remoteMember));
+            }
+
+            return members;
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Projects getProjectsFromModel() {
+        return clientModel.getProjects();
+    }
+
+    public boolean addMember(int index) {
+        Member member = clientModel.getProjects().getMembers().get(index);
+        if(clientModel.getProject(Root.currentProjectName).getMembers().contains(member))
+            return false;
+        try {
+            remoteProjects.getProject(Root.currentProjectName).addMember(clientModel.getProjects().getMembers().get(index).getEmail());
+            return true;
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public void removeMember(String email) {
+        try {
+            remoteProjects.getProject(Root.currentProjectName).removeMember(email);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void removeMember(int index) {
+        try {
+            remoteProjects.getProject(Root.currentProjectName).removeMember(index);
         } catch (RemoteException e) {
             e.printStackTrace();
         }

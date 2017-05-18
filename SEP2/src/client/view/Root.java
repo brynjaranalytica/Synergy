@@ -14,7 +14,7 @@ public class Root extends Window {
 	public static AbstractJIF calendarFrame;
 	public static AbstractJIF chatFrame;
 
-	static String currentProjectName;
+	public static String currentProjectName;
 
 
     @Override
@@ -57,13 +57,7 @@ public class Root extends Window {
 
     @Override
     public void loadData() {
-        /*ArrayList<String> projectNames = controller.getProjectNames();
-        for(String projectName: projectNames) {
-			System.out.println("Project name: " + projectName);
-			System.out.println("Task list: ");
-			System.out.println(controller.getProjectFromModel(projectName).getTaskList());
-		}*/
-		projectFrame.loadData(controller.getProjectNames());
+		projectFrame.loadData(controller.getProjectsFromModel());
         if(currentProjectName == null || currentProjectName.equals("Projects"))
         	return;
 

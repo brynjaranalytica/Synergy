@@ -2,7 +2,9 @@ package client.view;
 
 import client.controller.ClientController;
 import server.remote_business_enitities.RProject;
+import shared.business_entities.Member;
 import shared.business_entities.Project;
+import shared.business_entities.ProjectInterface;
 
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
@@ -17,7 +19,10 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 
@@ -40,15 +45,28 @@ public class Projects extends AbstractJIF {
     private JTextField textFieldAddProject;
     private JButton btnAddProjectDropDown;
     private JButton btnCancelAddProject;
+    private DefaultListModel<String> listUsersModel;
 
     @Override
     public void loadData(Object object) {
-        ArrayList<String> projectNames = (ArrayList<String>) object;
+        ClientController controller = ClientController.getInstance();
+        shared.business_entities.Projects projects = (shared.business_entities.Projects) object;
+        ArrayList<String> projectNames = controller.getProjectNames();
+        ArrayList<Member> organizationMembers = projects.getMembers();
+        for(Member member: organizationMembers){
+            listUsersModel.addElement(member.getName());
+        }
         rootNode.removeAllChildren();
 
         for (int i = 0; i < projectNames.size(); i++) {
             System.out.println(projectNames.get(i));
-            treeModel.insertNodeInto(new DefaultMutableTreeNode(projectNames.get(i)), rootNode, i);
+            DefaultMutableTreeNode projectNode = new DefaultMutableTreeNode(projectNames.get(i));
+            treeModel.insertNodeInto(projectNode, rootNode, i);
+            ProjectInterface project = controller.getProjectFromModel(projectNames.get(i));
+            ArrayList<Member> members = project.getMembers();
+            for(int j = 0; j < members.size(); j++){
+                treeModel.insertNodeInto(new DefaultMutableTreeNode(members.get(j).getName()), projectNode, j);
+            }
         }
 
         System.out.println("Reload started " + new Date().toString());
@@ -77,7 +95,7 @@ public class Projects extends AbstractJIF {
         treeModel = new DefaultTreeModel(rootNode);
         tree = new JTree(treeModel);
         tree.setBounds(10, 60, 322, 694);
-        tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+        tree.getSelectionModel().setSelectionMode(TreeSelectionModel.CONTIGUOUS_TREE_SELECTION);
         //tree.setShowsRootHandles(true);
 
         tree.setRowHeight(22);
@@ -123,18 +141,10 @@ public class Projects extends AbstractJIF {
         listUsers.setForeground(SystemColor.text);
         listUsers.setBackground(SystemColor.textHighlight);
         listUsers.setBounds(0, 0, 110, 160);
+        listUsers.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         panelAddUser.add(listUsers);
-        listUsers.setModel(new AbstractListModel() {
-            String[] values = new String[]{"User1", "User2"};
-
-            public int getSize() {
-                return values.length;
-            }
-
-            public Object getElementAt(int index) {
-                return values[index];
-            }
-        });
+        listUsersModel = new DefaultListModel<String>();
+        listUsers.setModel(listUsersModel);
 
         btnAddUserToProject = new JButton("Add user");
         btnAddUserToProject.setBounds(0, 160, 110, 23);
@@ -176,12 +186,14 @@ public class Projects extends AbstractJIF {
         tree.addTreeSelectionListener(new TreeSelectionListener() {
             @Override
             public void valueChanged(TreeSelectionEvent e) {
-
                 DefaultMutableTreeNode selectedNode =
                         (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
+                if(!rootNode.isNodeChild(selectedNode))
+                    return;
+
                 String selectedProjectName = (String) selectedNode.getUserObject();
                 Root.currentProjectName = selectedProjectName;
-                if (selectedProjectName.equals("Projects"))
+                if (Root.currentProjectName.equals("Projects"))
                     return;
                 Root.chatFrame.loadData(ClientController.getInstance().getProjectFromModel(selectedProjectName).getChat());
                 Root.calendarFrame.loadData(ClientController.getInstance().getProjectFromModel(selectedProjectName).getCalendar());
@@ -191,6 +203,11 @@ public class Projects extends AbstractJIF {
         btnDelProject.addActionListener(e -> {
             DefaultMutableTreeNode selectedNode =
                     (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
+            if (Root.currentProjectName == null || Root.currentProjectName.equals("Projects") || !rootNode.isNodeChild(selectedNode)) {
+                JOptionPane.showMessageDialog(null, "You have to select one of the existing projects.");
+                return;
+            }
+
             String selectedProjectName = (String) selectedNode.getUserObject();
             ClientController.getInstance().deleteProject(selectedProjectName);
         });
@@ -232,6 +249,8 @@ public class Projects extends AbstractJIF {
         {
             panelAddUser.setVisible(true);
             btnAddUser.setVisible(false);
+
+
         });
 
         btnAddUserToProject.addActionListener(e ->
@@ -239,6 +258,17 @@ public class Projects extends AbstractJIF {
             panelAddUser.setVisible(false);
             btnAddUser.setVisible(true);
             //add selected user to selected project code here
+            int index = listUsers.getSelectedIndex();
+            if(index == -1)
+                return;
+            if(Root.currentProjectName.equals("Projects") || Root.currentProjectName == null) {
+                JOptionPane.showMessageDialog(null, "You have to select one of the existing projects first.");
+                return;
+            }
+
+            int indexOfSelectedMember = listUsers.getSelectedIndex();
+            if(!ClientController.getInstance().addMember(indexOfSelectedMember))
+                JOptionPane.showMessageDialog(null ,"Selected member already is a part of the project.");
         });
 
         btnCancelAddUserToProject.addActionListener(e ->
@@ -250,6 +280,27 @@ public class Projects extends AbstractJIF {
         btnDelUser.addActionListener(e ->
         {
             //delete selected user from selected project
+            DefaultMutableTreeNode selectedNode =
+                    (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
+
+            if (Root.currentProjectName == null || Root.currentProjectName.equals("Projects")) {
+                JOptionPane.showMessageDialog(null, "You have to select one of the existing projects.");
+                return;
+            }
+
+            if(rootNode.isNodeChild(selectedNode)) {
+                JOptionPane.showMessageDialog(null, "You have to select one of the members of selected project.");
+                return;
+            }
+
+            DefaultMutableTreeNode parentNode = (DefaultMutableTreeNode) selectedNode.getParent();
+            if(!String.valueOf(parentNode.getUserObject()).equals(Root.currentProjectName)) {
+                JOptionPane.showMessageDialog(null, "Selected project and selected member has to be from the same project.");
+                return;
+            }
+
+            int indexOfSelectedMember = parentNode.getIndex(selectedNode);
+            ClientController.getInstance().removeMember(indexOfSelectedMember);
         });
 
     }

@@ -1,5 +1,7 @@
 package shared.business_entities;
 
+import shared.remote_business_interfaces.RemoteMemberInterface;
+import shared.remote_business_interfaces.RemoteMemoInterface;
 import shared.remote_business_interfaces.RemoteProjectInterface;
 import shared.remote_business_interfaces.RemoteProjectsInterface;
 
@@ -10,12 +12,18 @@ import java.util.ArrayList;
  * Created by lenovo on 4/11/2017.
  */
 public class Projects implements BusinessEntity {
+    private ArrayList<Member> members;
     private ArrayList<ProjectInterface> projects;
     private String name;// COMPANY/ORGANIZATION NAME
 
     public Projects(RemoteProjectsInterface root) throws RemoteException {
         this.projects = new ArrayList<>();
         this.name = root.getName();
+        this.members = new ArrayList<>();
+        ArrayList<RemoteMemberInterface> remoteMembers = root.getMembers();
+        for(RemoteMemberInterface remoteMember: remoteMembers){
+            this.members.add(new Member(remoteMember));
+        }
 
         ArrayList<RemoteProjectInterface> remoteProjects = root.getRemoteProjects();
         for(RemoteProjectInterface remoteProject: remoteProjects)
@@ -23,8 +31,13 @@ public class Projects implements BusinessEntity {
 
     }
 
+    public ArrayList<Member> getMembers() {
+        return members;
+    }
+
     public Projects(String name) {
-        projects = new ArrayList<>();
+        this.members = new ArrayList<>();
+        this.projects = new ArrayList<>();
         this.name = name;
     }
 
@@ -46,6 +59,10 @@ public class Projects implements BusinessEntity {
 
     public void addProject(ProjectInterface project) {
         this.projects.add(project);
+    }
+
+    public void setMembers(ArrayList<Member> members){
+        this.members = members;
     }
 
     public ProjectInterface getProject(int projectIndex){

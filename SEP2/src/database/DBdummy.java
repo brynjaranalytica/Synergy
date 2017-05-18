@@ -3,12 +3,14 @@ package database;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import server.remote_business_enitities.RMember;
 import server.remote_business_enitities.RMemo;
 import server.remote_business_enitities.RProject;
 import server.remote_business_enitities.RProjects;
 import shared.User;
 import shared.UserType;
 import shared.remote_business_interfaces.RemoteCalendarInterface;
+import shared.remote_business_interfaces.RemoteMemberInterface;
 import shared.remote_business_interfaces.RemoteProjectInterface;
 import utility.Cryptography;
 import utility.Utilities;
@@ -34,9 +36,17 @@ public class DBdummy {
 		nick.setPass(Cryptography.encryptPass(new char[] {'1', '2', '3', '4', '5', '6'}, Cryptography.getKey()));
 		users.add(admin);
 		users.add(mogens);
+		users.add(nick);
 
 		try {
 			remoteProjects = new RProjects();
+			remoteProjects.setName("Neobit");
+			ArrayList<RemoteMemberInterface> members = new ArrayList<>();
+			members.add(new RMember("mogens@via.dk", "Mogens Bjerregaard"));
+			members.add(new RMember("mihai_timotin@via.dk", "Mihai Timotin"));
+			members.add(new RMember("253739@via.dk", "Nicolai Onov"));
+			members.add(new RMember("hazamadra@gmail.com", "Eugeniu Maloman"));
+			remoteProjects.setMembers(members);
 
 			RProject remoteProject1 = new RProject("Synergy");
 			RemoteCalendarInterface calendar1 = remoteProject1.getCalendar();
@@ -45,6 +55,8 @@ public class DBdummy {
 			remoteProject1.getChat().addMessage("Welcome to Synergy chat");
 			remoteProject1.addTask("Implement Proxy");
 			remoteProject1.addTask("Prototype the database");
+			remoteProject1.addMember(members.get(0));
+			remoteProject1.addMember(members.get(1));
 			remoteProjects.addProject(remoteProject1);
 
 			RProject remoteProject2 = new RProject("VIA Bus");
@@ -52,13 +64,13 @@ public class DBdummy {
 			calendar2.addMemo(new RMemo(Utilities.parseDate("2017-06-06"),"Birthday"));
 			calendar2.addMemo(new RMemo(Utilities.parseDate("2017-05-16"),"Read about TCP"));
 			remoteProject2.getChat().addMessage("Welcome to VIA Bus chat");
+			remoteProject2.addMember(members.get(2));
+			remoteProject2.addMember(members.get(3));
 			remoteProjects.addProject(remoteProject2);
 
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
-
-		users.add(nick);
 
 	}
 

@@ -25,7 +25,11 @@ public interface RemoteProjectInterface extends Remote {
 
     void addMember(RemoteMemberInterface member) throws RemoteException;
 
+    void addMember(String email) throws RemoteException;
+
     RemoteMemberInterface getMember(int index) throws RemoteException;
+
+    RemoteMemberInterface getMember(String email) throws RemoteException;
 
     RemoteChatInterface getChat() throws RemoteException;
 
@@ -43,5 +47,9 @@ public interface RemoteProjectInterface extends Remote {
 
     ArrayList<RemoteMemoInterface> getMemos() throws RemoteException;
 
+    void removeMember(String email) throws RemoteException;
+
     RemoteMemoInterface getMemo(Date date) throws RemoteException;
+
+    void removeMember(int index) throws RemoteException;
 }

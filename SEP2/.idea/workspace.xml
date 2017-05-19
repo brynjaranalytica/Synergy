@@ -2,15 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bcd2185-6df3-4059-a039-89823f30c92d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../.metadata/.lock" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/controller/ClientController.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/controller/ClientController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Projects.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/Projects.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/controller/ServerController.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/controller/ServerController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/remote_business_enitities/RProjects.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/remote_business_enitities/RProjects.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/controller/ClientController.java" afterPath="$PROJECT_DIR$/src/client/controller/ClientController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/view/Projects.java" afterPath="$PROJECT_DIR$/src/client/view/Projects.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java" afterPath="$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectsInterface.java" afterPath="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectsInterface.java" />
     </list>
     <ignored path="SEP2.iws" />
@@ -156,8 +147,8 @@
       <file leaf-file-name="RProjects.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="89" column="88" selection-start-line="89" selection-start-column="88" selection-end-line="89" selection-end-column="88" />
+            <state relative-caret-position="176">
+              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
               <folding>
                 <element signature="method#RProjects#1;class#RProjects#0" expanded="false" />
                 <element signature="method#setRemoteProjects#0;class#RProjects#0" expanded="false" />
@@ -1373,8 +1364,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="89" column="88" selection-start-line="89" selection-start-column="88" selection-end-line="89" selection-end-column="88" />
+        <state relative-caret-position="176">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding>
             <element signature="method#RProjects#1;class#RProjects#0" expanded="false" />
             <element signature="method#setRemoteProjects#0;class#RProjects#0" expanded="false" />

@@ -40,4 +40,6 @@ public interface RemoteProjectsInterface extends RemoteSubject<UpdateMessage> {
 
     RemoteMemberInterface getMember(String email) throws RemoteException;
 
+    void setProjects(ArrayList<RemoteProjectInterface> remoteProjects) throws RemoteException;
+
 }

@@ -210,6 +210,7 @@ public class Projects extends AbstractJIF {
             }
 
             String selectedProjectName = (String) selectedNode.getUserObject();
+            Root.currentProjectName = "Projects";
             ClientController.getInstance().deleteProject(selectedProjectName);
         });
 

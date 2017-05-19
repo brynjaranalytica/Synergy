@@ -70,6 +70,11 @@ public class RProjects implements RemoteProjectsInterface {
         return null;
     }
 
+    @Override
+    public void setProjects(ArrayList<RemoteProjectInterface> remoteProjects) throws RemoteException {
+        this.remoteProjects = remoteProjects;
+    }
+
     public RProjects() throws RemoteException{
         remoteSubjectDelegate = new RemoteSubjectDelegate<>(this);
         this.remoteProjects = new ArrayList<>();
@@ -132,7 +137,7 @@ public class RProjects implements RemoteProjectsInterface {
     public void removeProject(String projectName) throws RemoteException {
         for(RemoteProjectInterface project: remoteProjects){
             if(project.getName().equals(projectName)) {
-                notifyObservers(MessageHeaders.DELETE, new Project(project));
+                remoteSubjectDelegate.notifyObservers(new UpdateMessage(MessageHeaders.DELETE, new Project(project)));
                 remoteProjects.remove(project);
                 break;
             }

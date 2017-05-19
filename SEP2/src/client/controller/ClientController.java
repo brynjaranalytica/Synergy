@@ -284,7 +284,7 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
 
     public void addProject(ProjectInterface project) {
         if (clientModel.getProjects().getProjectNames().contains(project.getName())) {
-            System.out.println("The project with such name already exists!");
+            JOptionPane.showMessageDialog(null,"The project with such name already exists!");
             return;
         }
 

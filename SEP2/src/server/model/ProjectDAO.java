@@ -35,18 +35,18 @@ public class ProjectDAO
       DriverManager.registerDriver(new Driver());
    }
    
-   public ArrayList<RemoteProjectInterface> readAllProjects() throws SQLException, RemoteException {
+   public static ArrayList<RemoteProjectInterface> readAllProjects() throws SQLException, RemoteException {
       Connection connection = DriverManager
             .getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=synergy", "postgres", "159");
       ArrayList<RemoteProjectInterface> projects = new ArrayList<RemoteProjectInterface>();
       try {
-         PreparedStatement statement = connection.prepareStatement("SELECT * project_name FROM project");
+         PreparedStatement statement = connection.prepareStatement("SELECT * FROM project");
          ResultSet result = statement.executeQuery(); 
          while (result.next()) {
             RProject remoteProject = new RProject(result.getString("project_name"));
             remoteProject.setChat(readChat(result.getString("project_name")));
             remoteProject.setCalendar(readCalendar(result.getString("project_name")));
-            remoteProject.setMembers(readMembers(result.getString("project_name")));
+            remoteProject.setMembers(readParticipants(result.getString("project_name")));
             projects.add(remoteProject);
         }
          
@@ -56,19 +56,20 @@ public class ProjectDAO
       return projects;
    }
    
-   public RProject readProject(String projectName) throws SQLException, RemoteException {
+   public static RProject readProject(String projectName) throws SQLException, RemoteException {
       Connection connection = DriverManager
             .getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=synergy", "postgres", "159");
       RProject project = new RProject(projectName);
       try
       {
          PreparedStatement statement = connection.prepareStatement("SELECT project_name FROM project WHERE project_name = ?");
+         statement.setString(1, projectName);
          ResultSet result = statement.executeQuery(); 
          while (result.next())
          {
             project.setChat(readChat(result.getString("project_name")));
             project.setCalendar(readCalendar(result.getString("project_name")));
-            project.setMembers(readMembers(result.getString("project_name")));
+            project.setMembers(readParticipants(result.getString("project_name")));
          }
       }
       finally
@@ -78,12 +79,12 @@ public class ProjectDAO
       return project;
    }
    
-   public RChat readChat(String projectName) throws SQLException, RemoteException {
+   public static RChat readChat(String projectName) throws SQLException, RemoteException {
       Connection connection = DriverManager
             .getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=synergy", "postgres", "159");
       RChat chat = new RChat();
       try {
-         PreparedStatement statement = connection.prepareStatement("SELECT * message_body FROM message WHERE project_name = ?");
+         PreparedStatement statement = connection.prepareStatement("SELECT * FROM message WHERE project_name = ?");
          statement.setString(1, projectName);
          ResultSet result = statement.executeQuery(); 
          while (result.next()) {
@@ -95,7 +96,7 @@ public class ProjectDAO
       return chat;
    }
    
-   public RCalendar readCalendar(String projectName) throws SQLException, RemoteException {
+   public static RCalendar readCalendar(String projectName) throws SQLException, RemoteException {
       Connection connection = DriverManager
             .getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=synergy", "postgres", "159");
       RCalendar calendar = new RCalendar();
@@ -113,15 +114,33 @@ public class ProjectDAO
       return calendar;
    }
    
-   public ArrayList<RemoteMemberInterface> readMembers(String projectName) throws SQLException, RemoteException {
+   public static ArrayList<RemoteMemberInterface> readMembers() throws SQLException, RemoteException {
       Connection connection = DriverManager
             .getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=synergy", "postgres", "159");
       ArrayList<RemoteMemberInterface> members = new ArrayList<RemoteMemberInterface>();
       try
       {
-         PreparedStatement statement = connection.prepareStatement("SELECT member_name, member_email, FROM member"
-               + "WHERE member_email IN (SELECT member_email FROM participation"
-               + "WHERE project_name = ?");
+         PreparedStatement statement = connection.prepareStatement("SELECT * FROM member");
+         ResultSet result = statement.executeQuery();
+         while (result.next()) {
+            RemoteMemberInterface member = new RMember(result.getString("member_email"),  result.getString("member_name"));
+            members.add(member);
+        }
+      }
+      finally
+      {
+         connection.close();
+      }
+      return members;
+   }
+   
+   public static ArrayList<RemoteMemberInterface> readParticipants(String projectName) throws SQLException, RemoteException {
+      Connection connection = DriverManager
+            .getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=synergy", "postgres", "159");
+      ArrayList<RemoteMemberInterface> members = new ArrayList<RemoteMemberInterface>();
+      try
+      {
+         PreparedStatement statement = connection.prepareStatement("SELECT member_name, member_email FROM member WHERE member_email IN(SELECT member_email FROM participation WHERE project_name = ?)");
          statement.setString(1, projectName);
          ResultSet result = statement.executeQuery();
          while (result.next()) {
@@ -136,12 +155,12 @@ public class ProjectDAO
       return members;
    }
    
-   public void addMessage(String projectName, String message) throws SQLException {
+   public static void addMessage(String projectName, String message) throws SQLException {
       Connection connection = DriverManager
             .getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=synergy", "postgres", "159");
       try
       {
-         PreparedStatement statement = connection.prepareStatement("INSERT INTO message(project_name, message_body) VALUES = (?, ?)");
+         PreparedStatement statement = connection.prepareStatement("INSERT INTO message(project_name, message_body) VALUES (?, ?)");
          statement.setString(1, projectName);
          statement.setString(2, message);
          statement.executeUpdate();
@@ -152,7 +171,7 @@ public class ProjectDAO
       }
    }
    
-   public void addMemo(String projectName, Date memoDate, String memoDescription) throws SQLException {
+   public static void addMemo(String projectName, Date memoDate, String memoDescription) throws SQLException {
       Connection connection = DriverManager
             .getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=synergy", "postgres", "159");
       try
@@ -169,7 +188,23 @@ public class ProjectDAO
       }
    }
    
-   public void addParticipation(String projectName, String memberEmail) throws SQLException {
+   public static void addMember(String memberEmail, String memberName) throws SQLException {
+      Connection connection = DriverManager
+            .getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=synergy", "postgres", "159");
+      try
+      {
+         PreparedStatement statement = connection.prepareStatement("INSERT INTO member(member_email, member_name) VALUES(?, ?)");
+         statement.setString(1, memberEmail);
+         statement.setString(2, memberName);
+         statement.executeUpdate();
+      }
+      finally
+      {
+         connection.close();
+      }
+   }
+   
+   public static void addParticipation(String projectName, String memberEmail) throws SQLException {
       Connection connection = DriverManager
             .getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=synergy", "postgres", "159");
       try
@@ -185,7 +220,7 @@ public class ProjectDAO
       }
    }
    
-   public void updateProject(String projectName, String newProjectName) throws SQLException {
+   public static void updateProject(String projectName, String newProjectName) throws SQLException {
       Connection connection = DriverManager
             .getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=synergy", "postgres", "159");
       try
@@ -201,16 +236,16 @@ public class ProjectDAO
       }
    }
    
-   public void updateMemo(String memoName, String newMemoName, Date newMemoDate) throws SQLException {
+   public static void updateMemo(String projectName, String memoName, String newMemoName, Date newMemoDate) throws SQLException {
       Connection connection = DriverManager
             .getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=synergy", "postgres", "159");
       try
       {
-         PreparedStatement statement = connection.prepareStatement("UPDATE memo SET memo_date = ?, memo_description = ?  "
-               + "WHERE memo_description = ?");
+         PreparedStatement statement = connection.prepareStatement("UPDATE memo SET memo_date = ?, memo_description = ?  WHERE memo_description = ? AND project_name = ?");
          statement.setDate(1, (java.sql.Date) newMemoDate);
          statement.setString(2, newMemoName);
-         statement.setString(2, memoName);
+         statement.setString(3, memoName);
+         statement.setString(4, projectName);
          statement.executeUpdate();
       }
       finally
@@ -219,14 +254,15 @@ public class ProjectDAO
       }
    }
    
-   public void updateMemoName(String memoName, String newMemoName) throws SQLException {
+   public static void updateMemoName(String projectName, String memoName, String newMemoName) throws SQLException {
       Connection connection = DriverManager
             .getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=synergy", "postgres", "159");
       try
       {
-         PreparedStatement statement = connection.prepareStatement("UPDATE memo SET memo_description = ? WHERE memo_description = ?");
+         PreparedStatement statement = connection.prepareStatement("UPDATE memo SET memo_description = ? WHERE memo_description = ? AND project_name = ?");
          statement.setString(1, newMemoName);
          statement.setString(2, memoName);
+         statement.setString(3, projectName);
          statement.executeUpdate();
       }
       finally
@@ -235,14 +271,15 @@ public class ProjectDAO
       }
    }
    
-   public void updateMemoDate(String memoName, Date newMemoDate) throws SQLException {
+   public static void updateMemoDate(String projectName, String memoName, Date newMemoDate) throws SQLException {
       Connection connection = DriverManager
             .getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=synergy", "postgres", "159");
       try
       {
-         PreparedStatement statement = connection.prepareStatement("UPDATE memo SET memo_date = ? WHERE memo_description = ?");
+         PreparedStatement statement = connection.prepareStatement("UPDATE memo SET memo_date = ? WHERE memo_description = ? AND project_name = ?");
          statement.setDate(1, (java.sql.Date) newMemoDate);
          statement.setString(2, memoName);
+         statement.setString(3, projectName);
          statement.executeUpdate();
       }
       finally
@@ -251,7 +288,7 @@ public class ProjectDAO
       }
    }
    
-   public void deleteProject(String projectName) throws SQLException {
+   public static void deleteProject(String projectName) throws SQLException {
       Connection connection = DriverManager
             .getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=synergy", "postgres", "159");
       try
@@ -266,13 +303,14 @@ public class ProjectDAO
       }
    }
    
-   public void deleteMemo(String memoName) throws SQLException {
+   public static void deleteMemo(String projectName, String memoName) throws SQLException {
       Connection connection = DriverManager
             .getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=synergy", "postgres", "159");
       try
       {
-         PreparedStatement statement = connection.prepareStatement("DELETE FROM memo WHERE memo_description = ?");
+         PreparedStatement statement = connection.prepareStatement("DELETE FROM memo WHERE memo_description = ? AND project_name = ?");
          statement.setString(1, memoName);
+         statement.setString(2, projectName);
          statement.executeUpdate();
       }
       finally
@@ -281,13 +319,14 @@ public class ProjectDAO
       }
    }
    
-   public void deleteParticipant(String memberEmail) throws SQLException {
+   public static void deleteParticipant(String projectName, String memberEmail) throws SQLException {
       Connection connection = DriverManager
             .getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=synergy", "postgres", "159");
       try
       {
-         PreparedStatement statement = connection.prepareStatement("DELETE FROM participation WHERE member_email = ?");
+         PreparedStatement statement = connection.prepareStatement("DELETE FROM participation WHERE member_email = ? AND project_name = ?");
          statement.setString(1, memberEmail);
+         statement.setString(2, projectName);
          statement.executeUpdate();
       }
       finally

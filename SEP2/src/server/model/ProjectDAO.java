@@ -94,12 +94,12 @@ public class ProjectDAO
       return users;
    }
    
-   public ArrayList<RemoteProjectInterface> readAllProjectsForUser(String user_email) throws SQLException, RemoteException {
+   public ArrayList<RemoteProjectInterface> readAllProjectsForUser(RMember member) throws SQLException, RemoteException {
       ArrayList<RemoteProjectInterface> projects = new ArrayList<RemoteProjectInterface>();
       try
       {
          PreparedStatement statement = connection.prepareStatement("SELECT project_name FROM registration WHERE user_email = ?");
-         statement.setString(1, user_email);
+         statement.setString(1, member.getEmail());
          ResultSet result = statement.executeQuery(); 
          while (result.next()) {
             RProject remoteProject = new RProject(result.getString("project_name"));
@@ -232,7 +232,7 @@ public class ProjectDAO
       return members;
    }
    
-   public void addProject(String projectName) throws SQLException {
+   public void addProject(String projectName) throws SQLException, RemoteException {
       try
       {
          PreparedStatement statement = connection.prepareStatement("INSERT INTO project(project_name) VALUES (?)");
@@ -270,13 +270,13 @@ public class ProjectDAO
       }
    }
    
-   public void addMemo(String projectName, Date memoDate, String memoDescription) throws SQLException {
+   public void addMemo(String projectName, RMemo memo) throws SQLException, RemoteException {
       try
       {
          PreparedStatement statement = connection.prepareStatement("INSERT INTO memo(project_name, memo_date, memo_description) VALUES(?, ?, ?)");
          statement.setString(1, projectName);
-         statement.setDate(2, (java.sql.Date) memoDate);
-         statement.setString(3, memoDescription);
+         statement.setDate(2, (java.sql.Date) memo.getDate());
+         statement.setString(3, memo.getDescription());
          statement.executeUpdate();
       }
       catch (SQLException e)
@@ -289,15 +289,15 @@ public class ProjectDAO
       }
    }
    
-   public void addMember(String memberEmail, String memberName) throws SQLException {
+   public void addMember(RMember member) throws SQLException, RemoteException {
       try
       {
          PreparedStatement statement = connection.prepareStatement("INSERT INTO member(member_email, member_name) VALUES(?, ?)");
          PreparedStatement statement1 = connection.prepareStatement("INSERT INTO user_(user_email, user_name) VALUES(?, ?)");
-         statement.setString(1, memberEmail);
-         statement.setString(2, memberName);
-         statement1.setString(1, memberEmail);
-         statement1.setString(2, memberName);
+         statement.setString(1, member.getEmail());
+         statement.setString(2, member.getName());
+         statement1.setString(1, member.getEmail());
+         statement1.setString(2, member.getName());
          statement.executeUpdate();
          statement1.executeUpdate();
       }
@@ -311,15 +311,15 @@ public class ProjectDAO
       }
    }
    
-   public void addParticipation(String projectName, String memberEmail) {
+   public void addParticipation(String projectName, RMember member) throws RemoteException {
       try
       {
          PreparedStatement statement = connection.prepareStatement("INSERT INTO participation(project_name, member_email) VALUES(?, ?)");
          PreparedStatement statement1 = connection.prepareStatement("INSERT INTO registration(project_name, user_email) VALUES(?, ?)");
          statement.setString(1, projectName);
-         statement.setString(2, memberEmail);
+         statement.setString(2, member.getEmail());
          statement1.setString(1, projectName);
-         statement1.setString(2, memberEmail);
+         statement1.setString(2, member.getEmail());
          statement.executeUpdate();
          statement1.executeUpdate();
       }
@@ -333,7 +333,7 @@ public class ProjectDAO
       }
    }
    
-   public void updateProject(String projectName, String newProjectName) throws SQLException {
+   public void updateProject(String projectName, String newProjectName) throws SQLException, RemoteException {
      try
       {
          PreparedStatement statement = connection.prepareStatement("UPDATE project SET project_name = ? WHERE project_name = ?");
@@ -351,13 +351,13 @@ public class ProjectDAO
      }
    }
    
-   public void updateMemo(String projectName, String memoName, String newMemoName, Date newMemoDate) throws SQLException {
+   public void updateMemo(String projectName, RMemo memo, String newMemoName, Date newMemoDate) throws SQLException, RemoteException {
       try
       {
          PreparedStatement statement = connection.prepareStatement("UPDATE memo SET memo_date = ?, memo_description = ?  WHERE memo_description = ? AND project_name = ?");
          statement.setDate(1, (java.sql.Date) newMemoDate);
          statement.setString(2, newMemoName);
-         statement.setString(3, memoName);
+         statement.setString(3, memo.getDescription());
          statement.setString(4, projectName);
          statement.executeUpdate();
       }
@@ -371,12 +371,12 @@ public class ProjectDAO
       }
    }
    
-   public void updateMemoName(String projectName, String memoName, String newMemoName) throws SQLException {
+   public void updateMemoName(String projectName, RMemo memo, String newMemoName) throws SQLException, RemoteException {
       try
       {
          PreparedStatement statement = connection.prepareStatement("UPDATE memo SET memo_description = ? WHERE memo_description = ? AND project_name = ?");
          statement.setString(1, newMemoName);
-         statement.setString(2, memoName);
+         statement.setString(2, memo.getDescription());
          statement.setString(3, projectName);
          statement.executeUpdate();
       }
@@ -390,12 +390,12 @@ public class ProjectDAO
       }
    }
    
-   public void updateMemoDate(String projectName, String memoName, Date newMemoDate) throws SQLException {
+   public void updateMemoDate(String projectName, RMemo memo, Date newMemoDate) throws SQLException, RemoteException {
       try
       {
          PreparedStatement statement = connection.prepareStatement("UPDATE memo SET memo_date = ? WHERE memo_description = ? AND project_name = ?");
          statement.setDate(1, (java.sql.Date) newMemoDate);
-         statement.setString(2, memoName);
+         statement.setString(2, memo.getDescription());
          statement.setString(3, projectName);
          statement.executeUpdate();
       }
@@ -409,7 +409,7 @@ public class ProjectDAO
       }
    }
    
-   public void deleteProject(String projectName) throws SQLException {
+   public void deleteProject(String projectName) throws SQLException, RemoteException {
       try
       {
          PreparedStatement statement = connection.prepareStatement("DELETE FROM project WHERE project_name = ?");
@@ -426,11 +426,11 @@ public class ProjectDAO
       }
    }
    
-   public void deleteMemo(String projectName, String memoName) throws SQLException {
+   public void deleteMemo(String projectName, RMemo memo) throws SQLException, RemoteException {
       try
       {
          PreparedStatement statement = connection.prepareStatement("DELETE FROM memo WHERE memo_description = ? AND project_name = ?");
-         statement.setString(1, memoName);
+         statement.setString(1, memo.getDescription());
          statement.setString(2, projectName);
          statement.executeUpdate();
       }
@@ -444,14 +444,14 @@ public class ProjectDAO
       }
    }
    
-   public void deleteParticipant(String projectName, String memberEmail) throws SQLException {
+   public void deleteParticipant(String projectName, RMember member) throws SQLException, RemoteException {
      try
       {
          PreparedStatement statement = connection.prepareStatement("DELETE FROM participation WHERE member_email = ? AND project_name = ?");
          PreparedStatement statement1 = connection.prepareStatement("DELETE FROM registration WHERE user_email = ? AND project_name = ?");
-         statement.setString(1, memberEmail);
+         statement.setString(1, member.getEmail());
          statement.setString(2, projectName);
-         statement1.setString(1, memberEmail);
+         statement1.setString(1, member.getEmail());
          statement1.setString(2, projectName);
          statement.executeUpdate();
       }

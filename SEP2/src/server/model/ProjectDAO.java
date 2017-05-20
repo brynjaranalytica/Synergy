@@ -16,6 +16,7 @@ import server.remote_business_enitities.RChat;
 import server.remote_business_enitities.RMember;
 import server.remote_business_enitities.RMemo;
 import server.remote_business_enitities.RProject;
+import shared.User;
 import shared.remote_business_interfaces.RemoteMemberInterface;
 import shared.remote_business_interfaces.RemoteMemoInterface;
 import shared.remote_business_interfaces.RemoteProjectInterface;
@@ -66,6 +67,31 @@ public class ProjectDAO
          }
       }
       return projects;
+   }
+   
+   public ArrayList<User> readAllUsers() throws SQLException, RemoteException {
+      ArrayList<User> users = new ArrayList<User>();
+      try
+      {
+         PreparedStatement statement = connection.prepareStatement("SELECT * FROM user_");
+         ResultSet result = statement.executeQuery(); 
+         while (result.next()) {
+            User user = new User(result.getString("user_email"), result.getString("user_name"), result.getString("user_phone"), null);
+            users.add(user);
+        }
+      }
+      catch (SQLException e)
+      {
+         try
+         {
+            connection.close();
+         }
+         catch (SQLException e2)
+         {
+            e2.printStackTrace();
+         }
+      }
+      return users;
    }
    
    public ArrayList<RemoteProjectInterface> readAllProjectsForUser(String user_email) throws SQLException, RemoteException {

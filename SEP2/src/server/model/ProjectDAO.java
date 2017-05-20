@@ -39,7 +39,7 @@ public class ProjectDAO
    private ProjectDAO() throws SQLException {
       DriverManager.registerDriver(new Driver());
       connection = DriverManager
-              .getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=synergy", "postgres", "6640");
+              .getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=synergy", "postgres", "159");
    }
    
    public ArrayList<RemoteProjectInterface> readAllProjects() throws SQLException, RemoteException {
@@ -63,6 +63,35 @@ public class ProjectDAO
             connection.close();
          } catch (SQLException e1) {
             e1.printStackTrace();
+         }
+      }
+      return projects;
+   }
+   
+   public ArrayList<RemoteProjectInterface> readAllProjectsForUser(String user_email) throws SQLException, RemoteException {
+      ArrayList<RemoteProjectInterface> projects = new ArrayList<RemoteProjectInterface>();
+      try
+      {
+         PreparedStatement statement = connection.prepareStatement("SELECT project_name FROM registration WHERE user_email = ?");
+         statement.setString(1, user_email);
+         ResultSet result = statement.executeQuery(); 
+         while (result.next()) {
+            RProject remoteProject = new RProject(result.getString("project_name"));
+            remoteProject.setChat(readChat(result.getString("project_name")));
+            remoteProject.setCalendar(readCalendar(result.getString("project_name")));
+            remoteProject.setMembers(readParticipants(result.getString("project_name")));
+            projects.add(remoteProject);
+        }
+      }
+      catch (SQLException e)
+      {
+         try
+         {
+            connection.close();
+         }
+         catch (SQLException e2)
+         {
+            e2.printStackTrace();
          }
       }
       return projects;
@@ -175,6 +204,26 @@ public class ProjectDAO
          }
       }
       return members;
+   }
+   
+   public void addProject(String projectName) throws SQLException {
+      try
+      {
+         PreparedStatement statement = connection.prepareStatement("INSERT INTO project(project_name) VALUES (?)");
+         statement.setString(1, projectName);
+         statement.executeUpdate();
+      }
+      catch (SQLException e)
+      {
+         try
+         {
+            connection.close();
+         }
+         catch (SQLException e2)
+         {
+            e2.printStackTrace();
+         }
+      }
    }
    
    public void addMessage(String projectName, String message) throws SQLException {

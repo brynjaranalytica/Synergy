@@ -267,9 +267,13 @@ public class ProjectDAO
       try
       {
          PreparedStatement statement = connection.prepareStatement("INSERT INTO member(member_email, member_name) VALUES(?, ?)");
+         PreparedStatement statement1 = connection.prepareStatement("INSERT INTO user_(user_email, user_name) VALUES(?, ?)");
          statement.setString(1, memberEmail);
          statement.setString(2, memberName);
+         statement1.setString(1, memberEmail);
+         statement1.setString(2, memberName);
          statement.executeUpdate();
+         statement1.executeUpdate();
       }
       catch (SQLException e)
       {
@@ -285,9 +289,13 @@ public class ProjectDAO
       try
       {
          PreparedStatement statement = connection.prepareStatement("INSERT INTO participation(project_name, member_email) VALUES(?, ?)");
+         PreparedStatement statement1 = connection.prepareStatement("INSERT INTO registration(project_name, user_email) VALUES(?, ?)");
          statement.setString(1, projectName);
          statement.setString(2, memberEmail);
+         statement1.setString(1, projectName);
+         statement1.setString(2, memberEmail);
          statement.executeUpdate();
+         statement1.executeUpdate();
       }
       catch (SQLException e)
       {
@@ -414,8 +422,11 @@ public class ProjectDAO
      try
       {
          PreparedStatement statement = connection.prepareStatement("DELETE FROM participation WHERE member_email = ? AND project_name = ?");
+         PreparedStatement statement1 = connection.prepareStatement("DELETE FROM registration WHERE user_email = ? AND project_name = ?");
          statement.setString(1, memberEmail);
          statement.setString(2, projectName);
+         statement1.setString(1, memberEmail);
+         statement1.setString(2, projectName);
          statement.executeUpdate();
       }
       catch (SQLException e)

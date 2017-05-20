@@ -5,6 +5,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/Users/mob/Documents/SEP2/javax.mail.jar"/>
 	<classpathentry kind="lib" path="C:/Users/mob/Documents/SDJ2/RemoteObserverDelegate.jar"/>
+	<classpathentry kind="lib" path="C:/src/Semester 2/DBS2/postgresql-9.4.1212.jre6.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

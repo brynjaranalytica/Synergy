@@ -129,6 +129,7 @@ public class RProject implements RemoteProjectInterface {
     public void addMessage(String message) throws RemoteException{
         this.chat.addMessage(message);
         DBdummy.getInstance().updateProject(this);
+        //ProjectDAO.updateChat(this.chat);
         RProjects.notifyObservers(MessageHeaders.UPDATE, new Project(this));
     }
 

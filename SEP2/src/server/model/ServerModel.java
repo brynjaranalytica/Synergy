@@ -28,6 +28,13 @@ public class ServerModel {
 
 	public RProjects getRemoteProjects(){
 		return adapter.getRemoteProjects();
+		
+		/*RProjects remoteProjects = new RProjects();
+		 *remoteProjects.setProjects(ProjectDAO.readAll());  
+		 * return remoteProjects;
+		 * 
+		 * 
+		 * */
 	}
 	
 }

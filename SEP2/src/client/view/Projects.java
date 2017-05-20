@@ -108,10 +108,10 @@ public class Projects extends AbstractJIF {
         tree.setRowHeight(22);
         tree.setFont(new Font("Raleway", Font.PLAIN, 16));
 
-        JScrollPane treeView = new JScrollPane(tree);
+        /*JScrollPane treeView = new JScrollPane(tree);
         treeView.setLayout(new ScrollPaneLayout());
-        treeView.setVisible(true);
-        getContentPane().add(treeView);
+        treeView.setVisible(true);*/
+        getContentPane().add(tree);
 
         panelAddUser = new JPanel();
         panelAddUser.setVisible(false);

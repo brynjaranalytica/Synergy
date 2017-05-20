@@ -1,5 +1,6 @@
 package server.remote_business_enitities;
 
+import server.model.ProjectDAO;
 import shared.MessageHeaders;
 import shared.UpdateMessage;
 import shared.business_entities.BusinessEntity;
@@ -99,6 +100,7 @@ public class RProjects implements RemoteProjectsInterface {
     @Override
     public void addProject(RemoteProjectInterface project) throws RemoteException {
         this.remoteProjects.add(project);
+
         RProjects.notifyObservers(MessageHeaders.CREATE, new Project(project));
     }
 

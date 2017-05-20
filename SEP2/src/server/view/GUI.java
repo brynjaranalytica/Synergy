@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
 import server.controller.ServerController;
+import server.model.ProjectDAO;
 
 import java.awt.Component;
 import javax.swing.JTextPane;
@@ -19,6 +20,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.Color;
+import java.sql.SQLException;
 
 public class GUI{
 
@@ -88,6 +90,11 @@ public class GUI{
 		//File menu: Exit server
 		mntmExitServer.addActionListener(e -> {
 			if (JOptionPane.showConfirmDialog(null, "Are you sure you want to do a server shutdown?")==0){
+				try {
+					ProjectDAO.getInstance().getConnection().close();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
 				System.exit(0);				
 			}
 		} );
@@ -96,6 +103,11 @@ public class GUI{
 			@Override
 			public void windowClosing(WindowEvent arg0) {
 				if (JOptionPane.showConfirmDialog(null, "Are you sure you want to do a server shutdown?")==0){
+					try {
+						ProjectDAO.getInstance().getConnection().close();
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					}
 					System.exit(0);				
 				}
 			}

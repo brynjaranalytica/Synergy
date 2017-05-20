@@ -57,6 +57,7 @@ public class Calendar extends AbstractJIF {
 
     @Override
     public void loadData(Object object) {
+        lblCalendar.setText("Calendar - " + Root.currentProjectName);
         String selectedDateString = textField.getText();
         if (selectedDateString == null || selectedDateString.equals(""))
             return;
@@ -73,6 +74,12 @@ public class Calendar extends AbstractJIF {
         textPane.setText(memo.getDescription());
     }
 
+    @Override
+    public void clear() {
+        textField.setText("");
+        textPane.setText("");
+    }
+
     public void initComponents() {
 
         contentPane = new JPanel();
@@ -83,7 +90,7 @@ public class Calendar extends AbstractJIF {
         lblCalendar = new JLabel("Calendar");
         lblCalendar.setForeground(Color.GRAY);
         lblCalendar.setFont(new Font("Raleway", Font.PLAIN, 30));
-        lblCalendar.setBounds(10, 11, 200, 27);
+        lblCalendar.setBounds(10, 11, 500, 27);
         getContentPane().add(lblCalendar);
 
         panelTable = new JPanel();

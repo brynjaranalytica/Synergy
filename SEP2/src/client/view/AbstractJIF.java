@@ -20,4 +20,6 @@ public abstract class AbstractJIF extends JInternalFrame {
 
 	abstract public void loadData(Object object);
 
+	abstract public void clear();
+
 }

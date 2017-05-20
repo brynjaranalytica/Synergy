@@ -9,6 +9,7 @@ import shared.business_entities.ProjectInterface;
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
+import javax.swing.plaf.basic.BasicSplitPaneUI;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreePath;
@@ -77,6 +78,11 @@ public class Projects extends AbstractJIF {
         System.out.println();
     }
 
+    @Override
+    public void clear() {
+
+    }
+
     public Projects() {
         setBounds(20, 20, 500, 375);
         initComponents();
@@ -101,7 +107,11 @@ public class Projects extends AbstractJIF {
 
         tree.setRowHeight(22);
         tree.setFont(new Font("Raleway", Font.PLAIN, 16));
-        getContentPane().add(tree);
+
+        JScrollPane treeView = new JScrollPane(tree);
+        treeView.setLayout(new ScrollPaneLayout());
+        treeView.setVisible(true);
+        getContentPane().add(treeView);
 
         panelAddUser = new JPanel();
         panelAddUser.setVisible(false);
@@ -194,8 +204,10 @@ public class Projects extends AbstractJIF {
 
                 String selectedProjectName = (String) selectedNode.getUserObject();
                 Root.currentProjectName = selectedProjectName;
+                lblProjects.setText(Root.currentProjectName);
                 if (Root.currentProjectName.equals("Projects"))
                     return;
+
                 Root.chatFrame.loadData(ClientController.getInstance().getProjectFromModel(selectedProjectName).getChat());
                 Root.calendarFrame.loadData(ClientController.getInstance().getProjectFromModel(selectedProjectName).getCalendar());
             }
@@ -212,6 +224,9 @@ public class Projects extends AbstractJIF {
             String selectedProjectName = (String) selectedNode.getUserObject();
             Root.currentProjectName = "Projects";
             ClientController.getInstance().deleteProject(selectedProjectName);
+            Root.calendarFrame.clear();
+            Root.chatFrame.clear();
+            tree.expandPath(tree.getPathForRow(0));
         });
 
         btnNewProject.addActionListener(e ->
@@ -236,6 +251,7 @@ public class Projects extends AbstractJIF {
                 return;
             String projectName = textFieldAddProject.getText();
             ClientController.getInstance().addProject(new Project(projectName));
+            tree.expandPath(tree.getPathForRow(0));
         });
 
         btnCancelAddProject.addActionListener(e ->
@@ -270,6 +286,8 @@ public class Projects extends AbstractJIF {
 
             if(!ClientController.getInstance().addMember(indexOfSelectedMember))
                 JOptionPane.showMessageDialog(null ,"Selected member already is a part of the project.");
+
+            tree.expandPath(tree.getPathForRow(0));
         });
 
         btnCancelAddUserToProject.addActionListener(e ->
@@ -302,6 +320,7 @@ public class Projects extends AbstractJIF {
 
             int indexOfSelectedMember = parentNode.getIndex(selectedNode);
             ClientController.getInstance().removeMember(indexOfSelectedMember);
+            tree.expandPath(tree.getPathForRow(0));
         });
 
     }

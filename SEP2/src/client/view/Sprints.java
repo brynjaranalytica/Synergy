@@ -32,6 +32,11 @@ public class Sprints extends AbstractJIF {
 
 	}
 
+	@Override
+	public void clear() {
+
+	}
+
 	public void initComponents(){
 		
 		datePicker = new DatePicker();

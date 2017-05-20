@@ -27,7 +27,7 @@ public class Chat extends AbstractJIF {
 		lblChat = new JLabel("Group chat");
 		lblChat.setForeground(Color.GRAY);
 		lblChat.setFont(new Font("Raleway", Font.PLAIN, 30));
-		lblChat.setBounds(10, 11, 200, 35);
+		lblChat.setBounds(10, 11, 350, 35);
 		getContentPane().add(lblChat);
 
 		model = new DefaultListModel<>();
@@ -70,11 +70,18 @@ public class Chat extends AbstractJIF {
 	}
 
 	public void loadData(Object object){
+		lblChat.setText("Group chat - " + Root.currentProjectName);
 		this.model.clear();
 		ArrayList<String> messages =  ((shared.business_entities.Chat)object).getListOfMessages();
 
 		for (String message: messages)
 			this.model.addElement(message);
+	}
+
+	@Override
+	public void clear() {
+		textField.setText("");
+		model.clear();
 	}
 
 }

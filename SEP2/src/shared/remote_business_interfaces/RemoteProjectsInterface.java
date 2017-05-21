@@ -1,16 +1,15 @@
 package shared.remote_business_interfaces;
 
-import shared.UpdateMessage;
 import shared.business_entities.ProjectInterface;
-import utility.observer.RemoteSubject;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
  * Created by lenovo on 4/12/2017.
  */
-public interface RemoteProjectsInterface extends RemoteSubject<UpdateMessage> {
+public interface RemoteProjectsInterface extends Remote {
 
     ArrayList<RemoteProjectInterface> getRemoteProjects() throws RemoteException;
 

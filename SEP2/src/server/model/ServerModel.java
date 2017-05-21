@@ -1,14 +1,18 @@
 package server.model;
 
+import server.remote_business_enitities.RProjects;
+import shared.UpdateMessage;
 import shared.User;
 import shared.remote_business_interfaces.RemoteProjectInterface;
 import shared.remote_business_interfaces.RemoteProjectsInterface;
 import utility.Cryptography;
+import utility.observer.RemoteObserver;
 
 import javax.crypto.SecretKey;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ServerModel {
 	//private AdapterInterface adapter;
@@ -17,11 +21,12 @@ public class ServerModel {
 	private ProjectDAO projectDAO;
 	private RemoteProjectsInterface remoteProjects;
 	private ArrayList<User> users;
+	private HashMap<String, RemoteObserver<UpdateMessage>> currentConnections;
 
-
-	public ServerModel(){
+	private ServerModel(){
 		//adapter = new Adapter();
 		projectDAO = ProjectDAO.getInstance();
+		currentConnections = new HashMap<>();
 		try {
 			this.remoteProjects = this.projectDAO.readAllProjects();
 			this.remoteProjects.setName(COMPANY_NAME);
@@ -31,13 +36,42 @@ public class ServerModel {
 		}
 	}
 
+	public void addConnection(String email, RemoteObserver<UpdateMessage> client){
+		this.currentConnections.put(email, client);
+	}
+
+	public RemoteObserver<UpdateMessage> getConnection(String email){
+		return this.currentConnections.get(email);
+	}
+
+	public void removeConnection(String email){
+		this.currentConnections.remove(email);
+	}
+
 	public RemoteProjectsInterface getRemoteProjects() {
 		return remoteProjects;
 	}
 
 	public RemoteProjectsInterface getRemoteProjectsForUser(String email){
 		//return adapter.getRemoteProjects();
-		return projectDAO.readAllProjectsForUser(email);
+
+		ArrayList<String> listOfProjectNamesForUser = projectDAO.readProjectNamesForUser(email);
+		RemoteProjectsInterface usersRemoteProjects = null;
+		try {
+			ArrayList<RemoteProjectInterface> listOfRemoteProjects = remoteProjects.getRemoteProjects();
+			 usersRemoteProjects = new RProjects();
+
+			for(String projectName: listOfProjectNamesForUser){
+				for(RemoteProjectInterface remoteProject: listOfRemoteProjects){
+					if(remoteProject.getName().equals(projectName))
+						usersRemoteProjects.addProject(remoteProject);
+				}
+			}
+
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return usersRemoteProjects;
 	}
 
 
@@ -121,6 +155,14 @@ public class ServerModel {
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
+	}
+
+	private static class Wrapper { //Instance placed in inner class
+		static ServerModel instance = new ServerModel();
+	}
+
+	public static ServerModel getInstance() {
+		return Wrapper.instance; //Instantiates the instance when called
 	}
 	
 }

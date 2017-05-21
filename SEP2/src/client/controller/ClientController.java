@@ -169,7 +169,8 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
             if (user != null) {
                 clientModel.setUser(user);
                 remoteProjects = serverController.getRemoteProjectsForUser(user);
-                remoteProjects.addObserver(this);
+                //remoteProjects.addObserver(this);
+                registerAsObserverForProjects();
                 clientModel.setOrganizationName(remoteProjects.getName());
                 clientModel.initProxyProjects(getProjectNamesFromServer());
                 clientModel.getProjects().setMembers(getOrganizationMembersFromServer());
@@ -178,6 +179,17 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
             e.printStackTrace();
         }
         return user;
+    }
+
+    private void registerAsObserverForProjects(){
+        try {
+            ArrayList<RemoteProjectInterface> remoteProjects = ClientController.remoteProjects.getRemoteProjects();
+            for(RemoteProjectInterface remoteProject: remoteProjects){
+                remoteProject.addObserver(this);
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void createLockFile() {

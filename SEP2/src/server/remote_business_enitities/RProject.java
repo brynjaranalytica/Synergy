@@ -1,13 +1,15 @@
 package server.remote_business_enitities;
 
 
+import client.controller.ClientController;
 import server.model.ProjectDAO;
+import server.model.ServerModel;
 import shared.MessageHeaders;
-import shared.business_entities.Member;
-import shared.business_entities.Memo;
-import shared.business_entities.Project;
-import shared.business_entities.ProjectInterface;
+import shared.UpdateMessage;
+import shared.business_entities.*;
 import shared.remote_business_interfaces.*;
+import utility.observer.RemoteObserver;
+import utility.observer.RemoteSubjectDelegate;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -18,6 +20,8 @@ import java.util.Date;
  * Created by lenovo on 4/12/2017.
  */
 public class RProject implements RemoteProjectInterface {
+    private RemoteSubjectDelegate<UpdateMessage> remoteSubjectDelegate;
+
     private String name;
     private ArrayList<RemoteMemberInterface> members;
     private RemoteTaskListInterface taskList;
@@ -27,7 +31,7 @@ public class RProject implements RemoteProjectInterface {
     public RProject(ProjectInterface project)throws RemoteException{
         this.name = project.getName();
         this.members = new ArrayList<>();
-
+        this.remoteSubjectDelegate = new RemoteSubjectDelegate<>(this);
         // Chat and calendar converting is not implemented
         this.chat = new RChat(project.getChat());
         this.calendar = new RCalendar(project.getCalendar());
@@ -46,6 +50,7 @@ public class RProject implements RemoteProjectInterface {
         this.calendar = new RCalendar();
         this.chat = new RChat();
         this.name = name;
+        this.remoteSubjectDelegate = new RemoteSubjectDelegate<>(this);
         UnicastRemoteObject.exportObject(this,0);
     }
 
@@ -63,7 +68,7 @@ public class RProject implements RemoteProjectInterface {
     public void setName(String name) throws RemoteException {
         this.name = name;
         ProjectDAO.getInstance().updateProject(this.name, name);
-        RProjects.notifyObservers(MessageHeaders.UPDATE, new Project(this));
+        notifyObservers(MessageHeaders.UPDATE, new Project(this));
     }
 
     @Override
@@ -84,14 +89,14 @@ public class RProject implements RemoteProjectInterface {
     @Override
     public void addTask(String task) throws RemoteException {
         this.taskList.addTask(task);
-        RProjects.notifyObservers(MessageHeaders.UPDATE, new Project(this));
+        notifyObservers(MessageHeaders.UPDATE, new Project(this));
     }
 
     @Override
     public void addMember(RemoteMemberInterface member) throws RemoteException {
         this.members.add(member);
         ProjectDAO.getInstance().addParticipation(name, member);
-        RProjects.notifyObservers(MessageHeaders.UPDATE, new Project(this));
+        notifyObservers(MessageHeaders.UPDATE, new Project(this));
     }
 
     @Override
@@ -100,7 +105,8 @@ public class RProject implements RemoteProjectInterface {
             if(member.getEmail().equals(email)) {
                 this.members.add(member);
                 ProjectDAO.getInstance().addParticipation(name, member);
-                RProjects.notifyObservers(MessageHeaders.UPDATE, new Project(this));
+                addObserver(ServerModel.getInstance().getConnection(email));
+                notifyObservers(MessageHeaders.UPDATE, new Project(this));
                 break;
             }
         }
@@ -131,14 +137,14 @@ public class RProject implements RemoteProjectInterface {
     public void addMessage(String message) throws RemoteException{
         this.chat.addMessage(message);
         ProjectDAO.getInstance().addMessage(name, message);
-        RProjects.notifyObservers(MessageHeaders.UPDATE, new Project(this));
+        notifyObservers(MessageHeaders.UPDATE, new Project(this));
     }
 
     @Override
     public void removeMemo(Date date) throws RemoteException {
         ProjectDAO.getInstance().deleteMemo(name, this.calendar.getMemo(date));
         this.calendar.removeMemo(date);
-        RProjects.notifyObservers(MessageHeaders.UPDATE, new Project(this));
+        notifyObservers(MessageHeaders.UPDATE, new Project(this));
     }
 
     @Override
@@ -146,7 +152,7 @@ public class RProject implements RemoteProjectInterface {
         RMemo remoteMemo = new RMemo(memo);
         this.calendar.addMemo(remoteMemo);
         ProjectDAO.getInstance().addMemo(name, remoteMemo);
-        RProjects.notifyObservers(MessageHeaders.UPDATE, new Project(this));
+        notifyObservers(MessageHeaders.UPDATE, new Project(this));
     }
 
     @Override
@@ -160,7 +166,7 @@ public class RProject implements RemoteProjectInterface {
             if(member.getEmail().equals(email)) {
                 ProjectDAO.getInstance().deleteParticipant(name, member);
                 members.remove(member);
-                RProjects.notifyObservers(MessageHeaders.UPDATE, new Project(this));
+                notifyObservers(MessageHeaders.UPDATE, new Project(this));
                 break;
             }
         }
@@ -171,7 +177,7 @@ public class RProject implements RemoteProjectInterface {
         RemoteMemberInterface remoteMember = members.get(index);
         ProjectDAO.getInstance().deleteParticipant(name, remoteMember);
         this.members.remove(remoteMember);
-        RProjects.notifyObservers(MessageHeaders.UPDATE, new Project(this));
+        notifyObservers(MessageHeaders.UPDATE, new Project(this));
     }
 
     @Override
@@ -192,6 +198,20 @@ public class RProject implements RemoteProjectInterface {
     @Override
     public void setChat(RemoteChatInterface chat) throws RemoteException {
         this.chat = chat;
+    }
+
+    public void notifyObservers(String messageHeader, BusinessEntity entity) throws RemoteException {
+        remoteSubjectDelegate.notifyObservers(new UpdateMessage(messageHeader, entity));
+    }
+
+    @Override
+    public void addObserver(RemoteObserver<UpdateMessage> remoteObserver) throws RemoteException {
+        remoteSubjectDelegate.addObserver(remoteObserver);
+    }
+
+    @Override
+    public void deleteObserver(RemoteObserver<UpdateMessage> remoteObserver) throws RemoteException {
+        remoteSubjectDelegate.deleteObserver(remoteObserver);
     }
 
     @Override

@@ -1,6 +1,8 @@
 package shared.remote_business_interfaces;
 
+import shared.UpdateMessage;
 import shared.business_entities.Memo;
+import utility.observer.RemoteSubject;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -10,7 +12,7 @@ import java.util.Date;
 /**
  * Created by lenovo on 4/12/2017.
  */
-public interface RemoteProjectInterface extends Remote {
+public interface RemoteProjectInterface extends RemoteSubject<UpdateMessage> {
     String getName() throws RemoteException;
 
     ArrayList<RemoteMemberInterface> getMembers() throws RemoteException;

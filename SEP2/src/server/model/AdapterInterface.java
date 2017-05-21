@@ -1,4 +1,4 @@
-package server.model;
+/*package server.model;
 
 import server.remote_business_enitities.RProjects;
 import shared.User;
@@ -15,4 +15,4 @@ public interface AdapterInterface {
 	RProjects getRemoteProjects();
 
 	User login(String userID, char[] passWord);
-}
+}*/

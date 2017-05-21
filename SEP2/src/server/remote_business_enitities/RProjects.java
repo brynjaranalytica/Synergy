@@ -23,7 +23,7 @@ import java.util.ArrayList;
  */
 public class RProjects implements RemoteProjectsInterface {
     //private static RemoteProjectsInterface mirror;
-    private static RemoteSubjectDelegate<UpdateMessage> remoteSubjectDelegate;
+    //private static RemoteSubjectDelegate<UpdateMessage> remoteSubjectDelegate;
 
     static  ArrayList<RemoteMemberInterface> remoteMembers;
     private ArrayList<RemoteProjectInterface> remoteProjects;
@@ -77,15 +77,15 @@ public class RProjects implements RemoteProjectsInterface {
     }
 
     public RProjects() throws RemoteException{
-        remoteSubjectDelegate = new RemoteSubjectDelegate<>(this);
+        //remoteSubjectDelegate = new RemoteSubjectDelegate<>(this);
         this.remoteProjects = new ArrayList<>();
         UnicastRemoteObject.exportObject(this,0);
         //mirror = this;
     }
 
-    static void notifyObservers(String messageHeader, BusinessEntity entity) throws RemoteException{
+    /*static void notifyObservers(String messageHeader, BusinessEntity entity) throws RemoteException{
         remoteSubjectDelegate.notifyObservers(new UpdateMessage(messageHeader, entity));
-    }
+    }*/
 
     @Override
     public ArrayList<RemoteProjectInterface> getRemoteProjects() throws RemoteException {
@@ -101,14 +101,14 @@ public class RProjects implements RemoteProjectsInterface {
     public void addProject(RemoteProjectInterface project) throws RemoteException {
         this.remoteProjects.add(project);
         ProjectDAO.getInstance().addProject(project.getName());
-        RProjects.notifyObservers(MessageHeaders.CREATE, new Project(project));
+       // RProjects.notifyObservers(MessageHeaders.CREATE, new Project(project));
     }
 
     @Override
     public void addProject(ProjectInterface project) throws RemoteException {
         this.remoteProjects.add(new RProject(project));
         ProjectDAO.getInstance().addProject(project.getName());
-        RProjects.notifyObservers(MessageHeaders.CREATE, project);
+        //RProjects.notifyObservers(MessageHeaders.CREATE, project);
     }
 
     @Override
@@ -141,7 +141,7 @@ public class RProjects implements RemoteProjectsInterface {
         for(RemoteProjectInterface project: remoteProjects){
             if(project.getName().equals(projectName)) {
                 ProjectDAO.getInstance().deleteProject(/*project*/projectName);
-                remoteSubjectDelegate.notifyObservers(new UpdateMessage(MessageHeaders.DELETE, new Project(project)));
+                //remoteSubjectDelegate.notifyObservers(new UpdateMessage(MessageHeaders.DELETE, new Project(project)));
                 remoteProjects.remove(project);
                 break;
             }
@@ -160,7 +160,7 @@ public class RProjects implements RemoteProjectsInterface {
         //RProjects.notifyObservers(this);
     }
 
-    @Override
+    /*@Override
     public void addObserver(RemoteObserver<UpdateMessage> remoteObserver) throws RemoteException {
         remoteSubjectDelegate.addObserver(remoteObserver);
     }
@@ -168,6 +168,6 @@ public class RProjects implements RemoteProjectsInterface {
     @Override
     public void deleteObserver(RemoteObserver<UpdateMessage> remoteObserver) throws RemoteException {
         remoteSubjectDelegate.deleteObserver(remoteObserver);
-    }
+    }*/
 
 }

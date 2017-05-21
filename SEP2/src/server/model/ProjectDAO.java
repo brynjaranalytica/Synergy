@@ -101,6 +101,22 @@ public class ProjectDAO {
         return users;
     }
 
+    public ArrayList<String> readProjectNamesForUser(String email){
+        ArrayList<String> listOfProjectNames = new ArrayList<>();
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement("SELECT project_name FROM registration WHERE user_email = ?");
+            statement.setString(1, email);
+            ResultSet result = statement.executeQuery();
+            while(result.next()){
+                listOfProjectNames.add(result.getString("project_name"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listOfProjectNames;
+    }
+
     public RemoteProjectsInterface readAllProjectsForUser(String email) {
 
         ArrayList<RemoteProjectInterface> projects = new ArrayList<RemoteProjectInterface>();

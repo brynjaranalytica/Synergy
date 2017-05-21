@@ -61,7 +61,7 @@ public class ServerController implements ServerInterface{
 		System.setProperty("java.rmi.server.hostname","localhost");
 		log = Log.getInstance();
 		gui = new GUI(this);
-		serverModel = new ServerModel();
+		serverModel = ServerModel.getInstance();
 		loadProperties();
 		try {
 			UnicastRemoteObject.exportObject(this, 0);

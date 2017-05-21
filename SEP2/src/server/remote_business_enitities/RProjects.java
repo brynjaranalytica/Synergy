@@ -107,6 +107,7 @@ public class RProjects implements RemoteProjectsInterface {
     @Override
     public void addProject(ProjectInterface project) throws RemoteException {
         this.remoteProjects.add(new RProject(project));
+        ProjectDAO.getInstance().addProject(project.getName());
         RProjects.notifyObservers(MessageHeaders.CREATE, project);
     }
 
@@ -139,7 +140,7 @@ public class RProjects implements RemoteProjectsInterface {
     public void removeProject(String projectName) throws RemoteException {
         for(RemoteProjectInterface project: remoteProjects){
             if(project.getName().equals(projectName)) {
-                ProjectDAO.getInstance().deleteProject(projectName);
+                ProjectDAO.getInstance().deleteProject(/*project*/projectName);
                 remoteSubjectDelegate.notifyObservers(new UpdateMessage(MessageHeaders.DELETE, new Project(project)));
                 remoteProjects.remove(project);
                 break;
@@ -169,7 +170,4 @@ public class RProjects implements RemoteProjectsInterface {
         remoteSubjectDelegate.deleteObserver(remoteObserver);
     }
 
-    /*public static RemoteProjectsInterface getMirror(){
-        return mirror;
-    }*/
 }

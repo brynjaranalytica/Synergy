@@ -1,8 +1,6 @@
 package server.model;
 
-import server.remote_business_enitities.RProjects;
 import shared.User;
-import shared.business_entities.Project;
 import shared.remote_business_interfaces.RemoteProjectInterface;
 import shared.remote_business_interfaces.RemoteProjectsInterface;
 import utility.Cryptography;
@@ -23,22 +21,28 @@ public class ServerModel {
 
 	public ServerModel(){
 		//adapter = new Adapter();
-		try {
-			projectDAO = ProjectDAO.getInstance();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		projectDAO = ProjectDAO.getInstance();
 		try {
 			this.remoteProjects = this.projectDAO.readAllProjects();
 			this.remoteProjects.setName(COMPANY_NAME);
-			//this.users = projectDAO.readAllUsers();
+			this.users = projectDAO.readAllUsers();
 		} catch (RemoteException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
+	public RemoteProjectsInterface getRemoteProjects() {
+		return remoteProjects;
+	}
+
+	public RemoteProjectsInterface getRemoteProjectsForUser(String email){
+		//return adapter.getRemoteProjects();
+		return projectDAO.readAllProjectsForUser(email);
+	}
+
+
+
+
 	public User getUser(String id){
 		User user = retrieveUser(id);
 		char[] passEncrypted = user.getPass();
@@ -59,10 +63,6 @@ public class ServerModel {
 		return null;
 	}
 
-	public RemoteProjectsInterface getRemoteProjects() {
-		return remoteProjects;
-	}
-
 	/*public String validateID(String userID){
 		return adapter.validateID(userID);
 	}*/
@@ -81,18 +81,6 @@ public class ServerModel {
 	/*public User login(String userID, char[] passWord) {
 		return adapter.login(userID, passWord);
 	}*/
-
-	public RemoteProjectsInterface getRemoteProjectsForUser(String email){
-		//return adapter.getRemoteProjects();
-		try {
-			return projectDAO.readAllProjectsForUser(email);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
 
 	public char[] getPass(String userID) {
 		return Cryptography.decryptPass(retrievePassword(userID), Cryptography.getKey());

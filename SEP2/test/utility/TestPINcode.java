@@ -1,15 +1,15 @@
 package utility;
 
-import java.io.IOException;
+import server.model.ServerModel;
 
-import database.DBdummy;
+import java.io.IOException;
 
 public class TestPINcode {
 
 	public static void main(String[] args) throws IOException {
 		PINcode pinCode = PINcode.getInstance();
-		DBdummy db = DBdummy.getInstance();
-		String phone = db.retrieveUser("mogens.bjerregaard@mac.com").getPhone();
+		ServerModel serverModel = new ServerModel();
+		String phone = serverModel.retrieveUser("mogens.bjerregaard@mac.com").getPhone();
 		System.out.println(phone);
 //		System.out.println("Your PIN code is: "+pinCode.requestPin("4593961547"));
 

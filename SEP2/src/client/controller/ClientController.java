@@ -168,7 +168,7 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
             user = serverController.login(userID, password);
             if (user != null) {
                 clientModel.setUser(user);
-                remoteProjects = serverController.getRemoteProjects();
+                remoteProjects = serverController.getRemoteProjectsForUser(user);
                 remoteProjects.addObserver(this);
                 clientModel.setOrganizationName(remoteProjects.getName());
                 clientModel.initProxyProjects(getProjectNamesFromServer());

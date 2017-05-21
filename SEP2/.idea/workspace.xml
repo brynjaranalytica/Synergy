@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bcd2185-6df3-4059-a039-89823f30c92d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/DBdummy.java" afterPath="$PROJECT_DIR$/src/database/DBdummy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/controller/ServerController.java" afterPath="$PROJECT_DIR$/src/server/controller/ServerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/model/Adapter.java" afterPath="$PROJECT_DIR$/src/server/model/Adapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/model/ProjectDAO.java" afterPath="$PROJECT_DIR$/src/server/model/ProjectDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/model/ServerModel.java" afterPath="$PROJECT_DIR$/src/server/model/ServerModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java" afterPath="$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shared/ServerInterface.java" afterPath="$PROJECT_DIR$/src/shared/ServerInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shared/User.java" afterPath="$PROJECT_DIR$/src/shared/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java" afterPath="$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java" />
     </list>
     <ignored path="SEP2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,38 +37,41 @@
       <file leaf-file-name="ProjectDAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/server/model/ProjectDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="33" column="32" lean-forward="false" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+            <state relative-caret-position="194">
+              <caret line="350" column="73" lean-forward="false" selection-start-line="350" selection-start-column="73" selection-end-line="350" selection-end-column="73" />
               <folding>
-                <element signature="e#734#735#0" expanded="true" />
-                <element signature="e#764#765#0" expanded="true" />
-                <element signature="e#1504#1528#0" expanded="true" />
-                <element signature="e#2639#2663#0" expanded="true" />
-                <element signature="e#6133#6156#0" expanded="true" />
-                <element signature="e#6912#6935#0" expanded="true" />
-                <marker date="1495300373947" expanded="true" signature="1612:1633" ph="SELECT * FRO... project" />
-                <marker date="1495300373947" expanded="true" signature="2753:2811" ph="SELECT proje... registration" />
-                <marker date="1495300373947" expanded="true" signature="3870:3925" ph="SELECT proje... project" />
-                <marker date="1495300373947" expanded="true" signature="4725:4769" ph="SELECT * FRO... message" />
-                <marker date="1495300373947" expanded="true" signature="5400:5467" ph="SELECT memo_... memo" />
-                <marker date="1495300373947" expanded="true" signature="6246:6266" ph="SELECT * FRO... member" />
-                <marker date="1495300373947" expanded="true" signature="7025:7154" ph="SELECT membe... member" />
-                <marker date="1495300373947" expanded="true" signature="7092:7153" ph="SELECT membe... participation" />
-                <marker date="1495300373947" expanded="true" signature="7825:7869" ph="INSERT INTO project... " />
-                <marker date="1495300373947" expanded="true" signature="8343:8404" ph="INSERT INTO message... " />
-                <marker date="1495300373947" expanded="true" signature="8913:8988" ph="INSERT INTO memo... " />
-                <marker date="1495300373947" expanded="true" signature="9544:9602" ph="INSERT INTO member... " />
-                <marker date="1495300373947" expanded="true" signature="9675:9728" ph="INSERT INTO user_... " />
-                <marker date="1495300373947" expanded="true" signature="10340:10406" ph="INSERT INTO participation... " />
-                <marker date="1495300373947" expanded="true" signature="10479:10542" ph="INSERT INTO registration... " />
-                <marker date="1495300373947" expanded="true" signature="11175:11233" ph="UPDATE proje... " />
-                <marker date="1495300373947" expanded="true" signature="11760:11860" ph="UPDATE memo " />
-                <marker date="1495300373947" expanded="true" signature="12481:12565" ph="UPDATE memo " />
-                <marker date="1495300373947" expanded="true" signature="13124:13201" ph="UPDATE memo " />
-                <marker date="1495300373947" expanded="true" signature="13738:13780" ph="DELETE FROM " />
-                <marker date="1495300373947" expanded="true" signature="14228:14292" ph="DELETE FROM " />
-                <marker date="1495300373947" expanded="true" signature="14792:14861" ph="DELETE FROM " />
-                <marker date="1495300373947" expanded="true" signature="14934:15000" ph="DELETE FROM " />
+                <element signature="imports" expanded="true" />
+                <element signature="e#998#999#0" expanded="true" />
+                <element signature="e#1028#1029#0" expanded="true" />
+                <element signature="e#1768#1792#0" expanded="true" />
+                <element signature="e#2775#2781#0" expanded="true" />
+                <element signature="e#3532#3556#0" expanded="true" />
+                <element signature="e#7332#7355#0" expanded="true" />
+                <element signature="e#8146#8169#0" expanded="true" />
+                <marker date="1495351556035" expanded="true" signature="1876:1897" ph="SELECT * FRO... project" />
+                <marker date="1495351556035" expanded="true" signature="2871:2890" ph="SELECT * FRO... user_" />
+                <marker date="1495351556035" expanded="true" signature="3718:3776" ph="SELECT proje... registration" />
+                <marker date="1495351556035" expanded="true" signature="4888:4943" ph="SELECT proje... project" />
+                <marker date="1495351556035" expanded="true" signature="5805:5849" ph="SELECT * FRO... message" />
+                <marker date="1495351556035" expanded="true" signature="6541:6608" ph="SELECT memo_... memo" />
+                <marker date="1495351556035" expanded="true" signature="7445:7465" ph="SELECT * FRO... member" />
+                <marker date="1495351556035" expanded="true" signature="8259:8388" ph="SELECT membe... member" />
+                <marker date="1495351556035" expanded="true" signature="8326:8387" ph="SELECT membe... participation" />
+                <marker date="1495351556035" expanded="true" signature="9106:9150" ph="INSERT INTO project... " />
+                <marker date="1495351556035" expanded="true" signature="9605:9666" ph="INSERT INTO message... " />
+                <marker date="1495351556035" expanded="true" signature="10128:10203" ph="INSERT INTO memo... " />
+                <marker date="1495351556035" expanded="true" signature="10795:10853" ph="INSERT INTO member... " />
+                <marker date="1495351556035" expanded="true" signature="10926:10979" ph="INSERT INTO user_... " />
+                <marker date="1495351556035" expanded="true" signature="11691:11757" ph="INSERT INTO participation... " />
+                <marker date="1495351556035" expanded="true" signature="11830:11893" ph="INSERT INTO registration... " />
+                <marker date="1495351556035" expanded="true" signature="12584:12642" ph="UPDATE proje... " />
+                <marker date="1495351556035" expanded="true" signature="13145:13245" ph="UPDATE memo " />
+                <marker date="1495351556035" expanded="true" signature="13920:14004" ph="UPDATE memo " />
+                <marker date="1495351556035" expanded="true" signature="14618:14695" ph="UPDATE memo " />
+                <marker date="1495351556035" expanded="true" signature="15291:15333" ph="DELETE FROM " />
+                <marker date="1495351556035" expanded="true" signature="15770:15834" ph="DELETE FROM " />
+                <marker date="1495351556035" expanded="true" signature="16403:16472" ph="DELETE FROM " />
+                <marker date="1495351556035" expanded="true" signature="16545:16611" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
@@ -130,12 +127,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RProjects.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RProjects.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="464">
+              <caret line="151" column="52" lean-forward="true" selection-start-line="151" selection-start-column="52" selection-end-line="151" selection-end-column="52" />
+              <folding>
+                <element signature="method#RProjects#0;class#RProjects#0" expanded="false" />
+                <element signature="method#getMembers#0;class#RProjects#0" expanded="false" />
+                <element signature="method#setMembers#0;class#RProjects#0" expanded="false" />
+                <element signature="method#getMember#0;class#RProjects#0" expanded="false" />
+                <element signature="method#getMember#1;class#RProjects#0" expanded="false" />
+                <element signature="method#RProjects#1;class#RProjects#0" expanded="false" />
+                <element signature="method#notifyObservers#0;class#RProjects#0" expanded="false" />
+                <element signature="method#getRemoteProjects#0;class#RProjects#0" expanded="false" />
+                <element signature="method#setRemoteProjects#0;class#RProjects#0" expanded="false" />
+                <element signature="method#addProject#0;class#RProjects#0" expanded="false" />
+                <element signature="method#addProject#1;class#RProjects#0" expanded="false" />
+                <element signature="method#getProject#0;class#RProjects#0" expanded="false" />
+                <element signature="method#getProject#1;class#RProjects#0" expanded="false" />
+                <element signature="method#getProjectNames#0;class#RProjects#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -143,24 +155,34 @@
       <file leaf-file-name="RProject.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="146" column="47" lean-forward="false" selection-start-line="146" selection-start-column="47" selection-end-line="146" selection-end-column="47" />
+            <state relative-caret-position="194">
+              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
               <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#RProject#0;class#RProject#0" expanded="false" />
                 <element signature="method#RProject#1;class#RProject#0" expanded="false" />
                 <element signature="method#getName#0;class#RProject#0" expanded="false" />
                 <element signature="method#getMembers#0;class#RProject#0" expanded="false" />
+                <element signature="method#setName#0;class#RProject#0" expanded="false" />
                 <element signature="method#setMembers#0;class#RProject#0" expanded="false" />
                 <element signature="method#getTaskList#0;class#RProject#0" expanded="false" />
                 <element signature="method#setTaskList#0;class#RProject#0" expanded="false" />
                 <element signature="method#addTask#0;class#RProject#0" expanded="false" />
                 <element signature="method#addMember#0;class#RProject#0" expanded="false" />
+                <element signature="method#addMember#1;class#RProject#0" expanded="false" />
                 <element signature="method#getMember#0;class#RProject#0" expanded="false" />
+                <element signature="method#getMember#1;class#RProject#0" expanded="false" />
                 <element signature="method#getChat#0;class#RProject#0" expanded="false" />
+                <element signature="method#addMessage#0;class#RProject#0" expanded="false" />
                 <element signature="method#removeMemo#0;class#RProject#0" expanded="false" />
+                <element signature="method#addMemo#0;class#RProject#0" expanded="false" />
                 <element signature="method#getMemos#0;class#RProject#0" expanded="false" />
+                <element signature="method#removeMember#0;class#RProject#0" expanded="false" />
+                <element signature="method#removeMember#1;class#RProject#0" expanded="false" />
                 <element signature="method#getMemo#0;class#RProject#0" expanded="false" />
                 <element signature="method#getCalendar#0;class#RProject#0" expanded="false" />
                 <element signature="method#setCalendar#0;class#RProject#0" expanded="false" />
+                <element signature="method#setChat#0;class#RProject#0" expanded="false" />
                 <element signature="method#toString#0;class#RProject#0" expanded="false" />
               </folding>
             </state>
@@ -177,11 +199,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ClientController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/controller/ClientController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="41">
-              <caret line="136" column="36" lean-forward="false" selection-start-line="136" selection-start-column="36" selection-end-line="136" selection-end-column="36" />
+            <state relative-caret-position="347">
+              <caret line="168" column="31" lean-forward="true" selection-start-line="168" selection-start-column="31" selection-end-line="168" selection-end-column="31" />
               <folding>
                 <element signature="class#Wrapper#0;class#ClientController#0" expanded="false" />
                 <element signature="method#ClientController#0;class#ClientController#0" expanded="false" />
@@ -284,7 +306,6 @@
         <option value="$PROJECT_DIR$/test/ProjectDAOTest.java" />
         <option value="$PROJECT_DIR$/src/server/view/GUI.java" />
         <option value="$PROJECT_DIR$/src/client/view/Projects.java" />
-        <option value="$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java" />
         <option value="$PROJECT_DIR$/src/shared/User.java" />
         <option value="$PROJECT_DIR$/src/shared/ServerInterface.java" />
         <option value="$PROJECT_DIR$/src/server/controller/ServerController.java" />
@@ -293,6 +314,7 @@
         <option value="$PROJECT_DIR$/src/server/model/ServerModel.java" />
         <option value="$PROJECT_DIR$/src/server/model/ProjectDAO.java" />
         <option value="$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java" />
+        <option value="$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java" />
       </list>
     </option>
   </component>
@@ -1107,12 +1129,12 @@
       <workItem from="1495096401052" duration="7237000" />
       <workItem from="1495199473262" duration="3534000" />
       <workItem from="1495277506605" duration="902000" />
-      <workItem from="1495278432212" duration="10654000" />
+      <workItem from="1495278432212" duration="12257000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96560000" />
+    <option name="totallyTimeSpent" value="98163000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1187,7 +1209,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java</url>
-          <line>97</line>
+          <line>98</line>
           <properties />
           <option name="timeStamp" value="31" />
         </line-breakpoint>
@@ -1197,14 +1219,8 @@
           <properties />
           <option name="timeStamp" value="34" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java</url>
-          <line>139</line>
-          <properties />
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="40" />
+      <option name="time" value="41" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1503,10 +1519,10 @@
         <state relative-caret-position="340">
           <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
-            <marker date="1495300373931" expanded="false" signature="785:789" ph=" { " />
-            <marker date="1495300373931" expanded="false" signature="805:808" ph=" }" />
-            <marker date="1495300373931" expanded="false" signature="3929:3933" ph=" { " />
-            <marker date="1495300373931" expanded="false" signature="3955:3958" ph=" }" />
+            <marker date="1495350248278" expanded="false" signature="785:789" ph=" { " />
+            <marker date="1495350248278" expanded="false" signature="805:808" ph=" }" />
+            <marker date="1495350248278" expanded="false" signature="3929:3933" ph=" { " />
+            <marker date="1495350248278" expanded="false" signature="3955:3958" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -1530,10 +1546,10 @@
         <state relative-caret-position="374">
           <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
           <folding>
-            <marker date="1495300373907" expanded="false" signature="720:725" ph=" { " />
-            <marker date="1495300373907" expanded="false" signature="756:759" ph=" }" />
-            <marker date="1495300373907" expanded="false" signature="1254:1259" ph=" { " />
-            <marker date="1495300373907" expanded="false" signature="1294:1297" ph=" }" />
+            <marker date="1495350248279" expanded="false" signature="720:725" ph=" { " />
+            <marker date="1495350248279" expanded="false" signature="756:759" ph=" }" />
+            <marker date="1495350248279" expanded="false" signature="1254:1259" ph=" { " />
+            <marker date="1495350248279" expanded="false" signature="1294:1297" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -1570,52 +1586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/model/ProjectDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="33" column="32" lean-forward="false" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
-          <folding>
-            <element signature="e#734#735#0" expanded="true" />
-            <element signature="e#764#765#0" expanded="true" />
-            <element signature="e#1504#1528#0" expanded="true" />
-            <element signature="e#2639#2663#0" expanded="true" />
-            <element signature="e#6133#6156#0" expanded="true" />
-            <element signature="e#6912#6935#0" expanded="true" />
-            <marker date="1495300373947" expanded="true" signature="1612:1633" ph="SELECT * FRO... project" />
-            <marker date="1495300373947" expanded="true" signature="2753:2811" ph="SELECT proje... registration" />
-            <marker date="1495300373947" expanded="true" signature="3870:3925" ph="SELECT proje... project" />
-            <marker date="1495300373947" expanded="true" signature="4725:4769" ph="SELECT * FRO... message" />
-            <marker date="1495300373947" expanded="true" signature="5400:5467" ph="SELECT memo_... memo" />
-            <marker date="1495300373947" expanded="true" signature="6246:6266" ph="SELECT * FRO... member" />
-            <marker date="1495300373947" expanded="true" signature="7025:7154" ph="SELECT membe... member" />
-            <marker date="1495300373947" expanded="true" signature="7092:7153" ph="SELECT membe... participation" />
-            <marker date="1495300373947" expanded="true" signature="7825:7869" ph="INSERT INTO project... " />
-            <marker date="1495300373947" expanded="true" signature="8343:8404" ph="INSERT INTO message... " />
-            <marker date="1495300373947" expanded="true" signature="8913:8988" ph="INSERT INTO memo... " />
-            <marker date="1495300373947" expanded="true" signature="9544:9602" ph="INSERT INTO member... " />
-            <marker date="1495300373947" expanded="true" signature="9675:9728" ph="INSERT INTO user_... " />
-            <marker date="1495300373947" expanded="true" signature="10340:10406" ph="INSERT INTO participation... " />
-            <marker date="1495300373947" expanded="true" signature="10479:10542" ph="INSERT INTO registration... " />
-            <marker date="1495300373947" expanded="true" signature="11175:11233" ph="UPDATE proje... " />
-            <marker date="1495300373947" expanded="true" signature="11760:11860" ph="UPDATE memo " />
-            <marker date="1495300373947" expanded="true" signature="12481:12565" ph="UPDATE memo " />
-            <marker date="1495300373947" expanded="true" signature="13124:13201" ph="UPDATE memo " />
-            <marker date="1495300373947" expanded="true" signature="13738:13780" ph="DELETE FROM " />
-            <marker date="1495300373947" expanded="true" signature="14228:14292" ph="DELETE FROM " />
-            <marker date="1495300373947" expanded="true" signature="14792:14861" ph="DELETE FROM " />
-            <marker date="1495300373947" expanded="true" signature="14934:15000" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RChat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -1648,35 +1618,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="146" column="47" lean-forward="false" selection-start-line="146" selection-start-column="47" selection-end-line="146" selection-end-column="47" />
-          <folding>
-            <element signature="method#RProject#1;class#RProject#0" expanded="false" />
-            <element signature="method#getName#0;class#RProject#0" expanded="false" />
-            <element signature="method#getMembers#0;class#RProject#0" expanded="false" />
-            <element signature="method#setMembers#0;class#RProject#0" expanded="false" />
-            <element signature="method#getTaskList#0;class#RProject#0" expanded="false" />
-            <element signature="method#setTaskList#0;class#RProject#0" expanded="false" />
-            <element signature="method#addTask#0;class#RProject#0" expanded="false" />
-            <element signature="method#addMember#0;class#RProject#0" expanded="false" />
-            <element signature="method#getMember#0;class#RProject#0" expanded="false" />
-            <element signature="method#getChat#0;class#RProject#0" expanded="false" />
-            <element signature="method#removeMemo#0;class#RProject#0" expanded="false" />
-            <element signature="method#getMemos#0;class#RProject#0" expanded="false" />
-            <element signature="method#getMemo#0;class#RProject#0" expanded="false" />
-            <element signature="method#getCalendar#0;class#RProject#0" expanded="false" />
-            <element signature="method#setCalendar#0;class#RProject#0" expanded="false" />
-            <element signature="method#toString#0;class#RProject#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/controller/ClientController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="136" column="36" lean-forward="false" selection-start-line="136" selection-start-column="36" selection-end-line="136" selection-end-column="36" />
+        <state relative-caret-position="347">
+          <caret line="168" column="31" lean-forward="true" selection-start-line="168" selection-start-column="31" selection-end-line="168" selection-end-column="31" />
           <folding>
             <element signature="class#Wrapper#0;class#ClientController#0" expanded="false" />
             <element signature="method#ClientController#0;class#ClientController#0" expanded="false" />
@@ -1691,6 +1636,105 @@
             <element signature="method#getOrganizationMembersFromServer#0;class#ClientController#0" expanded="false" />
             <element signature="method#removeMember#0;class#ClientController#0" expanded="false" />
             <element signature="method#removeMember#1;class#ClientController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/model/ProjectDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="350" column="73" lean-forward="false" selection-start-line="350" selection-start-column="73" selection-end-line="350" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#998#999#0" expanded="true" />
+            <element signature="e#1028#1029#0" expanded="true" />
+            <element signature="e#1768#1792#0" expanded="true" />
+            <element signature="e#2775#2781#0" expanded="true" />
+            <element signature="e#3532#3556#0" expanded="true" />
+            <element signature="e#7332#7355#0" expanded="true" />
+            <element signature="e#8146#8169#0" expanded="true" />
+            <marker date="1495351556035" expanded="true" signature="1876:1897" ph="SELECT * FRO... project" />
+            <marker date="1495351556035" expanded="true" signature="2871:2890" ph="SELECT * FRO... user_" />
+            <marker date="1495351556035" expanded="true" signature="3718:3776" ph="SELECT proje... registration" />
+            <marker date="1495351556035" expanded="true" signature="4888:4943" ph="SELECT proje... project" />
+            <marker date="1495351556035" expanded="true" signature="5805:5849" ph="SELECT * FRO... message" />
+            <marker date="1495351556035" expanded="true" signature="6541:6608" ph="SELECT memo_... memo" />
+            <marker date="1495351556035" expanded="true" signature="7445:7465" ph="SELECT * FRO... member" />
+            <marker date="1495351556035" expanded="true" signature="8259:8388" ph="SELECT membe... member" />
+            <marker date="1495351556035" expanded="true" signature="8326:8387" ph="SELECT membe... participation" />
+            <marker date="1495351556035" expanded="true" signature="9106:9150" ph="INSERT INTO project... " />
+            <marker date="1495351556035" expanded="true" signature="9605:9666" ph="INSERT INTO message... " />
+            <marker date="1495351556035" expanded="true" signature="10128:10203" ph="INSERT INTO memo... " />
+            <marker date="1495351556035" expanded="true" signature="10795:10853" ph="INSERT INTO member... " />
+            <marker date="1495351556035" expanded="true" signature="10926:10979" ph="INSERT INTO user_... " />
+            <marker date="1495351556035" expanded="true" signature="11691:11757" ph="INSERT INTO participation... " />
+            <marker date="1495351556035" expanded="true" signature="11830:11893" ph="INSERT INTO registration... " />
+            <marker date="1495351556035" expanded="true" signature="12584:12642" ph="UPDATE proje... " />
+            <marker date="1495351556035" expanded="true" signature="13145:13245" ph="UPDATE memo " />
+            <marker date="1495351556035" expanded="true" signature="13920:14004" ph="UPDATE memo " />
+            <marker date="1495351556035" expanded="true" signature="14618:14695" ph="UPDATE memo " />
+            <marker date="1495351556035" expanded="true" signature="15291:15333" ph="DELETE FROM " />
+            <marker date="1495351556035" expanded="true" signature="15770:15834" ph="DELETE FROM " />
+            <marker date="1495351556035" expanded="true" signature="16403:16472" ph="DELETE FROM " />
+            <marker date="1495351556035" expanded="true" signature="16545:16611" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#RProject#0;class#RProject#0" expanded="false" />
+            <element signature="method#RProject#1;class#RProject#0" expanded="false" />
+            <element signature="method#getName#0;class#RProject#0" expanded="false" />
+            <element signature="method#getMembers#0;class#RProject#0" expanded="false" />
+            <element signature="method#setName#0;class#RProject#0" expanded="false" />
+            <element signature="method#setMembers#0;class#RProject#0" expanded="false" />
+            <element signature="method#getTaskList#0;class#RProject#0" expanded="false" />
+            <element signature="method#setTaskList#0;class#RProject#0" expanded="false" />
+            <element signature="method#addTask#0;class#RProject#0" expanded="false" />
+            <element signature="method#addMember#0;class#RProject#0" expanded="false" />
+            <element signature="method#addMember#1;class#RProject#0" expanded="false" />
+            <element signature="method#getMember#0;class#RProject#0" expanded="false" />
+            <element signature="method#getMember#1;class#RProject#0" expanded="false" />
+            <element signature="method#getChat#0;class#RProject#0" expanded="false" />
+            <element signature="method#addMessage#0;class#RProject#0" expanded="false" />
+            <element signature="method#removeMemo#0;class#RProject#0" expanded="false" />
+            <element signature="method#addMemo#0;class#RProject#0" expanded="false" />
+            <element signature="method#getMemos#0;class#RProject#0" expanded="false" />
+            <element signature="method#removeMember#0;class#RProject#0" expanded="false" />
+            <element signature="method#removeMember#1;class#RProject#0" expanded="false" />
+            <element signature="method#getMemo#0;class#RProject#0" expanded="false" />
+            <element signature="method#getCalendar#0;class#RProject#0" expanded="false" />
+            <element signature="method#setCalendar#0;class#RProject#0" expanded="false" />
+            <element signature="method#setChat#0;class#RProject#0" expanded="false" />
+            <element signature="method#toString#0;class#RProject#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="151" column="52" lean-forward="true" selection-start-line="151" selection-start-column="52" selection-end-line="151" selection-end-column="52" />
+          <folding>
+            <element signature="method#RProjects#0;class#RProjects#0" expanded="false" />
+            <element signature="method#getMembers#0;class#RProjects#0" expanded="false" />
+            <element signature="method#setMembers#0;class#RProjects#0" expanded="false" />
+            <element signature="method#getMember#0;class#RProjects#0" expanded="false" />
+            <element signature="method#getMember#1;class#RProjects#0" expanded="false" />
+            <element signature="method#RProjects#1;class#RProjects#0" expanded="false" />
+            <element signature="method#notifyObservers#0;class#RProjects#0" expanded="false" />
+            <element signature="method#getRemoteProjects#0;class#RProjects#0" expanded="false" />
+            <element signature="method#setRemoteProjects#0;class#RProjects#0" expanded="false" />
+            <element signature="method#addProject#0;class#RProjects#0" expanded="false" />
+            <element signature="method#addProject#1;class#RProjects#0" expanded="false" />
+            <element signature="method#getProject#0;class#RProjects#0" expanded="false" />
+            <element signature="method#getProject#1;class#RProjects#0" expanded="false" />
+            <element signature="method#getProjectNames#0;class#RProjects#0" expanded="false" />
           </folding>
         </state>
       </provider>

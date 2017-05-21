@@ -405,11 +405,23 @@ public class ProjectDAO {
         }
     }
 
-    public void deleteProject(String projectName) {
+    public void deleteProject(RemoteProjectInterface project) throws RemoteException {
         try {
-            PreparedStatement statement = connection.prepareStatement("DELETE FROM project WHERE project_name = ?");
-            statement.setString(1, projectName);
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM participation WHERE project_name = ?");
+            PreparedStatement statement1 = connection.prepareStatement("DELETE FROM registration WHERE project_name = ?");
+            PreparedStatement statement2 = connection.prepareStatement("DELETE FROM message WHERE project_name = ?");
+            PreparedStatement statement3 = connection.prepareStatement("DELETE FROM memo WHERE project_name = ?");
+            PreparedStatement statement4 = connection.prepareStatement("DELETE FROM project WHERE project_name = ?");
+            statement.setString(1, project.getName());
+            statement1.setString(1, project.getName());
+            statement2.setString(1, project.getName());
+            statement3.setString(1, project.getName());
+            statement4.setString(1, project.getName());
             statement.executeUpdate();
+            statement1.executeUpdate();
+            statement2.executeUpdate();
+            statement3.executeUpdate();
+            statement4.executeUpdate();
         } catch (SQLException e) {
             try {
                 connection.close();

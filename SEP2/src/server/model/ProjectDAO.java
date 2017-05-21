@@ -11,14 +11,11 @@ import java.util.Date;
 
 import org.postgresql.Driver;
 
-import server.remote_business_enitities.RCalendar;
-import server.remote_business_enitities.RChat;
-import server.remote_business_enitities.RMember;
-import server.remote_business_enitities.RMemo;
-import server.remote_business_enitities.RProject;
+import server.remote_business_enitities.*;
 import shared.remote_business_interfaces.RemoteMemberInterface;
 import shared.remote_business_interfaces.RemoteMemoInterface;
 import shared.remote_business_interfaces.RemoteProjectInterface;
+import shared.remote_business_interfaces.RemoteProjectsInterface;
 
 public class ProjectDAO
 {
@@ -29,9 +26,13 @@ public class ProjectDAO
       return connection;
    }
 
-   public static synchronized ProjectDAO getInstance() throws SQLException {
+   public static synchronized ProjectDAO getInstance()  {
       if (instance == null) {
-         instance = new ProjectDAO();
+         try {
+            instance = new ProjectDAO();
+         } catch (SQLException e) {
+            e.printStackTrace();
+         }
       }
       return instance;
    }
@@ -42,8 +43,8 @@ public class ProjectDAO
               .getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=synergy", "postgres", "159");
    }
    
-   public ArrayList<RemoteProjectInterface> readAllProjects() throws SQLException, RemoteException {
-
+   public RemoteProjectsInterface readAllProjects() throws SQLException, RemoteException {
+      RemoteProjectsInterface remoteProjects = new RProjects();
       ArrayList<RemoteProjectInterface> projects = new ArrayList<RemoteProjectInterface>();
       try {
          PreparedStatement statement = connection.prepareStatement("SELECT * FROM project");
@@ -65,10 +66,12 @@ public class ProjectDAO
             e1.printStackTrace();
          }
       }
-      return projects;
+      remoteProjects.setProjects(projects);
+      return remoteProjects;
    }
    
-   public ArrayList<RemoteProjectInterface> readAllProjectsForUser(String user_email) throws SQLException, RemoteException {
+   public RemoteProjectsInterface readAllProjectsForUser(String user_email) throws SQLException, RemoteException {
+      RemoteProjectsInterface usersRemoteProjects = new RProjects();
       ArrayList<RemoteProjectInterface> projects = new ArrayList<RemoteProjectInterface>();
       try
       {
@@ -94,7 +97,8 @@ public class ProjectDAO
             e2.printStackTrace();
          }
       }
-      return projects;
+      usersRemoteProjects.setProjects(projects);
+      return usersRemoteProjects;
    }
    
    public RProject readProject(String projectName) throws SQLException, RemoteException {

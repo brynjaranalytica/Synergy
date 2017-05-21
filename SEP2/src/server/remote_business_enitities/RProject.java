@@ -2,6 +2,7 @@ package server.remote_business_enitities;
 
 
 import database.DBdummy;
+import server.model.ProjectDAO;
 import shared.MessageHeaders;
 import shared.business_entities.Member;
 import shared.business_entities.Memo;
@@ -97,7 +98,7 @@ public class RProject implements RemoteProjectInterface {
         for(RemoteMemberInterface member: RProjects.remoteMembers) {
             if(member.getEmail().equals(email)) {
                 this.members.add(member);
-                DBdummy.getInstance().updateProject(this);
+                ProjectDAO.getInstance().(this);
                 RProjects.notifyObservers(MessageHeaders.UPDATE, new Project(this));
                 break;
             }
@@ -128,7 +129,7 @@ public class RProject implements RemoteProjectInterface {
     @Override
     public void addMessage(String message) throws RemoteException{
         this.chat.addMessage(message);
-        DBdummy.getInstance().updateProject(this);
+        ProjectDAO.getInstance().addMessage(this);
         //ProjectDAO.updateChat(this.chat);
         RProjects.notifyObservers(MessageHeaders.UPDATE, new Project(this));
     }
@@ -143,7 +144,7 @@ public class RProject implements RemoteProjectInterface {
     @Override
     public void addMemo(Memo memo) throws RemoteException {
         this.calendar.addMemo(new RMemo(memo));
-        DBdummy.getInstance().updateProject(this);
+        ProjectDAO.getInstance().addMemo(name, this);
         RProjects.notifyObservers(MessageHeaders.UPDATE, new Project(this));
     }
 

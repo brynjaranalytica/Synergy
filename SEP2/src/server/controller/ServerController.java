@@ -15,6 +15,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.Arrays;
 import java.util.Properties;
 import javax.swing.JOptionPane;
 
@@ -23,6 +24,7 @@ import server.view.GUI;
 import shared.ServerInterface;
 import shared.User;
 import shared.remote_business_interfaces.RemoteProjectsInterface;
+import utility.Cryptography;
 import utility.Log;
 
 public class ServerController implements ServerInterface{
@@ -77,18 +79,28 @@ public class ServerController implements ServerInterface{
 	}
 
 	@Override
-	public RemoteProjectsInterface getRemoteProjects() throws RemoteException {
-		return serverModel.getRemoteProjects();
+	public RemoteProjectsInterface getRemoteProjectsForUser(User user) throws RemoteException {
+		return serverModel.getRemoteProjectsForUser(user.getiD());
 	}
 
 	@Override
 	public String validateId(String userID) throws RemoteException {
-		return serverModel.validateID(userID);
+		return serverModel.checkID(userID);
 	}
 
 	@Override
-	public User login(String userID, char[] passWord) throws RemoteException {	
-		return serverModel.login(userID, passWord);
+	public User login(String userID, char[] passWord) throws RemoteException {
+		User user = serverModel.retrieveUser(userID);
+		if (user == null) return null;
+		char[] passEncrypted = user.getPass();
+		if (passEncrypted == null) return null;
+		char[] passDecrypted = Cryptography.decryptPass(passEncrypted, Cryptography.getKey());
+		if (userID.equalsIgnoreCase(user.getiD()) && Arrays.equals(passWord, passDecrypted)){
+			user.setPass(passDecrypted);
+			return user;
+		} else {
+			return null;
+		}
 	}
 	
 	//Allowing only one instance running

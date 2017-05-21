@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bcd2185-6df3-4059-a039-89823f30c92d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Projects.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/Projects.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/model/ProjectDAO.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/model/ProjectDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/model/ServerModel.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/model/ServerModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/view/GUI$1.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/view/GUI$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/view/GUI.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/view/GUI.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/view/Projects.java" afterPath="$PROJECT_DIR$/src/client/view/Projects.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/database/DBdummy.java" afterPath="$PROJECT_DIR$/src/database/DBdummy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/controller/ServerController.java" afterPath="$PROJECT_DIR$/src/server/controller/ServerController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/model/Adapter.java" afterPath="$PROJECT_DIR$/src/server/model/Adapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/model/ProjectDAO.java" afterPath="$PROJECT_DIR$/src/server/model/ProjectDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/model/ServerModel.java" afterPath="$PROJECT_DIR$/src/server/model/ServerModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java" afterPath="$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/view/GUI.java" afterPath="$PROJECT_DIR$/src/server/view/GUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java" afterPath="$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shared/ServerInterface.java" afterPath="$PROJECT_DIR$/src/shared/ServerInterface.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shared/User.java" afterPath="$PROJECT_DIR$/src/shared/User.java" />
     </list>
     <ignored path="SEP2.iws" />
@@ -44,52 +40,102 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Projects.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/view/Projects.java">
+      <file leaf-file-name="ProjectDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/model/ProjectDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="113" column="31" lean-forward="false" selection-start-line="113" selection-start-column="31" selection-end-line="113" selection-end-column="31" />
+            <state relative-caret-position="289">
+              <caret line="33" column="32" lean-forward="false" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
               <folding>
-                <element signature="method#loadData#0;class#Projects#0" expanded="false" />
-                <element signature="method#clear#0;class#Projects#0" expanded="false" />
-                <element signature="method#Projects#0;class#Projects#0" expanded="false" />
-                <element signature="class#7417:8332" expanded="false" />
-                <element signature="e#8376#9141#0" expanded="false" />
+                <element signature="e#734#735#0" expanded="true" />
+                <element signature="e#764#765#0" expanded="true" />
+                <element signature="e#1504#1528#0" expanded="true" />
+                <element signature="e#2639#2663#0" expanded="true" />
+                <element signature="e#6133#6156#0" expanded="true" />
+                <element signature="e#6912#6935#0" expanded="true" />
+                <marker date="1495300373947" expanded="true" signature="1612:1633" ph="SELECT * FRO... project" />
+                <marker date="1495300373947" expanded="true" signature="2753:2811" ph="SELECT proje... registration" />
+                <marker date="1495300373947" expanded="true" signature="3870:3925" ph="SELECT proje... project" />
+                <marker date="1495300373947" expanded="true" signature="4725:4769" ph="SELECT * FRO... message" />
+                <marker date="1495300373947" expanded="true" signature="5400:5467" ph="SELECT memo_... memo" />
+                <marker date="1495300373947" expanded="true" signature="6246:6266" ph="SELECT * FRO... member" />
+                <marker date="1495300373947" expanded="true" signature="7025:7154" ph="SELECT membe... member" />
+                <marker date="1495300373947" expanded="true" signature="7092:7153" ph="SELECT membe... participation" />
+                <marker date="1495300373947" expanded="true" signature="7825:7869" ph="INSERT INTO project... " />
+                <marker date="1495300373947" expanded="true" signature="8343:8404" ph="INSERT INTO message... " />
+                <marker date="1495300373947" expanded="true" signature="8913:8988" ph="INSERT INTO memo... " />
+                <marker date="1495300373947" expanded="true" signature="9544:9602" ph="INSERT INTO member... " />
+                <marker date="1495300373947" expanded="true" signature="9675:9728" ph="INSERT INTO user_... " />
+                <marker date="1495300373947" expanded="true" signature="10340:10406" ph="INSERT INTO participation... " />
+                <marker date="1495300373947" expanded="true" signature="10479:10542" ph="INSERT INTO registration... " />
+                <marker date="1495300373947" expanded="true" signature="11175:11233" ph="UPDATE proje... " />
+                <marker date="1495300373947" expanded="true" signature="11760:11860" ph="UPDATE memo " />
+                <marker date="1495300373947" expanded="true" signature="12481:12565" ph="UPDATE memo " />
+                <marker date="1495300373947" expanded="true" signature="13124:13201" ph="UPDATE memo " />
+                <marker date="1495300373947" expanded="true" signature="13738:13780" ph="DELETE FROM " />
+                <marker date="1495300373947" expanded="true" signature="14228:14292" ph="DELETE FROM " />
+                <marker date="1495300373947" expanded="true" signature="14792:14861" ph="DELETE FROM " />
+                <marker date="1495300373947" expanded="true" signature="14934:15000" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProjectDAO.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/server/model/ProjectDAO.java">
+      <file leaf-file-name="RCalendar.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RCalendar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="64" column="33" lean-forward="true" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
-              <folding>
-                <element signature="e#869#870#0" expanded="true" />
-                <element signature="e#899#900#0" expanded="true" />
-                <element signature="e#1508#1532#0" expanded="true" />
-                <element signature="e#4837#4860#0" expanded="true" />
-                <element signature="e#5616#5639#0" expanded="true" />
-                <marker date="1495290047367" expanded="true" signature="1616:1637" ph="SELECT * FRO... project" />
-                <marker date="1495290047367" expanded="true" signature="2574:2629" ph="SELECT proje... project" />
-                <marker date="1495290047367" expanded="true" signature="3429:3473" ph="SELECT * FRO... message" />
-                <marker date="1495290047367" expanded="true" signature="4104:4171" ph="SELECT memo_... memo" />
-                <marker date="1495290047367" expanded="true" signature="4950:4970" ph="SELECT * FRO... member" />
-                <marker date="1495290047367" expanded="true" signature="5729:5858" ph="SELECT membe... member" />
-                <marker date="1495290047367" expanded="true" signature="5796:5857" ph="SELECT membe... participation" />
-                <marker date="1495290047367" expanded="true" signature="6545:6606" ph="INSERT INTO message... " />
-                <marker date="1495290047367" expanded="true" signature="7115:7190" ph="INSERT INTO memo... " />
-                <marker date="1495290047367" expanded="true" signature="7746:7804" ph="INSERT INTO member... " />
-                <marker date="1495290047367" expanded="true" signature="8286:8352" ph="INSERT INTO participation... " />
-                <marker date="1495290047367" expanded="true" signature="8854:8912" ph="UPDATE proje... " />
-                <marker date="1495290047367" expanded="true" signature="9439:9539" ph="UPDATE memo " />
-                <marker date="1495290047367" expanded="true" signature="10160:10244" ph="UPDATE memo " />
-                <marker date="1495290047367" expanded="true" signature="10803:10880" ph="UPDATE memo " />
-                <marker date="1495290047367" expanded="true" signature="11417:11459" ph="DELETE FROM " />
-                <marker date="1495290047367" expanded="true" signature="11907:11971" ph="DELETE FROM " />
-                <marker date="1495290047367" expanded="true" signature="12471:12540" ph="DELETE FROM " />
-              </folding>
+            <state relative-caret-position="323">
+              <caret line="27" column="44" lean-forward="false" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RChat.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RChat.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="22" column="50" lean-forward="false" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RMember.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RMember.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="550">
+              <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/view/GUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="490">
+              <caret line="98" column="13" lean-forward="false" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RTaskList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RTaskList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RProjects.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="388">
+              <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -97,8 +143,8 @@
       <file leaf-file-name="RProject.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="128" column="26" lean-forward="false" selection-start-line="128" selection-start-column="16" selection-end-line="128" selection-end-column="26" />
+            <state relative-caret-position="345">
+              <caret line="146" column="47" lean-forward="false" selection-start-line="146" selection-start-column="47" selection-end-line="146" selection-end-column="47" />
               <folding>
                 <element signature="method#RProject#1;class#RProject#0" expanded="false" />
                 <element signature="method#getName#0;class#RProject#0" expanded="false" />
@@ -121,80 +167,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RProjects.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java">
+      <file leaf-file-name="RMemo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RMemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+            <state relative-caret-position="391">
+              <caret line="29" column="11" lean-forward="false" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserType.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shared/UserType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shared/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProjectDAOTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/ProjectDAOTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServerModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/model/ServerModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11">
-              <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-              <folding>
-                <element signature="e#758#759#0" expanded="true" />
-                <element signature="e#803#804#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GUI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/view/GUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="98" column="13" lean-forward="true" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClientController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ClientController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/client/controller/ClientController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+            <state relative-caret-position="41">
+              <caret line="136" column="36" lean-forward="false" selection-start-line="136" selection-start-column="36" selection-end-line="136" selection-end-column="36" />
               <folding>
                 <element signature="class#Wrapper#0;class#ClientController#0" expanded="false" />
                 <element signature="method#ClientController#0;class#ClientController#0" expanded="false" />
-                <element signature="method#savePass#0;class#ClientController#0" expanded="false" />
                 <element signature="method#getIP#0;class#ClientController#0" expanded="false" />
                 <element signature="method#validateID#0;class#ClientController#0" expanded="false" />
                 <element signature="method#createLockFile#0;class#ClientController#0" expanded="false" />
@@ -252,7 +242,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/client/view/internal_frames/Calendar.java" />
         <option value="$PROJECT_DIR$/src/client/view/internal_frames/AbstractJIF.java" />
         <option value="$PROJECT_DIR$/src/client/view/internal_frames/Chat.java" />
         <option value="$PROJECT_DIR$/src/client/view/internal_frames/Sprints.java" />
@@ -260,7 +249,6 @@
         <option value="$PROJECT_DIR$/src/client/view/windows/Login.java" />
         <option value="$PROJECT_DIR$/src/client/view/windows/Root.java" />
         <option value="$PROJECT_DIR$/src/client/view/internal_frames/Projects.java" />
-        <option value="$PROJECT_DIR$/src/shared/ServerInterface.java" />
         <option value="$PROJECT_DIR$/src/client/view/Login.java" />
         <option value="$PROJECT_DIR$/src/shared/MessageHeaders.java" />
         <option value="$PROJECT_DIR$/src/shared/business_entities/TaskList.java" />
@@ -279,17 +267,14 @@
         <option value="$PROJECT_DIR$/src/server/remote_business_enitities/RCalendar.java" />
         <option value="$PROJECT_DIR$/src/server/remote_business_enitities/RChat.java" />
         <option value="$PROJECT_DIR$/src/client/model/ProxyProject.java" />
-        <option value="$PROJECT_DIR$/src/database/DBdummy.java" />
         <option value="$PROJECT_DIR$/src/shared/business_entities/Projects.java" />
         <option value="$PROJECT_DIR$/src/shared/UpdateMessage.java" />
         <option value="$PROJECT_DIR$/src/client/view/Root.java" />
         <option value="$PROJECT_DIR$/src/shared/business_entities/Member.java" />
         <option value="$PROJECT_DIR$/src/server/remote_business_enitities/RMember.java" />
         <option value="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectInterface.java" />
-        <option value="$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java" />
         <option value="$PROJECT_DIR$/src/client/controller/ClientController.java" />
         <option value="$PROJECT_DIR$/client.properties" />
-        <option value="$PROJECT_DIR$/src/server/controller/ServerController.java" />
         <option value="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectsInterface.java" />
         <option value="$PROJECT_DIR$/src/client/view/AbstractJIF.java" />
         <option value="$PROJECT_DIR$/src/client/view/Sprints.java" />
@@ -297,12 +282,17 @@
         <option value="$PROJECT_DIR$/src/client/view/Calendar.java" />
         <option value="[postgreSQL connection] CONSOLE - postgreSQL connection" />
         <option value="$PROJECT_DIR$/test/ProjectDAOTest.java" />
-        <option value="$PROJECT_DIR$/src/server/model/ProjectDAO.java" />
         <option value="$PROJECT_DIR$/src/server/view/GUI.java" />
-        <option value="$PROJECT_DIR$/src/server/model/ServerModel.java" />
         <option value="$PROJECT_DIR$/src/client/view/Projects.java" />
         <option value="$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java" />
         <option value="$PROJECT_DIR$/src/shared/User.java" />
+        <option value="$PROJECT_DIR$/src/shared/ServerInterface.java" />
+        <option value="$PROJECT_DIR$/src/server/controller/ServerController.java" />
+        <option value="$PROJECT_DIR$/src/server/model/Adapter.java" />
+        <option value="$PROJECT_DIR$/src/database/DBdummy.java" />
+        <option value="$PROJECT_DIR$/src/server/model/ServerModel.java" />
+        <option value="$PROJECT_DIR$/src/server/model/ProjectDAO.java" />
+        <option value="$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java" />
       </list>
     </option>
   </component>
@@ -414,6 +404,10 @@
               <option name="myItemId" value="server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -456,6 +450,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SEP2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SEP2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1091,12 +1107,12 @@
       <workItem from="1495096401052" duration="7237000" />
       <workItem from="1495199473262" duration="3534000" />
       <workItem from="1495277506605" duration="902000" />
-      <workItem from="1495278432212" duration="5333000" />
+      <workItem from="1495278432212" duration="10654000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91239000" />
+    <option name="totallyTimeSpent" value="96560000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1171,7 +1187,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java</url>
-          <line>96</line>
+          <line>97</line>
           <properties />
           <option name="timeStamp" value="31" />
         </line-breakpoint>
@@ -1203,28 +1219,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/client/view/ViewInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="9" lean-forward="false" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/business_entities/Chat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RTaskList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Thread.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/javax/swing/tree/DefaultTreeModel.java" />
     <entry file="file://$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteTaskListInterface.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1237,34 +1231,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
           <caret line="44" column="31" lean-forward="false" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RChat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="50" lean-forward="false" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RCalendar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="27" column="44" lean-forward="false" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RMember.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RMemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="29" column="11" lean-forward="false" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -1365,25 +1331,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="3" lean-forward="false" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/controller/ServerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="52" column="71" lean-forward="false" selection-start-line="52" selection-start-column="71" selection-end-line="52" selection-end-column="71" />
-          <folding>
-            <marker date="1495186365000" expanded="true" signature="2253:2302" ph="{...}" />
-            <marker date="1495186365000" expanded="true" signature="2390:2436" ph="{...}" />
-            <marker date="1495186365000" expanded="true" signature="2513:2558" ph="{...}" />
-            <marker date="1495186365000" expanded="true" signature="2645:2696" ph="{...}" />
-            <marker date="1495186365000" expanded="true" signature="2775:3385" ph="{...}" />
-            <marker date="1495186365000" expanded="true" signature="2953:3108" ph="{...}" />
-            <marker date="1495186365000" expanded="true" signature="3250:3378" ph="{...}" />
-            <marker date="1495186365000" expanded="true" signature="3325:3374" ph="{...}" />
-            <marker date="1495186365000" expanded="true" signature="3486:3807" ph="{...}" />
-            <marker date="1495186365000" expanded="true" signature="3839:4023" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1492,50 +1439,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/DBdummy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="99" column="23" lean-forward="true" selection-start-line="99" selection-start-column="23" selection-end-line="99" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/model/ClientModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="518">
           <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/view/GUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="98" column="13" lean-forward="true" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/controller/ClientController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding>
-            <element signature="class#Wrapper#0;class#ClientController#0" expanded="false" />
-            <element signature="method#ClientController#0;class#ClientController#0" expanded="false" />
-            <element signature="method#savePass#0;class#ClientController#0" expanded="false" />
-            <element signature="method#getIP#0;class#ClientController#0" expanded="false" />
-            <element signature="method#validateID#0;class#ClientController#0" expanded="false" />
-            <element signature="method#createLockFile#0;class#ClientController#0" expanded="false" />
-            <element signature="method#loadProperties#0;class#ClientController#0" expanded="false" />
-            <element signature="method#getProjectNames#0;class#ClientController#0" expanded="false" />
-            <element signature="method#getProjectNamesFromServer#0;class#ClientController#0" expanded="false" />
-            <element signature="method#removeMemo#0;class#ClientController#0" expanded="false" />
-            <element signature="method#addProject#0;class#ClientController#0" expanded="false" />
-            <element signature="method#getOrganizationMembersFromServer#0;class#ClientController#0" expanded="false" />
-            <element signature="method#removeMember#0;class#ClientController#0" expanded="false" />
-            <element signature="method#removeMember#1;class#ClientController#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1545,17 +1453,6 @@
           <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/model/ServerModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11">
-          <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-          <folding>
-            <element signature="e#758#759#0" expanded="true" />
-            <element signature="e#803#804#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1574,10 +1471,187 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/UserType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <element signature="e#816#817#0" expanded="true" />
+            <element signature="e#841#842#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/ServerInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="62" lean-forward="false" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/DBdummy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <marker date="1495300373931" expanded="false" signature="785:789" ph=" { " />
+            <marker date="1495300373931" expanded="false" signature="805:808" ph=" }" />
+            <marker date="1495300373931" expanded="false" signature="3929:3933" ph=" { " />
+            <marker date="1495300373931" expanded="false" signature="3955:3958" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/controller/ServerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="82" column="64" lean-forward="false" selection-start-line="82" selection-start-column="64" selection-end-line="82" selection-end-column="64" />
+          <folding>
+            <element signature="method#main#0;class#ServerController#0" expanded="false" />
+            <element signature="method#ServerController#0;class#ServerController#0" expanded="false" />
+            <element signature="method#createLockFile#0;class#ServerController#0" expanded="false" />
+            <element signature="method#loadProperties#0;class#ServerController#0" expanded="false" />
+            <element signature="method#getIP#0;class#ServerController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/model/Adapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+          <folding>
+            <marker date="1495300373907" expanded="false" signature="720:725" ph=" { " />
+            <marker date="1495300373907" expanded="false" signature="756:759" ph=" }" />
+            <marker date="1495300373907" expanded="false" signature="1254:1259" ph=" { " />
+            <marker date="1495300373907" expanded="false" signature="1294:1297" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/model/AdapterInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/model/ServerModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/view/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="98" column="13" lean-forward="false" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RTaskList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/model/ProjectDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="33" column="32" lean-forward="false" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+          <folding>
+            <element signature="e#734#735#0" expanded="true" />
+            <element signature="e#764#765#0" expanded="true" />
+            <element signature="e#1504#1528#0" expanded="true" />
+            <element signature="e#2639#2663#0" expanded="true" />
+            <element signature="e#6133#6156#0" expanded="true" />
+            <element signature="e#6912#6935#0" expanded="true" />
+            <marker date="1495300373947" expanded="true" signature="1612:1633" ph="SELECT * FRO... project" />
+            <marker date="1495300373947" expanded="true" signature="2753:2811" ph="SELECT proje... registration" />
+            <marker date="1495300373947" expanded="true" signature="3870:3925" ph="SELECT proje... project" />
+            <marker date="1495300373947" expanded="true" signature="4725:4769" ph="SELECT * FRO... message" />
+            <marker date="1495300373947" expanded="true" signature="5400:5467" ph="SELECT memo_... memo" />
+            <marker date="1495300373947" expanded="true" signature="6246:6266" ph="SELECT * FRO... member" />
+            <marker date="1495300373947" expanded="true" signature="7025:7154" ph="SELECT membe... member" />
+            <marker date="1495300373947" expanded="true" signature="7092:7153" ph="SELECT membe... participation" />
+            <marker date="1495300373947" expanded="true" signature="7825:7869" ph="INSERT INTO project... " />
+            <marker date="1495300373947" expanded="true" signature="8343:8404" ph="INSERT INTO message... " />
+            <marker date="1495300373947" expanded="true" signature="8913:8988" ph="INSERT INTO memo... " />
+            <marker date="1495300373947" expanded="true" signature="9544:9602" ph="INSERT INTO member... " />
+            <marker date="1495300373947" expanded="true" signature="9675:9728" ph="INSERT INTO user_... " />
+            <marker date="1495300373947" expanded="true" signature="10340:10406" ph="INSERT INTO participation... " />
+            <marker date="1495300373947" expanded="true" signature="10479:10542" ph="INSERT INTO registration... " />
+            <marker date="1495300373947" expanded="true" signature="11175:11233" ph="UPDATE proje... " />
+            <marker date="1495300373947" expanded="true" signature="11760:11860" ph="UPDATE memo " />
+            <marker date="1495300373947" expanded="true" signature="12481:12565" ph="UPDATE memo " />
+            <marker date="1495300373947" expanded="true" signature="13124:13201" ph="UPDATE memo " />
+            <marker date="1495300373947" expanded="true" signature="13738:13780" ph="DELETE FROM " />
+            <marker date="1495300373947" expanded="true" signature="14228:14292" ph="DELETE FROM " />
+            <marker date="1495300373947" expanded="true" signature="14792:14861" ph="DELETE FROM " />
+            <marker date="1495300373947" expanded="true" signature="14934:15000" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RChat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="22" column="50" lean-forward="false" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RCalendar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="27" column="44" lean-forward="false" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RMember.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RMemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="29" column="11" lean-forward="false" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="128" column="26" lean-forward="false" selection-start-line="128" selection-start-column="16" selection-end-line="128" selection-end-column="26" />
+        <state relative-caret-position="345">
+          <caret line="146" column="47" lean-forward="false" selection-start-line="146" selection-start-column="47" selection-end-line="146" selection-end-column="47" />
           <folding>
             <element signature="method#RProject#1;class#RProject#0" expanded="false" />
             <element signature="method#getName#0;class#RProject#0" expanded="false" />
@@ -1599,58 +1673,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java">
+    <entry file="file://$PROJECT_DIR$/src/client/controller/ClientController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/UserType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/model/ProjectDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="64" column="33" lean-forward="true" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
+        <state relative-caret-position="41">
+          <caret line="136" column="36" lean-forward="false" selection-start-line="136" selection-start-column="36" selection-end-line="136" selection-end-column="36" />
           <folding>
-            <element signature="e#869#870#0" expanded="true" />
-            <element signature="e#899#900#0" expanded="true" />
-            <element signature="e#1508#1532#0" expanded="true" />
-            <element signature="e#4837#4860#0" expanded="true" />
-            <element signature="e#5616#5639#0" expanded="true" />
-            <marker date="1495290047367" expanded="true" signature="1616:1637" ph="SELECT * FRO... project" />
-            <marker date="1495290047367" expanded="true" signature="2574:2629" ph="SELECT proje... project" />
-            <marker date="1495290047367" expanded="true" signature="3429:3473" ph="SELECT * FRO... message" />
-            <marker date="1495290047367" expanded="true" signature="4104:4171" ph="SELECT memo_... memo" />
-            <marker date="1495290047367" expanded="true" signature="4950:4970" ph="SELECT * FRO... member" />
-            <marker date="1495290047367" expanded="true" signature="5729:5858" ph="SELECT membe... member" />
-            <marker date="1495290047367" expanded="true" signature="5796:5857" ph="SELECT membe... participation" />
-            <marker date="1495290047367" expanded="true" signature="6545:6606" ph="INSERT INTO message... " />
-            <marker date="1495290047367" expanded="true" signature="7115:7190" ph="INSERT INTO memo... " />
-            <marker date="1495290047367" expanded="true" signature="7746:7804" ph="INSERT INTO member... " />
-            <marker date="1495290047367" expanded="true" signature="8286:8352" ph="INSERT INTO participation... " />
-            <marker date="1495290047367" expanded="true" signature="8854:8912" ph="UPDATE proje... " />
-            <marker date="1495290047367" expanded="true" signature="9439:9539" ph="UPDATE memo " />
-            <marker date="1495290047367" expanded="true" signature="10160:10244" ph="UPDATE memo " />
-            <marker date="1495290047367" expanded="true" signature="10803:10880" ph="UPDATE memo " />
-            <marker date="1495290047367" expanded="true" signature="11417:11459" ph="DELETE FROM " />
-            <marker date="1495290047367" expanded="true" signature="11907:11971" ph="DELETE FROM " />
-            <marker date="1495290047367" expanded="true" signature="12471:12540" ph="DELETE FROM " />
+            <element signature="class#Wrapper#0;class#ClientController#0" expanded="false" />
+            <element signature="method#ClientController#0;class#ClientController#0" expanded="false" />
+            <element signature="method#getIP#0;class#ClientController#0" expanded="false" />
+            <element signature="method#validateID#0;class#ClientController#0" expanded="false" />
+            <element signature="method#createLockFile#0;class#ClientController#0" expanded="false" />
+            <element signature="method#loadProperties#0;class#ClientController#0" expanded="false" />
+            <element signature="method#getProjectNames#0;class#ClientController#0" expanded="false" />
+            <element signature="method#getProjectNamesFromServer#0;class#ClientController#0" expanded="false" />
+            <element signature="method#removeMemo#0;class#ClientController#0" expanded="false" />
+            <element signature="method#addProject#0;class#ClientController#0" expanded="false" />
+            <element signature="method#getOrganizationMembersFromServer#0;class#ClientController#0" expanded="false" />
+            <element signature="method#removeMember#0;class#ClientController#0" expanded="false" />
+            <element signature="method#removeMember#1;class#ClientController#0" expanded="false" />
           </folding>
         </state>
       </provider>

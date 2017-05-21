@@ -12,5 +12,5 @@ public interface ServerInterface extends Remote{
 
 	boolean savePass(String userID, char[] pass) throws RemoteException;
 
-	RemoteProjectsInterface getRemoteProjects() throws RemoteException;
+	RemoteProjectsInterface getRemoteProjectsForUser(User user) throws RemoteException;
 }

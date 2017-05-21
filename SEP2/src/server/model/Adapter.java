@@ -1,4 +1,4 @@
-package server.model;
+/*package server.model;
 
 import java.util.Arrays;
 
@@ -68,4 +68,4 @@ public class Adapter implements AdapterInterface {
 		}
 	}
 
-}
+}*/

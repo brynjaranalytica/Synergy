@@ -2,60 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bcd2185-6df3-4059-a039-89823f30c92d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/model/AdapterInterface.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/b44771a3-ef42-48a9-9179-ce6554c01838/_metadata_/metadata" afterPath="$PROJECT_DIR$/.idea/dataSources/b44771a3-ef42-48a9-9179-ce6554c01838/_metadata_/metadata" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/b44771a3-ef42-48a9-9179-ce6554c01838/_metadata_/metadata.keystream" afterPath="$PROJECT_DIR$/.idea/dataSources/b44771a3-ef42-48a9-9179-ce6554c01838/_metadata_/metadata.keystream" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/b44771a3-ef42-48a9-9179-ce6554c01838/_metadata_/metadata.keystream.len" afterPath="$PROJECT_DIR$/.idea/dataSources/b44771a3-ef42-48a9-9179-ce6554c01838/_metadata_/metadata.keystream.len" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/b44771a3-ef42-48a9-9179-ce6554c01838/_metadata_/metadata.len" afterPath="$PROJECT_DIR$/.idea/dataSources/b44771a3-ef42-48a9-9179-ce6554c01838/_metadata_/metadata.len" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/b44771a3-ef42-48a9-9179-ce6554c01838/_metadata_/metadata_i" afterPath="$PROJECT_DIR$/.idea/dataSources/b44771a3-ef42-48a9-9179-ce6554c01838/_metadata_/metadata_i" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/b44771a3-ef42-48a9-9179-ce6554c01838/_metadata_/metadata_i.len" afterPath="$PROJECT_DIR$/.idea/dataSources/b44771a3-ef42-48a9-9179-ce6554c01838/_metadata_/metadata_i.len" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/controller/ClientController$1.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/controller/ClientController$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/controller/ClientController$Wrapper.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/controller/ClientController$Wrapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/controller/ClientController.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/controller/ClientController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Calendar$1.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/Calendar$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Calendar$2.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/Calendar$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Calendar$3.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/Calendar$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Calendar$4.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/Calendar$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Calendar.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/Calendar.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Chat.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/Chat.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Projects$1.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/Projects$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Projects.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/Projects.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/Root.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/Root.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/controller/ServerController$1.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/controller/ServerController$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/controller/ServerController.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/controller/ServerController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/model/ProjectDAO.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/model/ProjectDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/model/ServerModel.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/model/ServerModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/remote_business_enitities/RCalendar.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/remote_business_enitities/RCalendar.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/remote_business_enitities/RMemo.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/remote_business_enitities/RMemo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/remote_business_enitities/RProject.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/remote_business_enitities/RProject.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/remote_business_enitities/RProjects.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/remote_business_enitities/RProjects.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/shared/ServerInterface.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/shared/ServerInterface.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/shared/remote_business_interfaces/RemoteCalendarInterface.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/shared/remote_business_interfaces/RemoteCalendarInterface.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/shared/remote_business_interfaces/RemoteProjectInterface.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/shared/remote_business_interfaces/RemoteProjectInterface.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/shared/remote_business_interfaces/RemoteProjectsInterface.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/shared/remote_business_interfaces/RemoteProjectsInterface.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/utility/Validator.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/utility/Validator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/test/Synergy/utility/TestPINcode.class" afterPath="$PROJECT_DIR$/classes/test/Synergy/utility/TestPINcode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client.properties" afterPath="$PROJECT_DIR$/client.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/controller/ClientController.java" afterPath="$PROJECT_DIR$/src/client/controller/ClientController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/view/Calendar.java" afterPath="$PROJECT_DIR$/src/client/view/Calendar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/view/Chat.java" afterPath="$PROJECT_DIR$/src/client/view/Chat.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/view/Projects.java" afterPath="$PROJECT_DIR$/src/client/view/Projects.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/view/Root.java" afterPath="$PROJECT_DIR$/src/client/view/Root.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/controller/ServerController.java" afterPath="$PROJECT_DIR$/src/server/controller/ServerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/model/ProjectDAO.java" afterPath="$PROJECT_DIR$/src/server/model/ProjectDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/model/ServerModel.java" afterPath="$PROJECT_DIR$/src/server/model/ServerModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/remote_business_enitities/RCalendar.java" afterPath="$PROJECT_DIR$/src/server/remote_business_enitities/RCalendar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/remote_business_enitities/RMemo.java" afterPath="$PROJECT_DIR$/src/server/remote_business_enitities/RMemo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java" afterPath="$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java" afterPath="$PROJECT_DIR$/src/server/remote_business_enitities/RProjects.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shared/ServerInterface.java" afterPath="$PROJECT_DIR$/src/shared/ServerInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteCalendarInterface.java" afterPath="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteCalendarInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectInterface.java" afterPath="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectsInterface.java" afterPath="$PROJECT_DIR$/src/shared/remote_business_interfaces/RemoteProjectsInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utility/Validator.java" afterPath="$PROJECT_DIR$/src/utility/Validator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/utility/TestPINcode.java" afterPath="$PROJECT_DIR$/test/utility/TestPINcode.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/synergy_client.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/synergy_server.lock" afterPath="" />
     </list>
     <ignored path="SEP2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1011,7 +959,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120879000" />
+    <option name="totallyTimeSpent" value="120896000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1024,7 +972,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1049,7 +996,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33298096" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16979167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16979167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />

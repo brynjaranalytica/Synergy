@@ -22,10 +22,12 @@ import javax.swing.JOptionPane;
 import server.model.ServerModel;
 import server.view.GUI;
 import shared.ServerInterface;
+import shared.UpdateMessage;
 import shared.User;
 import shared.remote_business_interfaces.RemoteProjectsInterface;
 import utility.Cryptography;
 import utility.Log;
+import utility.observer.RemoteObserver;
 
 public class ServerController implements ServerInterface{
 	
@@ -58,7 +60,7 @@ public class ServerController implements ServerInterface{
 	}
 	
 	public ServerController() throws RemoteException {
-		System.setProperty("java.rmi.server.hostname","localhost");
+		System.setProperty("java.rmi.server.hostname","192.168.1.153");
 		log = Log.getInstance();
 		gui = new GUI(this);
 		serverModel = ServerModel.getInstance();
@@ -80,7 +82,9 @@ public class ServerController implements ServerInterface{
 
 	@Override
 	public RemoteProjectsInterface getRemoteProjectsForUser(User user) throws RemoteException {
-		return serverModel.getRemoteProjectsForUser(user.getiD());
+		RemoteProjectsInterface usersRemoteProjects =  serverModel.getRemoteProjectsForUser(user.getiD());
+		serverModel.addProjectSet(user.getiD(), usersRemoteProjects);
+		return usersRemoteProjects;
 	}
 
 	@Override
@@ -89,14 +93,17 @@ public class ServerController implements ServerInterface{
 	}
 
 	@Override
-	public User login(String userID, char[] passWord) throws RemoteException {
+	public User login(String userID, char[] passWord, RemoteObserver<UpdateMessage> client) throws RemoteException {
 		User user = serverModel.retrieveUser(userID);
-		if (user == null) return null;
+		if (user == null)
+			return null;
 		char[] passEncrypted = user.getPass();
-		if (passEncrypted == null) return null;
+		if (passEncrypted == null)
+			return null;
 		char[] passDecrypted = Cryptography.decryptPass(passEncrypted, Cryptography.getKey());
 		if (userID.equalsIgnoreCase(user.getiD()) && Arrays.equals(passWord, passDecrypted)){
 			user.setPass(passDecrypted);
+			serverModel.addConnection(userID, client);
 			return user;
 		} else {
 			return null;

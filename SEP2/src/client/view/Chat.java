@@ -80,6 +80,7 @@ public class Chat extends AbstractJIF {
 
 	@Override
 	public void clear() {
+		lblChat.setText("Group Chat");
 		textField.setText("");
 		model.clear();
 	}

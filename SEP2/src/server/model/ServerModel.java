@@ -15,18 +15,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ServerModel {
-	//private AdapterInterface adapter;
-
 	private final String COMPANY_NAME = "Neobit";
 	private ProjectDAO projectDAO;
 	private RemoteProjectsInterface remoteProjects;
 	private ArrayList<User> users;
 	private HashMap<String, RemoteObserver<UpdateMessage>> currentConnections;
+	private HashMap<String, RemoteProjectsInterface> projectSets;
 
 	private ServerModel(){
-		//adapter = new Adapter();
 		projectDAO = ProjectDAO.getInstance();
 		currentConnections = new HashMap<>();
+		projectSets = new HashMap<>();
 		try {
 			this.remoteProjects = this.projectDAO.readAllProjects();
 			this.remoteProjects.setName(COMPANY_NAME);
@@ -34,6 +33,14 @@ public class ServerModel {
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void addProjectSet(String email, RemoteProjectsInterface projectSet){
+		this.projectSets.put(email, projectSet);
+	}
+
+	public RemoteProjectsInterface getProjectSet(String email){
+		return this.projectSets.get(email);
 	}
 
 	public void addConnection(String email, RemoteObserver<UpdateMessage> client){
@@ -56,22 +63,27 @@ public class ServerModel {
 		//return adapter.getRemoteProjects();
 
 		ArrayList<String> listOfProjectNamesForUser = projectDAO.readProjectNamesForUser(email);
-		RemoteProjectsInterface usersRemoteProjects = null;
+		ArrayList<RemoteProjectInterface> usersListOfRemoteProjects = null;
 		try {
-			ArrayList<RemoteProjectInterface> listOfRemoteProjects = remoteProjects.getRemoteProjects();
-			 usersRemoteProjects = new RProjects();
+			ArrayList<RemoteProjectInterface> listOfRemoteProjects = this.remoteProjects.getRemoteProjects();
+			 usersListOfRemoteProjects = new ArrayList<>();
 
 			for(String projectName: listOfProjectNamesForUser){
 				for(RemoteProjectInterface remoteProject: listOfRemoteProjects){
 					if(remoteProject.getName().equals(projectName))
-						usersRemoteProjects.addProject(remoteProject);
+						usersListOfRemoteProjects.add(remoteProject);
 				}
 			}
+
+			RemoteProjectsInterface usersRemoteProjects = new RProjects();
+			usersRemoteProjects.setProjects(usersListOfRemoteProjects);
+			usersRemoteProjects.setMembers(this.remoteProjects.getMembers());
+			return usersRemoteProjects;
 
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
-		return usersRemoteProjects;
+		return null;
 	}
 
 

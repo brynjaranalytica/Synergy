@@ -58,8 +58,11 @@ public class Root extends Window {
     @Override
     public void loadData() {
 		projectFrame.loadData(controller.getProjectsFromModel());
-        if(currentProjectName == null || currentProjectName.equals("Projects"))
-        	return;
+        if(currentProjectName == null || currentProjectName.equals("Projects")) {
+			calendarFrame.clear();
+			chatFrame.clear();
+			return;
+		}
 
         ProjectInterface project = controller.getProjectFromModel(currentProjectName);
         calendarFrame.loadData(project.getCalendar());

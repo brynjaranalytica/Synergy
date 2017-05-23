@@ -30,6 +30,8 @@ public class RCalendar implements RemoteCalendarInterface {
         UnicastRemoteObject.exportObject(this, 0);
     }
 
+
+
     @Override
     public void addMemo(RemoteMemoInterface remoteMemo) throws RemoteException {
         this.events.add(remoteMemo);
@@ -48,6 +50,16 @@ public class RCalendar implements RemoteCalendarInterface {
         }
 
         return null;    }
+
+    @Override
+    public void setMemo(RemoteMemoInterface updatedRemoteMemo) throws RemoteException {
+        for(int i = 0; i < events.size(); i++){
+            if(events.get(i).getDate().equals(updatedRemoteMemo.getDate())){
+                events.set(i, updatedRemoteMemo);
+                return;
+            }
+        }
+    }
 
     @Override
     public void removeMemo(Date date) throws RemoteException {

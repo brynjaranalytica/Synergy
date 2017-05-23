@@ -18,6 +18,8 @@ public interface RemoteCalendarInterface extends Remote {
 
     RemoteMemoInterface getMemo(Date date) throws RemoteException;
 
+    void setMemo(RemoteMemoInterface remoteMemo) throws RemoteException;
+
     void removeMemo(Date date) throws RemoteException;
 
 }

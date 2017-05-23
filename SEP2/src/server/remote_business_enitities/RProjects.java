@@ -1,6 +1,7 @@
 package server.remote_business_enitities;
 
 import server.model.ProjectDAO;
+import server.model.ServerModel;
 import shared.MessageHeaders;
 import shared.UpdateMessage;
 import shared.business_entities.BusinessEntity;
@@ -98,17 +99,32 @@ public class RProjects implements RemoteProjectsInterface {
     }
 
     @Override
-    public void addProject(RemoteProjectInterface project) throws RemoteException {
+    public void addProject(RemoteProjectInterface project, String emailOfCreator) throws RemoteException {
+        RemoteMemberInterface creator = getMember(emailOfCreator);
+        project.getMembers().add(creator);
         this.remoteProjects.add(project);
+        ServerModel.getInstance().getRemoteProjects().getRemoteProjects().add(project);
         ProjectDAO.getInstance().addProject(project.getName());
-       // RProjects.notifyObservers(MessageHeaders.CREATE, new Project(project));
+        ProjectDAO.getInstance().addParticipation(project.getName(), creator);
+        if(emailOfCreator == null)
+            return;
+        project.addObserver(ServerModel.getInstance().getConnection(emailOfCreator));
+        project.notifyObservers(MessageHeaders.CREATE, new Project(project));
     }
 
     @Override
-    public void addProject(ProjectInterface project) throws RemoteException {
-        this.remoteProjects.add(new RProject(project));
+    public void addProject(ProjectInterface project, String emailOfCreator) throws RemoteException {
+        RemoteMemberInterface creator = getMember(emailOfCreator);
+        RemoteProjectInterface remoteProject = new RProject(project);
+        remoteProject.getMembers().add(creator);
+        this.remoteProjects.add(remoteProject);
+        ServerModel.getInstance().getRemoteProjects().getRemoteProjects().add(remoteProject);
         ProjectDAO.getInstance().addProject(project.getName());
-        //RProjects.notifyObservers(MessageHeaders.CREATE, project);
+        ProjectDAO.getInstance().addParticipation(project.getName(), creator);
+        if(emailOfCreator == null)
+            return;
+        remoteProject.addObserver(ServerModel.getInstance().getConnection(emailOfCreator));
+        remoteProject.notifyObservers(MessageHeaders.CREATE, new Project(remoteProject));
     }
 
     @Override
@@ -140,9 +156,10 @@ public class RProjects implements RemoteProjectsInterface {
     public void removeProject(String projectName) throws RemoteException {
         for(RemoteProjectInterface project: remoteProjects){
             if(project.getName().equals(projectName)) {
-                ProjectDAO.getInstance().deleteProject(/*project*/projectName);
-                //remoteSubjectDelegate.notifyObservers(new UpdateMessage(MessageHeaders.DELETE, new Project(project)));
+                ProjectDAO.getInstance().deleteProject(project);
+                project.notifyObservers(MessageHeaders.DELETE, new Project(project));
                 remoteProjects.remove(project);
+                ServerModel.getInstance().getRemoteProjects().getRemoteProjects().remove(project);
                 break;
             }
         }

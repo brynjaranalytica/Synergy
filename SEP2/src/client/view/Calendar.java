@@ -76,6 +76,7 @@ public class Calendar extends AbstractJIF {
 
     @Override
     public void clear() {
+        lblCalendar.setText("Calendar");
         textField.setText("");
         textPane.setText("");
     }

@@ -61,7 +61,6 @@ public class Projects extends AbstractJIF {
         rootNode.removeAllChildren();
 
         for (int i = 0; i < projectNames.size(); i++) {
-            System.out.println(projectNames.get(i));
             DefaultMutableTreeNode projectNode = new DefaultMutableTreeNode(projectNames.get(i));
             treeModel.insertNodeInto(projectNode, rootNode, i);
             ProjectInterface project = controller.getProjectFromModel(projectNames.get(i));
@@ -71,11 +70,7 @@ public class Projects extends AbstractJIF {
             }
         }
 
-        System.out.println("Reload started " + new Date().toString());
-        //SwingUtilities.invokeLater(() -> treeModel.reload());
         treeModel.reload(rootNode);
-        System.out.println("Reload is finished " + new Date().toString());
-        System.out.println();
     }
 
     @Override

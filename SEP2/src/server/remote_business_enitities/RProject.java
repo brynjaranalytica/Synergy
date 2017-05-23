@@ -96,7 +96,11 @@ public class RProject implements RemoteProjectInterface {
     public void addMember(RemoteMemberInterface member) throws RemoteException {
         this.members.add(member);
         ProjectDAO.getInstance().addParticipation(name, member);
+        ServerModel.getInstance().getProjectSet(member.getEmail()).getRemoteProjects().add(this);
         notifyObservers(MessageHeaders.UPDATE, new Project(this));
+        RemoteObserver<UpdateMessage> newObserver = ServerModel.getInstance().getConnection(member.getEmail());
+        newObserver.update(this, new UpdateMessage(MessageHeaders.CREATE, new Project(this)));
+        addObserver(newObserver);
     }
 
     @Override
@@ -105,8 +109,11 @@ public class RProject implements RemoteProjectInterface {
             if(member.getEmail().equals(email)) {
                 this.members.add(member);
                 ProjectDAO.getInstance().addParticipation(name, member);
-                addObserver(ServerModel.getInstance().getConnection(email));
+                ServerModel.getInstance().getProjectSet(email).getRemoteProjects().add(this);
                 notifyObservers(MessageHeaders.UPDATE, new Project(this));
+                RemoteObserver<UpdateMessage> newObserver = ServerModel.getInstance().getConnection(member.getEmail());
+                newObserver.update(this, new UpdateMessage(MessageHeaders.CREATE, new Project(this)));
+                addObserver(newObserver);
                 break;
             }
         }
@@ -150,8 +157,14 @@ public class RProject implements RemoteProjectInterface {
     @Override
     public void addMemo(Memo memo) throws RemoteException {
         RMemo remoteMemo = new RMemo(memo);
-        this.calendar.addMemo(remoteMemo);
-        ProjectDAO.getInstance().addMemo(name, remoteMemo);
+        if(this.calendar.getMemos().contains(remoteMemo)){
+            this.calendar.setMemo(remoteMemo);
+            ProjectDAO.getInstance().updateMemo(name, remoteMemo);
+        }
+        else {
+            this.calendar.addMemo(remoteMemo);
+            ProjectDAO.getInstance().addMemo(name, remoteMemo);
+        }
         notifyObservers(MessageHeaders.UPDATE, new Project(this));
     }
 
@@ -166,6 +179,9 @@ public class RProject implements RemoteProjectInterface {
             if(member.getEmail().equals(email)) {
                 ProjectDAO.getInstance().deleteParticipant(name, member);
                 members.remove(member);
+                RemoteObserver<UpdateMessage> observer = ServerModel.getInstance().getConnection(email);
+                observer.update(this, new UpdateMessage(MessageHeaders.DELETE, new Project(this)));
+                deleteObserver(observer);
                 notifyObservers(MessageHeaders.UPDATE, new Project(this));
                 break;
             }
@@ -176,7 +192,10 @@ public class RProject implements RemoteProjectInterface {
     public void removeMember(int index) throws RemoteException {
         RemoteMemberInterface remoteMember = members.get(index);
         ProjectDAO.getInstance().deleteParticipant(name, remoteMember);
-        this.members.remove(remoteMember);
+        this.members.remove(index);
+        RemoteObserver<UpdateMessage> observer = ServerModel.getInstance().getConnection(remoteMember.getEmail());
+        observer.update(this, new UpdateMessage(MessageHeaders.DELETE, new Project(this)));
+        deleteObserver(observer);
         notifyObservers(MessageHeaders.UPDATE, new Project(this));
     }
 
@@ -200,6 +219,7 @@ public class RProject implements RemoteProjectInterface {
         this.chat = chat;
     }
 
+    @Override
     public void notifyObservers(String messageHeader, BusinessEntity entity) throws RemoteException {
         remoteSubjectDelegate.notifyObservers(new UpdateMessage(messageHeader, entity));
     }

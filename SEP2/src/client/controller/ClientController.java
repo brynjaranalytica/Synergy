@@ -62,17 +62,22 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
 
     @Override
     public void update(RemoteSubject<UpdateMessage> remoteSubject, UpdateMessage message) throws RemoteException {
+        Project project = (Project) message.getBusinessEntity();
         switch (message.getHeader()) {
             case MessageHeaders.UPDATE:
-                clientModel.setProject((Project) message.getBusinessEntity());
+                clientModel.setProject(project);
                 view.loadData();
                 break;
             case MessageHeaders.CREATE:
-                clientModel.addProject((Project) message.getBusinessEntity());
+                clientModel.addProject(project);
                 view.loadData();
                 break;
             case MessageHeaders.DELETE:
-                clientModel.removeProject(((Project) message.getBusinessEntity()).getName());
+                String projectName = project.getName();
+                Root.currentProjectName = projectName.equals(Root.currentProjectName)?
+                                                null :
+                                                Root.currentProjectName;
+                clientModel.removeProject(projectName);
                 view.loadData();
                 break;
         }
@@ -165,7 +170,7 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
 
         User user = null;
         try {
-            user = serverController.login(userID, password);
+            user = serverController.login(userID, password, this);
             if (user != null) {
                 clientModel.setUser(user);
                 remoteProjects = serverController.getRemoteProjectsForUser(user);
@@ -301,7 +306,7 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
         }
 
         try {
-            remoteProjects.addProject(project);
+            remoteProjects.addProject(project, clientModel.getUser().getiD());
         } catch (RemoteException e) {
             e.printStackTrace();
         }

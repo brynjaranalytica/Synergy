@@ -46,4 +46,16 @@ public class RMemo implements RemoteMemoInterface {
     public void setDate(Date date) throws RemoteException {
         this.date = date;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null || !(obj instanceof RMemo))
+            return false;
+        try {
+            return  ((RMemo) obj).getDate().equals(date);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

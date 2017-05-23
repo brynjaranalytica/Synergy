@@ -1,6 +1,7 @@
 package shared.remote_business_interfaces;
 
 import shared.UpdateMessage;
+import shared.business_entities.BusinessEntity;
 import shared.business_entities.Memo;
 import utility.observer.RemoteSubject;
 
@@ -56,4 +57,6 @@ public interface RemoteProjectInterface extends RemoteSubject<UpdateMessage> {
     RemoteMemoInterface getMemo(Date date) throws RemoteException;
 
     void removeMember(int index) throws RemoteException;
+
+    void notifyObservers(String messageHeader, BusinessEntity entity) throws RemoteException;
 }

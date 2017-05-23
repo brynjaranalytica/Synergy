@@ -15,9 +15,9 @@ public interface RemoteProjectsInterface extends Remote {
 
     void setRemoteProjects(ArrayList<RemoteProjectInterface> remoteProjects) throws RemoteException;
 
-    void addProject(RemoteProjectInterface project) throws RemoteException;
+    void addProject(RemoteProjectInterface project, String emailOfCreator) throws RemoteException;
 
-    void addProject(ProjectInterface project) throws RemoteException;
+    void addProject(ProjectInterface project, String emailOfCreator) throws RemoteException;
 
     RemoteProjectInterface getProject(int projectIndex)throws RemoteException;
 

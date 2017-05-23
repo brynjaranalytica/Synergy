@@ -63,6 +63,7 @@ public class ProjectDAO {
                 remoteProject.setMembers(readParticipants(result.getString("project_name")));
                 projects.add(remoteProject);
             }
+            remoteProjects.setMembers(readMembers());
             remoteProjects.setProjects(projects);
             return remoteProjects;
 
@@ -132,7 +133,7 @@ public class ProjectDAO {
                 remoteProject.setMembers(readParticipants(result.getString("project_name")));
                 projects.add(remoteProject);
             }
-            usersRemoteProjects.setMembers(readMembers());
+            //usersRemoteProjects.setMembers(readMembers());
             usersRemoteProjects.setProjects(projects);
             return usersRemoteProjects;
         } catch (SQLException e) {
@@ -295,7 +296,7 @@ public class ProjectDAO {
         try {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO memo(project_name, memo_date, memo_description) VALUES(?, ?, ?)");
             statement.setString(1, projectName);
-            statement.setDate(2, (java.sql.Date) memo.getDate());
+            statement.setDate(2, new java.sql.Date(memo.getDate().getTime()));
             statement.setString(3, memo.getDescription());
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -366,12 +367,12 @@ public class ProjectDAO {
         }
     }
 
-    public void updateMemo(String projectName, RMemo memo, String newMemoName, Date newMemoDate) {
+    public void updateMemo(String projectName, RMemo memo) {
         try {
-            PreparedStatement statement = connection.prepareStatement("UPDATE memo SET memo_date = ?, memo_description = ?  WHERE memo_description = ? AND project_name = ?");
-            statement.setDate(1, (java.sql.Date) newMemoDate);
-            statement.setString(2, newMemoName);
-            statement.setString(3, memo.getDescription());
+            PreparedStatement statement = connection.prepareStatement("UPDATE memo SET memo_date = ?, memo_description = ?  WHERE memo_date = ? AND project_name = ?");
+            statement.setDate(1, new java.sql.Date(memo.getDate().getTime()));
+            statement.setString(2, memo.getDescription());
+            statement.setDate(3, new java.sql.Date(memo.getDate().getTime()));
             statement.setString(4, projectName);
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -387,9 +388,9 @@ public class ProjectDAO {
 
     public void updateMemoName(String projectName, RMemo memo, String newMemoName) {
         try {
-            PreparedStatement statement = connection.prepareStatement("UPDATE memo SET memo_description = ? WHERE memo_description = ? AND project_name = ?");
+            PreparedStatement statement = connection.prepareStatement("UPDATE memo SET memo_description = ? WHERE memo_date = ? AND project_name = ?");
             statement.setString(1, newMemoName);
-            statement.setString(2, memo.getDescription());
+            statement.setDate(2, new java.sql.Date(memo.getDate().getTime()));
             statement.setString(3, projectName);
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -405,9 +406,9 @@ public class ProjectDAO {
 
     public void updateMemoDate(String projectName, RMemo memo, Date newMemoDate) {
         try {
-            PreparedStatement statement = connection.prepareStatement("UPDATE memo SET memo_date = ? WHERE memo_description = ? AND project_name = ?");
-            statement.setDate(1, (java.sql.Date) newMemoDate);
-            statement.setString(2, memo.getDescription());
+            PreparedStatement statement = connection.prepareStatement("UPDATE memo SET memo_date = ? WHERE memo_date = ? AND project_name = ?");
+            statement.setDate(1, new java.sql.Date(newMemoDate.getTime()));
+            statement.setDate(2, new java.sql.Date(memo.getDate().getTime()));
             statement.setString(3, projectName);
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -449,8 +450,8 @@ public class ProjectDAO {
 
     public void deleteMemo(String projectName, RemoteMemoInterface memo) {
         try {
-            PreparedStatement statement = connection.prepareStatement("DELETE FROM memo WHERE memo_description = ? AND project_name = ?");
-            statement.setString(1, memo.getDescription());
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM memo WHERE memo_date = ? AND project_name = ?");
+            statement.setDate(1, new java.sql.Date(memo.getDate().getTime()));
             statement.setString(2, projectName);
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -473,6 +474,7 @@ public class ProjectDAO {
             statement1.setString(1, member.getEmail());
             statement1.setString(2, projectName);
             statement.executeUpdate();
+            statement1.executeUpdate();
         } catch (SQLException e) {
             try {
                 connection.close();

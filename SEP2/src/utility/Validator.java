@@ -1,13 +1,11 @@
 package utility;
 
-import java.util.Arrays;
+import shared.User;
 
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
-import javax.swing.JOptionPane;
-
-import database.DBdummy;
-import shared.User;
+import javax.swing.*;
+import java.util.Arrays;
 
 public class Validator {
 	

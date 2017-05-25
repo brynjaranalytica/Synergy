@@ -28,10 +28,18 @@ public class ProjectDAO {
     private static ProjectDAO instance;
     private final Connection connection;
 
+    /**
+     * Returns the object that contains the connection to the server.
+     * @return {@link Connection} connection object.
+     */
     public Connection getConnection() {
         return connection;
     }
 
+    /**
+     * Returns an instance of {@link ProjectDAO} class and creates a new one if it isn't created already. 
+     * @return {@link ProjectDAO} instance object.
+     */
     public static synchronized ProjectDAO getInstance() {
         if (instance == null) {
             try {
@@ -43,12 +51,27 @@ public class ProjectDAO {
         return instance;
     }
 
+    /**
+     * 
+     * @throws SQLException if the address to the date was written incorrectly. 
+     */
     private ProjectDAO() throws SQLException {
         DriverManager.registerDriver(new Driver());
         connection = DriverManager
                 .getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=synergy", "postgres", "6640");
     }
 
+    /**
+     * Reads projects from the database.
+     * Creates {@link RemoteProjectInterface} projects ArrayList object.
+     * Creates {@link RemoteProjectsInterface} remoteProjects object.
+     * Creates {@link RProject} remoteProject object for each project that was found.
+     * Sets name, chat, calendar and members for each {@link RProject} remoteProject object created.
+     * Adds {@link RProject} remoteProject objects into {@link RemoteProjectInterface} projects ArrayList object.
+     * Adds members into {@link RemoteProjectsInterface} remoteProjects object calling the {@link setMembers()} method.
+     * Adds {@link RemoteProjectInterface} projects ArrayList object into {@link RemoteProjectsInterface} remoteProjects object.
+     * @return the {@link RemoteProjectsInterface} remoteProjects object that contains all projects read from the database.
+     */
     public RemoteProjectsInterface readAllProjects() {
         ArrayList<RemoteProjectInterface> projects = new ArrayList<>();
         try {
@@ -80,6 +103,14 @@ public class ProjectDAO {
 
     }
 
+    /**
+     * Reads users from the database.
+     * Creates {@link User} users ArrayList object.
+     * Creates {@link User} user objects for each user that was found with email, name and phone.
+     * Encrypts the password using {@link encryptPass()} method and sets the password using {@link getKey()} for each {@link User} user object created.
+     * Adds all {@link User} user objects into {@link User} users ArrayList object.
+     * @return the {@link User} users ArrayList object that contains all users read from the database.
+     */
     public ArrayList<User> readAllUsers() {
         ArrayList<User> users = new ArrayList<User>();
         try {
@@ -102,6 +133,13 @@ public class ProjectDAO {
         return users;
     }
 
+    /**
+     * Reads project names from the database in which user participates.
+     * Creates {@link String} listOfprojectsNames ArrayList object.
+     * Adds into {@link String} listOfprojectsNames ArrayList object projects names that were found.
+     * @param email by which the method is able to read the specific projects. 
+     * @return the {@link String} listOfprojectsNames ArrayList object that contains project names read from the database. 
+     */
     public ArrayList<String> readProjectNamesForUser(String email){
         ArrayList<String> listOfProjectNames = new ArrayList<>();
         PreparedStatement statement = null;
@@ -118,6 +156,17 @@ public class ProjectDAO {
         return listOfProjectNames;
     }
 
+    /**
+     * Reads projects from the database in which user participates.
+     * Creates {@link RemoteProjectInterface} projects ArrayList object.
+     * Creates {@link RemoteProjectsInterface} usersRemoteProjects object.
+     * Creates {@link RProject} remoteProject object for each project that was found. 
+     * Sets name, chat, calendar and members for each {@link RProject} remoteProject object created.
+     * Adds {@link RProject} remoteProject objects into {@link RemoteProjectInterface} projects ArrayList object.
+     * Sets {@link RemoteProjectInterface} projects ArrayList object to {@link RemoteProjectsInterface} usersRemoteProjects object.
+     * @param email by which the method is able to read the specific projects. 
+     * @return the {@link RemoteProjectsInterface} usersRemoteProjects object that contains projects read from the database. 
+     */
     public RemoteProjectsInterface readAllProjectsForUser(String email) {
 
         ArrayList<RemoteProjectInterface> projects = new ArrayList<RemoteProjectInterface>();
@@ -148,6 +197,13 @@ public class ProjectDAO {
         return null;
     }
 
+    /**
+     * Reads project from the database.
+     * Creates {@link RProject} project object.
+     * Sets name, chat, calendar and members for {@link RProject} project object. 
+     * @param projectName by which the method is able to read the specific project.
+     * @return the {@link RProject} project object that contains project read from the database. 
+     */
     public RProject readProject(String projectName) {
         try {
             RProject project = new RProject(projectName);
@@ -173,6 +229,13 @@ public class ProjectDAO {
         return null;
     }
 
+    /**
+     * Reads chat from the database.
+     * Creates {@link RChat} chat object.
+     * Sets messages for {@link RChat} chat object.
+     * @param projectName by which the method is able to read the specific chat.
+     * @return the {@link RChat} chat object that contains messages read from the database.
+     */
     public RChat readChat(String projectName) {
         try {
             RChat chat = new RChat();
@@ -196,6 +259,15 @@ public class ProjectDAO {
         return null;
     }
 
+    /**
+     * Reads calendar from the database.
+     * Creates {@link RCalendar} calendar object.
+     * Creates {@link RMemo} memo object.
+     * Sets memos date and description for the {@link RemoteMemoInterface} memo object.
+     * Adds {@link RemoteMemoInterface} memo objects into {@link RCalendar} calendar object.
+     * @param projectName by which the method is able to read the specific calendar.
+     * @return the {@link RCalendar} calendar object that contains memos with dates and descriptions read from the database.
+     */
     public RCalendar readCalendar(String projectName) {
         try {
             RCalendar calendar = new RCalendar();
@@ -220,6 +292,13 @@ public class ProjectDAO {
         return null;
     }
 
+    /**
+     * Reads members from the database
+     * Creates {@link RemoteMemberInterface} members ArrayList object.
+     * Creates {@link RMember} member object for each member that was found with email and name.
+     * Adds {@link RMember} member objects into {@link RemoteMemberInterface} members ArrayList object.
+     * @return the {@link RemoteMemberInterface} members ArrayList object that contains members all members read from the database.
+     */
     public ArrayList<RemoteMemberInterface> readMembers() {
         ArrayList<RemoteMemberInterface> members = new ArrayList<RemoteMemberInterface>();
         try {
@@ -241,6 +320,14 @@ public class ProjectDAO {
         return members;
     }
 
+    /**
+     * Read participants from the database.
+     * Creates {@link RemoteMemberInterface} members ArrayList object.
+     * Creates {@link RMember} member objects foe each participants that were found with email and name.
+     * Adds {@link RMember} member objects into {@link RemoteMemberInterface} members ArrayList object
+     * @param projectName by which the method is able to read the specific participants.
+     * @return the {@link RemoteMemberInterface} members ArrayList object that contains all participants read from the database.
+     */
     public ArrayList<RemoteMemberInterface> readParticipants(String projectName) {
         ArrayList<RemoteMemberInterface> members = new ArrayList<RemoteMemberInterface>();
         try {
@@ -263,6 +350,10 @@ public class ProjectDAO {
         return members;
     }
 
+    /**
+     * Adds project into the database.
+     * @param projectName that is inserted into the database.
+     */
     public void addProject(String projectName) {
         try {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO project(project_name) VALUES (?)");
@@ -277,6 +368,11 @@ public class ProjectDAO {
         }
     }
 
+    /**
+     * Adds message into the database.
+     * @param projectName by which the method is able to detect in which project should the message be added.
+     * @param message that is inserted into the database.
+     */
     public void addMessage(String projectName, String message) {
         try {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO message(project_name, message_body) VALUES (?, ?)");
@@ -292,6 +388,12 @@ public class ProjectDAO {
         }
     }
 
+    /**
+     * Adds memo into the database.
+     * Gets date using {@link getDate()} method and description using {@link getDescription()} method from the @param memo and adds them into the database.
+     * @param projectName by which the method is able to detect in which project should the memo be added.
+     * @param memo from which the method takes date and description.
+     */
     public void addMemo(String projectName, RMemo memo) {
         try {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO memo(project_name, memo_date, memo_description) VALUES(?, ?, ?)");
@@ -310,6 +412,11 @@ public class ProjectDAO {
         }
     }
 
+    /**
+     * Adds member into the database.
+     * Gets email using {@link getEmail()} method and name using {@link getName()} method from the @param member and adds them into the database.
+     * @param member from which the method takes email and name.
+     */
     public void addMember(RMember member) {
         try {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO member(member_email, member_name) VALUES(?, ?)");
@@ -331,6 +438,12 @@ public class ProjectDAO {
         }
     }
 
+    /**
+     * Adds participation into the database.
+     * Gets email using {@link getEmail()} method and adds them into the database.
+     * @param projectName by which the method is able to detect in which project should the participation be added.
+     * @param member from which the method takes email.
+     */
     public void addParticipation(String projectName, RemoteMemberInterface member) {
         try {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO participation(project_name, member_email) VALUES(?, ?)");
@@ -352,6 +465,11 @@ public class ProjectDAO {
         }
     }
 
+    /**
+     * Updates project in the database.
+     * @param projectName by which the method is able to detect what project should be updated.
+     * @param newProjectName that is inserted as an updated.
+     */
     public void updateProject(String projectName, String newProjectName) {
         try {
             PreparedStatement statement = connection.prepareStatement("UPDATE project SET project_name = ? WHERE project_name = ?");
@@ -367,6 +485,12 @@ public class ProjectDAO {
         }
     }
 
+    /**
+     * Updated memo in the database.
+     * Gets date using {@link getDate()} method and description using {@link getDescription()} method from the @param memo and updates the memo in the database.
+     * @param projectName by which the method is able to detect in which project the memo is located.
+     * @param memo from which the method takes date and description.
+     */
     public void updateMemo(String projectName, RMemo memo) {
         try {
             PreparedStatement statement = connection.prepareStatement("UPDATE memo SET memo_date = ?, memo_description = ?  WHERE memo_date = ? AND project_name = ?");
@@ -386,6 +510,14 @@ public class ProjectDAO {
         }
     }
 
+    /**
+     * Updates memo name in the database.
+     * Gets the date from @param memo using {@link getDate()} method to detect the specific memo.
+     * Changes the old name with @param newMemoName.
+     * @param projectName by which the method is able to detect in which project the memo is located.
+     * @param memo from which the method takes the date and is able to detect the specific memo in the database.
+     * @param newMemoName that is inserted as a new name in the database.
+     */
     public void updateMemoName(String projectName, RMemo memo, String newMemoName) {
         try {
             PreparedStatement statement = connection.prepareStatement("UPDATE memo SET memo_description = ? WHERE memo_date = ? AND project_name = ?");
@@ -404,6 +536,14 @@ public class ProjectDAO {
         }
     }
 
+    /**
+     * Updates memo date in the database.
+     * Gets the date from @param memo using {@link getDate()} method to detect the specific memo.
+     * Changes the old date with @param newMemoDate.
+     * @param projectName by which the method is able to detect in which project the memo is located.
+     * @param memo from which the method takes the date and is able to detect the specific memo in the database.
+     * @param newMemoDate from which the date is inserted as a new one in the database.
+     */
     public void updateMemoDate(String projectName, RMemo memo, Date newMemoDate) {
         try {
             PreparedStatement statement = connection.prepareStatement("UPDATE memo SET memo_date = ? WHERE memo_date = ? AND project_name = ?");
@@ -422,6 +562,11 @@ public class ProjectDAO {
         }
     }
 
+    /**
+     * Deletes project from the database.
+     * @param project by which the method is able to detect the specific project in the database.
+     * @throws RemoteException if the RMI connection failed.
+     */
     public void deleteProject(RemoteProjectInterface project) throws RemoteException {
         try {
             PreparedStatement statement = connection.prepareStatement("DELETE FROM participation WHERE project_name = ?");
@@ -448,6 +593,11 @@ public class ProjectDAO {
         }
     }
 
+    /**
+     * Deletes memo from the database.
+     * @param projectName by which the method is able to detect in which project the memo is situated.
+     * @param memo from which the method takes date to indicate the specific memo.
+     */
     public void deleteMemo(String projectName, RemoteMemoInterface memo) {
         try {
             PreparedStatement statement = connection.prepareStatement("DELETE FROM memo WHERE memo_date = ? AND project_name = ?");
@@ -465,6 +615,11 @@ public class ProjectDAO {
         }
     }
 
+    /**
+     * Deletes participant from the database.
+     * @param projectName by which the method is able to detect in which the project the participant is part of.
+     * @param member from which the method takes email to indicate the specific participant.
+     */
     public void deleteParticipant(String projectName, RemoteMemberInterface member) {
         try {
             PreparedStatement statement = connection.prepareStatement("DELETE FROM participation WHERE member_email = ? AND project_name = ?");

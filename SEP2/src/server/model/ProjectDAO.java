@@ -24,6 +24,10 @@ import shared.remote_business_interfaces.RemoteProjectInterface;
 import shared.remote_business_interfaces.RemoteProjectsInterface;
 import utility.Cryptography;
 
+/**
+ * Purpose of the {@link ProjectDAO} class is to work directly with the database.
+ * It creates the connection to the database from which {@link ProjectDAO} class can read, update, add and delete the data using methods that are implemented below. 
+ */
 public class ProjectDAO {
     private static ProjectDAO instance;
     private final Connection connection;

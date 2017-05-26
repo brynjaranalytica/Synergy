@@ -8,6 +8,11 @@ import shared.business_entities.Projects;
 
 import java.util.ArrayList;
 
+/**
+ * The main purpose of this class is to cache non-remote data received from the server. The data stored in this
+ * "storage" class is mainly used by client side GUI. Local data is stored on the client side to minimize number of calls
+ * to the server and therefore increase performance of the application. This class represents Model of client side's MVC.
+ */
 public class ClientModel {
 	private User user;
 	private Projects projects;

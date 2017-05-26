@@ -2,10 +2,12 @@ package client.controller;
 
 
 import client.model.ClientModel;
-import client.view.Root;
-import client.view.View;
-import server.remote_business_enitities.RMemo;
-import shared.*;
+import client.view.windows.Root;
+import client.view.windows.View;
+import shared.MessageHeaders;
+import shared.ServerInterface;
+import shared.UpdateMessage;
+import shared.User;
 import shared.business_entities.*;
 import shared.remote_business_interfaces.RemoteMemberInterface;
 import shared.remote_business_interfaces.RemoteProjectInterface;
@@ -31,7 +33,7 @@ import java.util.Date;
 import java.util.Hashtable;
 import java.util.Properties;
 
-public class ClientController implements ClientInterface, Serializable, RemoteObserver<UpdateMessage> {
+public class ClientController implements RemoteObserver<UpdateMessage> {
 
     private static final long serialVersionUID = 1L;
     private static Properties properties;
@@ -147,7 +149,7 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
         return false;
     }
 
-    @Override
+   /* @Override
     public String getIP() throws RemoteException {
         try {
             return Inet4Address.getLocalHost().getHostAddress();
@@ -155,8 +157,14 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
             e.printStackTrace();
         }
         return null;
-    }
+    }*/
 
+    /**
+     * Security method for checking credentials entered by client. More precise, it is responsible for initial checking,
+     * whether the entered email represents a valid email address.
+     * @param userID
+     * @return
+     */
     public String validateID(String userID) {
         try {
             return serverController.validateId(userID);
@@ -166,6 +174,17 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
         }
     }
 
+    /**
+     * Method responsible for login operation. First client requests a User object from the server. The user object will
+     * represent the account, whose credentials where entered at Login window. If login was successful, client then requests
+     * a set of projects from server. This set of projects will contain only the projects, which user is part of. It
+     * is important to notice that this set of projects is a remote object.
+     * Client then registers itself as an remote observer in each project received. The last step is to populate the client model
+     * with initial information: company name, project names (initProxyProjects() method). Project names are needed to identify the proxy projects.
+     * @param userID
+     * @param password
+     * @return
+     */
     public User login(String userID, char[] password) {
 
         User user = null;
@@ -186,6 +205,10 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
         return user;
     }
 
+    /**
+     * Iterates through the list of projects and registers itself as a remote observer in each of them.
+     * Each project object is remote.
+     */
     private void registerAsObserverForProjects(){
         try {
             ArrayList<RemoteProjectInterface> remoteProjects = ClientController.remoteProjects.getRemoteProjects();
@@ -197,6 +220,11 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
         }
     }
 
+
+    /**
+     * Creates lock file for client application. This guarantees that only the application can be started only once on the
+     * same computer.
+     */
     private static void createLockFile() {
         try {
             LOCK_FILE.createNewFile();
@@ -224,6 +252,11 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
 
     }
 
+
+    /**
+     * Loads the information from .properties file using java.IO. Those files contain constant information regarding
+     * client-server communication: port numbers, IP addresses.
+     */
     private static void loadProperties() {
         try (InputStream in = new FileInputStream(PROPFILE)) {
             properties = new Properties();
@@ -235,6 +268,11 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
         }
     }
 
+
+    /**
+     * Gets the array list of project names from server model. Used to populate fields in GUI.
+     * @return
+     */
     public ArrayList<String> getProjectNames() {
         ArrayList<String> projectNames = new ArrayList<>();
         ArrayList<ProjectInterface> projects = clientModel.getProjects().getProjectList();
@@ -256,6 +294,16 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
         return null;
     }
 
+
+    /**
+     * This method returns the Project object from the server. Communication is done through "remoteProjects" object,
+     * which is, as name suggests, a remote object. First, client will receive the instance of RProject class, which is
+     * a remote class. The remote project is then transformed into non-remote, local object using the constructor of
+     * Project class (e.g. new Project(RProject remoteProject) ). This method is used by proxy project for loading the
+     * "real" project.
+     * @param name
+     * @return
+     */
     public static Project getProjectFromServer(String name) {
         try {
             return new Project(remoteProjects.getProject(name));
@@ -267,6 +315,11 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
 
     }
 
+    /**
+     * Return instance of non-remote interface ProjectInterface. Usually, it is an instance of ProxyProject.
+     * @param projectName
+     * @return
+     */
     public ProjectInterface getProjectFromModel(String projectName) {
         return clientModel.getProject(projectName);
     }
@@ -275,6 +328,12 @@ public class ClientController implements ClientInterface, Serializable, RemoteOb
         return clientModel.getProject(index);
     }
 
+    /**
+     * Sends a request to sever. Client requests to add new message to the chat of the specific project. Projects
+     * are identified by the name.
+     * @param projectName
+     * @param message
+     */
     public void sendChatMessage(String projectName, String message) {
         try {
             remoteProjects.getProject(projectName).addMessage(message);

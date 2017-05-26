@@ -14,6 +14,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * This class is used for "caching" the data extracted from the database. It also represents an additional layer
+ * between server controller and database. This class represents a part of server side's MVC pattern - Model. This class
+ * also stores instances of RemoteObserver class, which represent current client connections. This class is a Singleton.
+ */
 public class ServerModel {
 	private final String COMPANY_NAME = "Neobit";
 	private ProjectDAO projectDAO;

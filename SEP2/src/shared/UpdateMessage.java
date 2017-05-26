@@ -7,6 +7,9 @@ import java.io.Serializable;
 
 /**
  * Created by Nicolai Onov on 5/10/2017.
+ * The instances of this class are used by server to notify clients about the specific changes (e.g. new Member in the project)
+ * using RemoteObservable design pattern.
+ *
  */
 public class UpdateMessage implements Serializable {
     private String header;

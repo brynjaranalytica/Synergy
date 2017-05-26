@@ -2,6 +2,9 @@ package shared;
 
 import java.io.Serializable;
 
+/**
+ * This class represents the user account.
+ */
 public class  User implements Serializable {
 
 	private static final long serialVersionUID = 1L;

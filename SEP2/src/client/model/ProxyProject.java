@@ -7,7 +7,10 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Created by lenovo on 4/17/2017.
+ * Created by Nicolai Onov on 4/17/2017.
+ * This class implements Proxy design pattern. It wrap the instance of Project class. This is done is to increase the
+ * performance of application. Instead of loading all of the project information from the server, it will only initialize
+ * proxy projects with project names. "real project" will be loaded only if a need arises.
  */
 public class ProxyProject implements ProjectInterface {
     private Project realProject;

@@ -2,6 +2,7 @@ package shared;
 
 /**
  * Created by Nicolai Onov on 5/10/2017.
+ * This utility class contains String constants for specifying purpose of each update message sent from server to client.
  */
 public interface MessageHeaders {
     String CREATE = "CREATE";

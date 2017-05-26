@@ -29,12 +29,29 @@ import utility.Cryptography;
 import utility.Log;
 import utility.observer.RemoteObserver;
 
+/**
+ * This class is mainly responsible for initial start of the server: creating server model,
+ * creating and saving remote stub in the registry. The client, when being started will first try to grab instance of this
+ * class from a registry. This class is also responsible for handling next operations: login, resetting password.
+ */
 public class ServerController implements ServerInterface{
 	
 	@SuppressWarnings("unused")
+	/**
+	 * A simple GUI for a server side. No particular functionality implemented.
+	 */
 	private GUI gui;
+
+	/**
+	 * An instance of serverModel for handling login operation.
+	 */
 	private ServerModel serverModel;
+
+	/**
+	 * A properties file containing such information as remote stub name and other constant info.
+	 */
 	private static Properties properties;
+
 	private static final String PROPFILE = "server.properties";
 	private static final String PORT = "Port";
 	private static final String SERVERNAME = "Servername";
@@ -58,7 +75,12 @@ public class ServerController implements ServerInterface{
 		}
 		 
 	}
-	
+
+	/**
+	 * Starts the server by saving the remote stub of itself into registry using java RMI. Loads data from "properties"
+	 * files, initiates the server model, which will then read users and projects data from the database.
+	 * @throws RemoteException
+	 */
 	public ServerController() throws RemoteException {
 		System.setProperty("java.rmi.server.hostname","192.168.1.153");
 		log = Log.getInstance();
@@ -74,12 +96,26 @@ public class ServerController implements ServerInterface{
 			System.out.println(e.getMessage());
 		}	
 	}
-	
+
+	/**
+	 * Method used for resetting password for the specific user account.
+	 * @param userID
+	 * @param pass
+	 * @return
+	 * @throws RemoteException
+	 */
 	@Override
 	public boolean savePass(String userID, char[] pass) throws RemoteException {
 		return serverModel.savePass(userID, pass);
 	}
 
+	/**
+	 * This method is used for handling client request of getting a set of projects, which a user (who client is
+	 * representing) is part of.
+	 * @param user
+	 * @return
+	 * @throws RemoteException
+	 */
 	@Override
 	public RemoteProjectsInterface getRemoteProjectsForUser(User user) throws RemoteException {
 		RemoteProjectsInterface usersRemoteProjects =  serverModel.getRemoteProjectsForUser(user.getiD());
@@ -87,11 +123,22 @@ public class ServerController implements ServerInterface{
 		return usersRemoteProjects;
 	}
 
+
 	@Override
 	public String validateId(String userID) throws RemoteException {
 		return serverModel.checkID(userID);
 	}
 
+	/**
+	 * Method responsible for login operation. Method will first try to retrieve the user from the server model by its email
+	 * (because each user is uniquely identified by its email). It will then validate the password. If successful, it will
+	 * save the connection with the client (represented by instance of RemoteObserver class) for future usages.
+	 * @param userID
+	 * @param passWord
+	 * @param client
+	 * @return instance of User class if login was successful. Method will return null if login was unsuccessful.
+	 * @throws RemoteException
+	 */
 	@Override
 	public User login(String userID, char[] passWord, RemoteObserver<UpdateMessage> client) throws RemoteException {
 		User user = serverModel.retrieveUser(userID);

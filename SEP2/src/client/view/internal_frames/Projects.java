@@ -169,16 +169,6 @@ public class Projects extends AbstractJIF {
     }
 
     public void createEvents() {
-
-		/*tree.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {
-				Root.projectFrame.setVisible(false);
-				Root.sprintFrame.setVisible(true);
-				//int selectedProjectName = tree.getSel
-				Root.chatFrame.loadData();
-			}
-		});*/
-
         tree.addTreeSelectionListener(new TreeSelectionListener() {
             @Override
             public void valueChanged(TreeSelectionEvent e) {

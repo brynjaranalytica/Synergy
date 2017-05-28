@@ -1,8 +1,6 @@
 package shared.business_entities;
 
 
-
-import client.controller.ClientController;
 import shared.remote_business_interfaces.RemoteMemberInterface;
 import shared.remote_business_interfaces.RemoteProjectInterface;
 

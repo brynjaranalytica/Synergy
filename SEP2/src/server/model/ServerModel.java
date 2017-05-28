@@ -106,7 +106,7 @@ public class ServerModel {
 		if (id == null) return null;
 		for (User u: users) {
 			String userID = u.getiD();
-			if (id.equalsIgnoreCase(userID)) {
+			if (id.equals(userID)) {
 				User result = u.copyOf();
 				return result;
 			}

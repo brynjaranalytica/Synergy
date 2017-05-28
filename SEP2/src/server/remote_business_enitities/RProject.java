@@ -31,8 +31,8 @@ public class RProject implements RemoteProjectInterface {
     public RProject(ProjectInterface project)throws RemoteException{
         this.name = project.getName();
         this.members = new ArrayList<>();
+        this.taskList = new RTaskList(project.getTaskList());
         this.remoteSubjectDelegate = new RemoteSubjectDelegate<>(this);
-        // Chat and calendar converting is not implemented
         this.chat = new RChat(project.getChat());
         this.calendar = new RCalendar(project.getCalendar());
         ArrayList<Member> members = project.getMembers();

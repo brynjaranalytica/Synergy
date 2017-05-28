@@ -310,6 +310,9 @@ public class ClientController implements RemoteObserver<UpdateMessage> {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
+        catch (NullPointerException ex){
+            return null;
+        }
 
         return null;
 

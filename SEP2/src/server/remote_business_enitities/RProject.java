@@ -109,9 +109,14 @@ public class RProject implements RemoteProjectInterface {
             if(member.getEmail().equals(email)) {
                 this.members.add(member);
                 ProjectDAO.getInstance().addParticipation(name, member);
-                ServerModel.getInstance().getProjectSet(email).getRemoteProjects().add(this);
+                RemoteProjectsInterface remoteProjects  = ServerModel.getInstance().getProjectSet(email);
+                if(remoteProjects != null)
+                    remoteProjects.getRemoteProjects().add(this);
                 notifyObservers(MessageHeaders.UPDATE, new Project(this));
                 RemoteObserver<UpdateMessage> newObserver = ServerModel.getInstance().getConnection(member.getEmail());
+                if(newObserver == null)
+                    return;
+
                 newObserver.update(this, new UpdateMessage(MessageHeaders.CREATE, new Project(this)));
                 addObserver(newObserver);
                 break;
@@ -180,8 +185,10 @@ public class RProject implements RemoteProjectInterface {
                 ProjectDAO.getInstance().deleteParticipant(name, member);
                 members.remove(member);
                 RemoteObserver<UpdateMessage> observer = ServerModel.getInstance().getConnection(email);
-                observer.update(this, new UpdateMessage(MessageHeaders.DELETE, new Project(this)));
-                deleteObserver(observer);
+                if(observer != null) {
+                    observer.update(this, new UpdateMessage(MessageHeaders.DELETE, new Project(this)));
+                    deleteObserver(observer);
+                }
                 notifyObservers(MessageHeaders.UPDATE, new Project(this));
                 break;
             }
@@ -194,8 +201,10 @@ public class RProject implements RemoteProjectInterface {
         ProjectDAO.getInstance().deleteParticipant(name, remoteMember);
         this.members.remove(index);
         RemoteObserver<UpdateMessage> observer = ServerModel.getInstance().getConnection(remoteMember.getEmail());
-        observer.update(this, new UpdateMessage(MessageHeaders.DELETE, new Project(this)));
-        deleteObserver(observer);
+        if(observer != null) {
+            observer.update(this, new UpdateMessage(MessageHeaders.DELETE, new Project(this)));
+            deleteObserver(observer);
+        }
         notifyObservers(MessageHeaders.UPDATE, new Project(this));
     }
 

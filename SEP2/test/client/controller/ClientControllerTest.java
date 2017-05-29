@@ -65,18 +65,18 @@ public class ClientControllerTest {
     @Test
     public void getProjectNames() throws Exception {
         clientController.login("253739@via.dk", new char[]{'1', '2', '3', '4', '5', '6'});
-        ArrayList<String> projectNamesFromServer1 = clientController.getProjectNames();
-        Assert.assertEquals("Autobus", projectNamesFromServer1.get(0));
-        Assert.assertEquals("Synergy", projectNamesFromServer1.get(1));
-        Assert.assertEquals("project 2", projectNamesFromServer1.get(2));
+        ArrayList<String> projectNamesFromModel1 = clientController.getProjectNames();
+        Assert.assertEquals("Autobus", projectNamesFromModel1.get(0));
+        Assert.assertEquals("Synergy", projectNamesFromModel1.get(1));
+        Assert.assertEquals("project 2", projectNamesFromModel1.get(2));
 
         clientController.login("mogens@via.dk", new char[]{'1', '2', '3', '4', '5', '6'});
-        ArrayList<String> projectNamesFromServer2 = clientController.getProjectNamesFromServer();
-        Assert.assertEquals("Synergy", projectNamesFromServer2.get(0));
+        ArrayList<String> projectNamesFromModel2 = clientController.getProjectNamesFromServer();
+        Assert.assertEquals("Synergy", projectNamesFromModel2.get(0));
 
         clientController.login("hazamadra@via.dk", new char[]{'h', 'a', 'z', 'a', 'm', 'a', 'd', 'r', 'a'});
-        ArrayList<String> projectNamesFromServer3 = clientController.getProjectNamesFromServer();
-        Assert.assertEquals("Autobus", projectNamesFromServer3.get(0));
+        ArrayList<String> projectNamesFromModel3 = clientController.getProjectNamesFromServer();
+        Assert.assertEquals("Autobus", projectNamesFromModel3.get(0));
 
     }
 

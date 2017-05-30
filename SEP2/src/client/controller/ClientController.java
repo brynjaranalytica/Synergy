@@ -4,10 +4,7 @@ package client.controller;
 import client.model.ClientModel;
 import client.view.windows.Root;
 import client.view.windows.View;
-import shared.MessageHeaders;
-import shared.ServerInterface;
-import shared.UpdateMessage;
-import shared.User;
+import shared.*;
 import shared.business_entities.*;
 import shared.remote_business_interfaces.RemoteMemberInterface;
 import shared.remote_business_interfaces.RemoteProjectInterface;
@@ -33,7 +30,7 @@ import java.util.Date;
 import java.util.Hashtable;
 import java.util.Properties;
 
-public class ClientController implements RemoteObserver<UpdateMessage> {
+public class ClientController implements RemoteObserver<UpdateMessage>, ClientInterface {
 
     private static final long serialVersionUID = 1L;
     private static Properties properties;
@@ -148,7 +145,7 @@ public class ClientController implements RemoteObserver<UpdateMessage> {
         return false;
     }
 
-   /* @Override
+    @Override
     public String getIP() throws RemoteException {
         try {
             return Inet4Address.getLocalHost().getHostAddress();
@@ -156,7 +153,7 @@ public class ClientController implements RemoteObserver<UpdateMessage> {
             e.printStackTrace();
         }
         return null;
-    }*/
+    }
 
     /**
      * Security method for checking credentials entered by client. More precise, it is responsible for initial checking,

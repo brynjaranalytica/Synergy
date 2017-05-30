@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3bcd2185-6df3-4059-a039-89823f30c92d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/utility/EncryptTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/controller/ClientController$1.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/controller/ClientController$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/controller/ClientController.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/controller/ClientController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/client/view/windows/View.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/client/view/windows/View.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/controller/ServerController.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/controller/ServerController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/model/ProjectDAO.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/model/ProjectDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/model/ServerModel$Wrapper.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/model/ServerModel$Wrapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/production/Synergy/server/model/ServerModel.class" afterPath="$PROJECT_DIR$/classes/production/Synergy/server/model/ServerModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/controller/ClientController.java" afterPath="$PROJECT_DIR$/src/client/controller/ClientController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/controller/ServerController.java" afterPath="$PROJECT_DIR$/src/server/controller/ServerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/model/ProjectDAO.java" afterPath="$PROJECT_DIR$/src/server/model/ProjectDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/model/ServerModel.java" afterPath="$PROJECT_DIR$/src/server/model/ServerModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shared/ClientInterface.java" afterPath="$PROJECT_DIR$/src/shared/ClientInterface.java" />
     </list>
     <ignored path="SEP2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,7 +65,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JOptionPane.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="JOptionPane.java" pinned="false" current-in-tab="false">
         <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/javax/swing/JOptionPane.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
@@ -106,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ClientController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/client/controller/ClientController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-527">
-              <caret line="145" column="12" lean-forward="false" selection-start-line="145" selection-start-column="12" selection-end-line="145" selection-end-column="12" />
+            <state relative-caret-position="-1428">
+              <caret line="155" column="5" lean-forward="true" selection-start-line="155" selection-start-column="5" selection-end-line="155" selection-end-column="5" />
               <folding>
                 <element signature="method#update#0;class#ClientController#0" expanded="false" />
                 <element signature="method#ClientController#0;class#ClientController#0" expanded="false" />
@@ -119,6 +108,18 @@
                 <element signature="method#addMember#0;class#ClientController#0" expanded="false" />
                 <element signature="method#removeMember#0;class#ClientController#0" expanded="false" />
                 <element signature="method#removeMember#1;class#ClientController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClientInterface.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/shared/ClientInterface.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -136,16 +137,6 @@
                 <element signature="method#retrievePassword#0;class#ServerModel#0" expanded="false" />
                 <element signature="method#updateProject#0;class#ServerModel#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CryptographyTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/utility/CryptographyTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -294,7 +285,6 @@
         <option value="$PROJECT_DIR$/src/client/view/windows/View.java" />
         <option value="$PROJECT_DIR$/src/client/view/windows/ViewInterface.java" />
         <option value="$PROJECT_DIR$/src/client/view/windows/Window.java" />
-        <option value="$PROJECT_DIR$/src/shared/ClientInterface.java" />
         <option value="$PROJECT_DIR$/src/shared/UserType.java" />
         <option value="$PROJECT_DIR$/src/client/view/internal_frames/Projects.java" />
         <option value="$PROJECT_DIR$/Synergy.iml" />
@@ -304,12 +294,13 @@
         <option value="$PROJECT_DIR$/client.properties" />
         <option value="$PROJECT_DIR$/src/server/remote_business_enitities/RProject.java" />
         <option value="$PROJECT_DIR$/test/client/controller/ClientControllerTest.java" />
-        <option value="$PROJECT_DIR$/src/client/controller/ClientController.java" />
         <option value="$PROJECT_DIR$/src/server/model/ProjectDAO.java" />
         <option value="$PROJECT_DIR$/src/server/model/ServerModel.java" />
         <option value="$PROJECT_DIR$/test/utility/CryptographyTest.java" />
         <option value="$PROJECT_DIR$/test/utility/EncryptTest.java" />
         <option value="$PROJECT_DIR$/src/server/controller/ServerController.java" />
+        <option value="$PROJECT_DIR$/src/shared/ClientInterface.java" />
+        <option value="$PROJECT_DIR$/src/client/controller/ClientController.java" />
       </list>
     </option>
   </component>
@@ -1380,7 +1371,7 @@
       <workItem from="1495962381327" duration="3523000" />
       <workItem from="1495971281904" duration="10350000" />
       <workItem from="1496060763456" duration="7932000" />
-      <workItem from="1496128469281" duration="4267000" />
+      <workItem from="1496128469281" duration="4613000" />
     </task>
     <servers />
   </component>
@@ -1417,7 +1408,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153465000" />
+    <option name="totallyTimeSpent" value="153811000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1430,6 +1421,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1453,7 +1445,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3255814" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1485,7 +1477,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/client/controller/ClientController.java</url>
-          <line>69</line>
+          <line>66</line>
           <properties />
           <option name="timeStamp" value="24" />
         </line-breakpoint>
@@ -1619,13 +1611,6 @@
         <state relative-caret-position="85">
           <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/ClientInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1798,6 +1783,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1890,22 +1876,6 @@
         <state relative-caret-position="153">
           <caret line="13" column="12" lean-forward="false" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/controller/ClientController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-527">
-          <caret line="145" column="12" lean-forward="false" selection-start-line="145" selection-start-column="12" selection-end-line="145" selection-end-column="12" />
-          <folding>
-            <element signature="method#update#0;class#ClientController#0" expanded="false" />
-            <element signature="method#ClientController#0;class#ClientController#0" expanded="false" />
-            <element signature="method#removeMemo#0;class#ClientController#0" expanded="false" />
-            <element signature="method#addProject#0;class#ClientController#0" expanded="false" />
-            <element signature="method#addMember#0;class#ClientController#0" expanded="false" />
-            <element signature="method#removeMember#0;class#ClientController#0" expanded="false" />
-            <element signature="method#removeMember#1;class#ClientController#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2025,6 +1995,32 @@
         <state relative-caret-position="272">
           <caret line="512" column="53" lean-forward="true" selection-start-line="512" selection-start-column="53" selection-end-line="512" selection-end-column="53" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/ClientInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/controller/ClientController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1428">
+          <caret line="155" column="5" lean-forward="true" selection-start-line="155" selection-start-column="5" selection-end-line="155" selection-end-column="5" />
+          <folding>
+            <element signature="method#update#0;class#ClientController#0" expanded="false" />
+            <element signature="method#ClientController#0;class#ClientController#0" expanded="false" />
+            <element signature="method#removeMemo#0;class#ClientController#0" expanded="false" />
+            <element signature="method#addProject#0;class#ClientController#0" expanded="false" />
+            <element signature="method#addMember#0;class#ClientController#0" expanded="false" />
+            <element signature="method#removeMember#0;class#ClientController#0" expanded="false" />
+            <element signature="method#removeMember#1;class#ClientController#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -148,7 +148,11 @@ public class View extends JFrame implements ViewInterface {
 		mntmSprints.addActionListener(e -> { Root.sprintFrame.setVisible(true); Root.projectFrame.setVisible(false);});
 		mntmChat.addActionListener(e -> { Root.chatFrame.setVisible(true); });
 		mntmProjects.addActionListener(e -> { Root.projectFrame.setVisible(true); Root.sprintFrame.setVisible(false);});
-		mntmLogOut.addActionListener(e -> { showLogin(); });
+		mntmLogOut.addActionListener(e -> {
+			if (JOptionPane.showConfirmDialog(null, "Are you sure you want to log out from the system? The application will be closed.")==0){
+				System.exit(0);
+			}
+		});
 		mntmExit.addActionListener(e -> {
 			if (JOptionPane.showConfirmDialog(null, "Are you sure you want to exit and close?")==0){
 				System.exit(0);				

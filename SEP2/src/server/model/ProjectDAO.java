@@ -24,6 +24,8 @@ import shared.remote_business_interfaces.RemoteProjectInterface;
 import shared.remote_business_interfaces.RemoteProjectsInterface;
 import utility.Cryptography;
 
+import javax.crypto.SecretKey;
+
 /**
  * Purpose of the {@link ProjectDAO} class is to work directly with the database.
  * It creates the connection to the database from which {@link ProjectDAO} class can read, update, add and delete the data using methods that are implemented below. 
@@ -123,8 +125,9 @@ public class ProjectDAO {
             while (result.next()) {
                 User user = new User(result.getString("user_email"), result.getString("user_name"),
                         result.getString("user_phone"), null);
-                user.setPass(Cryptography.encryptPass(result.getString("user_password").toCharArray(),
-                        Cryptography.getKey()));
+                /*user.setPass(Cryptography.encryptPass(result.getString("user_password").toCharArray(),
+                        Cryptography.getKey()));*/
+                user.setPass(result.getString("user_password").toCharArray());
                 users.add(user);
             }
         } catch (SQLException e) {
@@ -643,6 +646,25 @@ public class ProjectDAO {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
+    }
+
+    public ArrayList<User> updateUserPassword(User user) {
+        ArrayList<User> users = new ArrayList<User>();
+        try {
+            PreparedStatement statement = connection.prepareStatement("UPDATE user_ SET user_password = ? WHERE user_email = ?");
+
+            statement.setString(1, String.valueOf(user.getPass()));
+            statement.setString(2, user.getiD());
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            try {
+                connection.close();
+            } catch (SQLException e2) {
+                e2.printStackTrace();
+            }
+        }
+        return users;
     }
 
 }

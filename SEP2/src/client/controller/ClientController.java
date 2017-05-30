@@ -143,7 +143,6 @@ public class ClientController implements RemoteObserver<UpdateMessage> {
         try {
             return serverController.savePass(userID, pass);
         } catch (RemoteException e) {
-
             e.printStackTrace();
         }
         return false;

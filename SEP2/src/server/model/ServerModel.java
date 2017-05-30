@@ -148,6 +148,7 @@ public class ServerModel {
 		for (User u: users) {
 			if (u.getiD().equalsIgnoreCase(userID)){
 				u.setPass(pass);
+				ProjectDAO.getInstance().updateUserPassword(u);
 				return;
 			}
 		}
